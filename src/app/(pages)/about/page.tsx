@@ -5,6 +5,9 @@ export default async function aboutPage() {
   const data = await axios.get("https://jsonplaceholder.typicode.com/posts");
   console.log(">>> data:", data.data);
   return (
-    <h1>ABOUT PAGE</h1>
+    <div>
+      <h1>ABOUT PAGE</h1>
+      <p>Viet Nam Travel</p>
+    </div>
   )
 }
