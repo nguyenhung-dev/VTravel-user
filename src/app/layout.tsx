@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Roboto, Ms_Madi } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+import Header from "@/app/layouts/header";
+import Footer from "@/app/layouts/footer";
 
 const robotoFont = Roboto({
   variable: "--font-roboto",
   subsets: ["vietnamese"],
-});
-
-const msMadiFont = Ms_Madi({
-  variable: "--font-ms-madi",
-  subsets: ["vietnamese"],
-  display: "swap",
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,9 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${robotoFont.variable} ${msMadiFont.variable}`}
+        suppressHydrationWarning
+        className={`${robotoFont.variable}`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
