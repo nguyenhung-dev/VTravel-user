@@ -1,5 +1,5 @@
 
-export default async function aboutPage() {
+export default async function AboutPage() {
 
   return (
     <div>

@@ -1,5 +1,5 @@
 
-export default function servicePage() {
+export default function ServicePage() {
   return (
     <h1>Service Page</h1>
   )

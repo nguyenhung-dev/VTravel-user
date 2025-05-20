@@ -10,5 +10,5 @@ export default async function Header() {
   console.log(">>>pathname: ", pathname);
   const isHome = pathname === "/";
 
-  return isHome ? <HomeHeader /> : <DefaultHeader />;
+  return <HomeHeader />;
 }
