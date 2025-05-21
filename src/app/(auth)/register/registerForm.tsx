@@ -1,5 +1,7 @@
 'use client'
 
+import styles from "./style.module.css";
+
 type Props = {
   onSwitch: () => void
 }
