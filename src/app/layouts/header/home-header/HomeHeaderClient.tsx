@@ -1,9 +1,11 @@
 "use client"
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
 import Image from 'next/image';
+import AuthDialog from '@/app/(auth)/AuthDialog';
+import { useState } from 'react';
 
 type NavigationItem = {
   name: string;
@@ -20,6 +22,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function HomeHeaderClient({ navigation }: Props) {
+  const [showForm, setShowForm] = useState<boolean>(false)
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -73,11 +76,9 @@ export default function HomeHeaderClient({ navigation }: Props) {
             </button>
 
             {/* Profile dropdown */}
-            <Menu as="div" className="relative ml-3">
+            {/* <Menu as="div" className="relative ml-3">
               <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Open user menu</span>
+                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden cursor-pointer">
                   <Image
                     width={25}
                     height={25}
@@ -116,7 +117,13 @@ export default function HomeHeaderClient({ navigation }: Props) {
                   </Link>
                 </MenuItem>
               </MenuItems>
-            </Menu>
+            </Menu> */}
+            <button
+              onClick={() => setShowForm(true)}
+              className='cursor-pointer rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden'>
+              <UserCircleIcon className='size-6' />
+            </button>
+            <AuthDialog open={showForm} onOpenChange={setShowForm} />
           </div>
         </div>
       </div>
