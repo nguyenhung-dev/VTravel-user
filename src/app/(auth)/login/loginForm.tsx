@@ -9,7 +9,7 @@ export default function LoginForm({ onSwitch }: Props) {
   return (
     <form >
       <div className={styles.logo}>
-        <img src="" alt="" />
+        {/* <img src="" alt="" /> */}
       </div>
       <p className={styles.heading}>Đăng nhập hệ thống đặt vé du lịch bằng tài khoản VTravel của bạn</p>
       <div>
@@ -30,19 +30,19 @@ export default function LoginForm({ onSwitch }: Props) {
       <div >
         <div className={styles.form_btn_link}>
           <button>
-            <img src="" alt="" />
+            {/* <img src="" alt="" /> */}
             <p>Đăng nhập với Google</p>
           </button>
         </div>
         <div className={styles.form_btn_link}>
           <button>
-            <img src="" alt="" />
+            {/* <img src="" alt="" /> */}
             <p>Đăng nhập với FaceBook</p>
           </button>
         </div>
         <div className={styles.form_btn_link}>
           <button>
-            <img src="" alt="" />
+            {/* <img src="" alt="" /> */}
             <p>Đăng nhập với Microsoft</p>
           </button>
         </div>
