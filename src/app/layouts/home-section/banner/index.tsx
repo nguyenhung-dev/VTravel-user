@@ -7,7 +7,7 @@ export default function Banner() {
 
   return (
     <section>
-      {t("header.about")}
+      <h1>Trang chu</h1>
     </section>
   )
 }
