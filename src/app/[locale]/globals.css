@@ -37,6 +37,14 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  --color-primary: #00b0f1;
+  --color-purple: #b463e7;
+  --color-text-header: rgb(46, 46, 46);
+  --color-content: rgb(46, 46, 46);
+  --size-content: 15px;
+  --size-heading: 24px;
+  --size-sub-heading: 19px;
 }
 
 html,
@@ -44,6 +52,8 @@ body {
   font-family: "roboto", sans-serif;
   background-color: var(--background-color);
   font-size: 16px;
+  position: relative;
+  height: 400vh;
 }
 *,
 *::before,

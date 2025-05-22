@@ -1,0 +1,16 @@
+.banner {
+  width: 100%;
+  height: 100vh;
+  background: url("/images/istockphoto-537645165-2048x2048.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease;
+}
+.banner h1 {
+  background: linear-gradient(90deg, #cf00cf, #c8e703);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.2s ease;
+}
