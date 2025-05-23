@@ -11,19 +11,13 @@ export default function LoginForm({ onSwitch }: Props) {
     <form >
       <div>
         <Image className={styles.form_logo}
-          src="/images/logo-title.png"
+          src="/images/logo.png"
           alt="Picture of the login"
-          width={80}
-          height={80}
+          width={100}
+          height={100}
         />
         <div>
-          <p className={styles.form_heading_top}>Đăng nhập hệ thống đặt vé du lịch bằng</p>
-          <Image className={styles.form_logo_heading}
-            src="/images/logo.png"
-            alt="Picture of the login heading"
-            width={40}
-            height={40} />
-          <p className={styles.form_heading_bottom}>tài khoản VTravel của bạn</p>
+          <p className={styles.form_heading_top}>Đăng nhập tài khoản VTravel của bạn</p>
         </div>
       </div>
 
@@ -43,30 +37,20 @@ export default function LoginForm({ onSwitch }: Props) {
         </div>
       </div>
 
-      <p className={styles.form_line}>Hoặc</p>
-
       <div >
-        <div className={styles.form_btn_link}>
-          <button>
-            {/* <img src="" alt="" /> */}
-            <p>Đăng nhập với Google</p>
-          </button>
-        </div>
-
         <p className={styles.form_line}>Hoặc</p>
-
         <div className={styles.form_btn_link}>
           <div className={styles.form_item_link}>
-            <button>
+              <a href="" title="google icons">
+                <Image className={styles.form_icon_gg}
+                src="/images/icon_gg.png"
+                alt="Icon link google"
+                width={60}
+                height={60}
+              />
               <p>Đăng nhập với Google</p>
-            </button>
+              </a>
           </div>
-        </div>
-        <div className={styles.form_btn_link}>
-          <button>
-            {/* <img src="" alt="" /> */}
-            <p>Đăng nhập với Microsoft</p>
-          </button>
         </div>
       </div>
       <p className="text-sm text-center">
