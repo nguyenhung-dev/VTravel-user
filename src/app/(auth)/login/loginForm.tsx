@@ -41,15 +41,15 @@ export default function LoginForm({ onSwitch }: Props) {
         <p className={styles.form_line}>Hoặc</p>
         <div className={styles.form_btn_link}>
           <div className={styles.form_item_link}>
-              <a href="" title="google icons">
-                <Image className={styles.form_icon_gg}
+            <a href="" title="google icons">
+              <Image className={styles.form_icon_gg}
                 src="/images/icon_gg.png"
                 alt="Icon link google"
                 width={60}
                 height={60}
               />
               <p>Đăng nhập với Google</p>
-              </a>
+            </a>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface ICustomButtonProps {
+interface IProps {
   text: string;
   asLink?: boolean;
   href?: string;
@@ -17,7 +17,7 @@ interface ICustomButtonProps {
   padding?: string;
 }
 
-const CustomButton: React.FC<ICustomButtonProps> = ({
+const CustomButton: React.FC<IProps> = ({
   text,
   asLink = false,
   href = "#",

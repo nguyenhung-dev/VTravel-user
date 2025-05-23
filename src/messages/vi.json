@@ -2,6 +2,17 @@
   "textBtn": {
     "learnMore": "Tìm hiểu thêm"
   },
+  "form": {
+    "fullName": "Họ và tên",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "password": "Mật khẩu",
+    "btnRegister": "Đăng ký",
+    "btnLogin": "Đăng nhập",
+    "registeredSuccessfully": "Đăng ký thành công!",
+    "haveAccount": "Bạn đã có tài khoản?",
+    "noAccount": "Bạn chưa có tài khoản?"
+  },
   "header": {
     "home": "Trang chủ",
     "about": "Về chúng tôi",

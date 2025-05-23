@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Dancing_Script, Nunito } from "next/font/google";
+import { Dancing_Script, Nunito } from "next/font/google";
 import "./globals.css";
 import "./utilities.css";
 import Header from "@/app/layouts/header";
@@ -7,6 +7,7 @@ import Footer from "@/app/layouts/footer";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'
+import { Toaster } from "sonner";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -40,6 +41,7 @@ export default async function RootLayout({
         className={`${nunito.variable} ${dancingScript.variable}`}
       >
         <NextIntlClientProvider>
+          <Toaster richColors position="top-center" />
           <Header />
           {children}
           <Footer />

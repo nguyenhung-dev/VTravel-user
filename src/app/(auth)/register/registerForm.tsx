@@ -1,50 +1,102 @@
-
 import styles from "./style.module.css";
-import Image from 'next/image';
+import CustomInput from "@/components/customInput";
+import CustomButton from "@/components/customButton";
+import { useTranslations } from "next-intl";
+import { useState } from 'react';
+import { validateRegisterForm } from "@/validators/registerValidator";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-type Props = {
-  onSwitch: () => void
-}
+export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
+  const t = useTranslations();
+  const router = useRouter();
 
-export default function RegisterForm({ onSwitch }: Props) {
+  const [formData, setFormData] = useState({
+    fullname: '',
+    phone: '',
+    email: '',
+    password: '',
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    fullname: '',
+    phone: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setFormErrors({ ...formErrors, [name]: '' });
+  };
+
+  const validate = () => {
+    const errors = validateRegisterForm(formData);
+    setFormErrors(errors);
+    const isValid = Object.values(errors).every(error => error === '');
+    return isValid;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      toast.success(t("form.registeredSuccessfully"));
+      onSwitch();
+      router.push("/");
+    }
+  };
+
   return (
-    <form className={styles.form_register}>
-      <div>
-      <Image className={styles.form_logo}
-        src="/images/logo-title.png"
-        alt="Picture of the register"
-        width={80}
-        height={80}
+    <form onSubmit={handleSubmit}>
+      <h1>ĐĂNG KÝ</h1>
+
+      <CustomInput
+        label={t("form.fullName")}
+        name="fullname"
+        placeholder="Nguyen Van A"
+        value={formData.fullname}
+        onChange={handleChange}
+        error={formErrors.fullname}
+        required
       />
-      <p className={styles.form_heading}>Tạo tài khoản VTravel mới</p>
-      </div>
-      <div className={styles.form_row}>
-        <div className={styles.form_input}>
-          <label htmlFor="" className={styles.form_label}>Nhập họ tên</label>
-          <input placeholder="Nhập họ tên" name="fullname" type="text" className={styles.form_item_input} />
-        </div>
-        <div className={styles.form_input}>
-          <label htmlFor="" className={styles.form_label}>Nhập email hoặc sđt</label>
-          <input placeholder="Nhập email hoặc sđt" name="email" type="email" className={styles.form_item_input} />
-        </div>
-        <div className={styles.form_input}>
-          <label htmlFor="" className={styles.form_label}>Nhập mật khẩu</label>
-          <input placeholder="Nhập mật khẩu" name="pass" type="text" className={styles.form_item_input} />
-        </div>
-        <div className={styles.form_input}>
-          <label htmlFor="" className={styles.form_label}>Nhập lại mật khẩu</label>
-          <input placeholder="Nhập lại mật khẩu" name="pass" type="text" className={styles.form_item_input} />
-        </div>
-      </div>
 
-      <div className={styles.form_btn_register}> 
-      <button type="submit" className={styles.form_btn_register}>Đăng ký</button>
-      </div>
+      <CustomInput
+        label={t("form.phone")}
+        name="phone"
+        placeholder="0966418674"
+        value={formData.phone}
+        onChange={handleChange}
+        error={formErrors.phone}
+        required
+      />
 
+      <CustomInput
+        label={t("form.email")}
+        name="email"
+        type="email"
+        placeholder="vtravel@gmail.com"
+        value={formData.email}
+        onChange={handleChange}
+        error={formErrors.email}
+        required
+      />
+
+      <CustomInput
+        label={t("form.password")}
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        error={formErrors.password}
+        required
+      />
+
+      <CustomButton text={t("form.btnRegister")} />
       <p className="text-sm text-center">
-        Đã có tài khoản?{" "}
-        <button type="button" onClick={onSwitch} className="text-blue-500 underline">Đăng nhập</button>
-      </p>
+        Bạn đã có tài khoản?{" "}
+        <button type="button" onClick={onSwitch} className="text-blue-500 underline">{t("form.btnLogin")}</button>
+      </p >
     </form>
   )
 }
