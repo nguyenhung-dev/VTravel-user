@@ -3,7 +3,7 @@
   height: 100vh;
   background: url("/images/istockphoto-537645165-2048x2048.png");
   background-attachment: fixed;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   transition: background-size 0.2s ease;
@@ -13,4 +13,5 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform 0.2s ease;
+  line-height: 1.4;
 }

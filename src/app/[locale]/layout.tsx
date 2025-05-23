@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Dancing_Script, Nunito } from "next/font/google";
 import "./globals.css";
+import "./utilities.css";
 import Header from "@/app/layouts/header";
 import Footer from "@/app/layouts/footer";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'
 
-const robotoFont = Roboto({
-  variable: "--font-roboto",
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["vietnamese"],
+});
+
+const dancingScript = Dancing_Script({
+  variable: "--font-dancing",
   subsets: ["vietnamese"],
 });
 
@@ -31,7 +37,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body
         suppressHydrationWarning
-        className={`${robotoFont.variable}`}
+        className={`${nunito.variable} ${dancingScript.variable}`}
       >
         <NextIntlClientProvider>
           <Header />

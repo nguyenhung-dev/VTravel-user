@@ -1,11 +1,11 @@
 "use client"
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import Link from "next/link";
 import Image from 'next/image';
 import AuthDialog from '@/app/(auth)/AuthDialog';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
 
@@ -57,6 +57,7 @@ export default function HomeHeaderClient({ navigation }: Props) {
                   className="w-[150px]"
                   width={128}
                   height={80}
+                  quality={100}
                 />
               </div>
               <div className="hidden sm:ml-6 sm:block">

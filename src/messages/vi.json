@@ -1,9 +1,26 @@
 {
+  "textBtn": {
+    "learnMore": "Tìm hiểu thêm"
+  },
   "header": {
     "home": "Trang chủ",
     "about": "Về chúng tôi",
     "service": "Dịch vụ",
     "contact": "Liên hệ",
-    "tours": "Chuyến tham quan"
+    "tours": "Tours"
+  },
+  "homePage": {
+    "banner": {
+      "titleBanner": "Khám phá Việt Nam"
+    },
+    "intro": {
+      "title": "Cùng bạn viết nên câu chuyện du lịch đáng nhớ",
+      "subTitle": "Việt Nam - Điểm đến của mọi trải nghiệm",
+      "desc": "Hãy để chúng tôi đồng hành cùng bạn, từ những chuyến phiêu lưu lý thú đến những khoảnh khắc thư giãn yên bình. Cùng nhau, chúng ta sẽ viết nên những kỷ niệm khó quên trong chuyến hành trình khám phá vẻ đẹp Việt Nam.",
+      "listTitle1": "Chuyến đi độc quyền",
+      "listTitle2": "Hướng dẫn viên chuyên nghiệp",
+      "listDesc1": "Khám phá những hành trình đặc biệt, tận hưởng dịch vụ đẳng cấp và trải nghiệm Việt Nam theo cách riêng của bạn.",
+      "listDesc2": "Đội ngũ hướng dẫn viên giàu kinh nghiệm sẽ giúp bạn khám phá Việt Nam một cách trọn vẹn và tuyệt vời nhất."
+    }
   }
 }
