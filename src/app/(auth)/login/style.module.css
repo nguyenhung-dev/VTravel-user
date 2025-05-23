@@ -3,17 +3,12 @@
   font-size: 22px;
   font-weight: 500;
   text-align: center;
-}
-.form_heading_bottom {
-  color: rgb(31, 31, 31);
-  font-size: 22px;
-  font-weight: 500;
-  margin-left: 145px;
-  margin-bottom: 18px;
+  margin-top: 12px;
+  margin-bottom: 24px;
 }
 
 .form_logo {
-  margin: 0 41%;
+  margin: 0 39%;
 }
 
 .form_logo_heading {
@@ -25,7 +20,7 @@
 }
 
 .form_row {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .form_label {
@@ -47,7 +42,7 @@
   width: 100%;
   height: 50px;
   border-radius: 5px;
-  background-color: rgb(71, 153, 191);
+  background-color: rgb(88 222 234);
   cursor: pointer;
   color: white;
   font-size: 20px;
@@ -74,7 +69,7 @@
   border: 1px solid rgb(93, 93, 93);
   border-radius: 5px;
   padding: 8px 0;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .form_btn_link :hover {
