@@ -47,11 +47,15 @@
   color: white;
   font-size: 20px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .form_btn_login :hover {
   background-color: rgb(19, 114, 169);
+}
+
+.form_btn_link {
+  margin-bottom: 16px;
 }
 
 .form_line {
@@ -61,18 +65,35 @@
   text-align: center;
   margin: 18px 0;
 }
-.form_item_link {
+.form_link {
+  display: inline-block;
   width: 100%;
   height: 40px;
-  font-weight: 500;
+  font-weight: 700;
+  padding: 8px;
   text-align: center;
   border: 1px solid rgb(93, 93, 93);
   border-radius: 5px;
-  padding: 8px 0;
-  margin-bottom: 16px;
 }
 
-.form_btn_link :hover {
+.form_link :hover {
   color: rgb(71, 153, 191);
   cursor: pointer;
+}
+
+.form_icon_gg {
+  display: inline;
+}
+
+.form_name_link {
+  display: inline;
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form_link_register {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(88 222 234);
 }

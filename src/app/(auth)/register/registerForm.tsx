@@ -42,8 +42,8 @@ export default function RegisterForm({ onSwitch }: Props) {
       </div>
 
       <p className="text-sm text-center">
-        Đã có tài khoản?{" "}
-        <button type="button" onClick={onSwitch} className="text-blue-500 underline">Đăng nhập</button>
+        Bạn đã có tài khoản?{" "}
+        <button type="button" onClick={onSwitch} className={styles.form_link_login}>Đăng nhập ngay</button>
       </p>
     </form>
   )

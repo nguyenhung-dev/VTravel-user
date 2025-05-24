@@ -37,25 +37,21 @@ export default function LoginForm({ onSwitch }: Props) {
         </div>
       </div>
 
-      <div >
+      <div className={styles.form_btn_link} >
         <p className={styles.form_line}>Hoặc</p>
-        <div className={styles.form_btn_link}>
-          <div className={styles.form_item_link}>
-              <a href="" title="google icons">
+            <a href="" title="google icons" className={styles.form_link}>
                 <Image className={styles.form_icon_gg}
-                src="/images/icon_gg.png"
+                src="/images/icon-gg.png"
                 alt="Icon link google"
-                width={60}
-                height={60}
-              />
-              <p>Đăng nhập với Google</p>
-              </a>
-          </div>
-        </div>
+                width={25}
+                height={25}
+                />
+               <p className={styles.form_name_link}>Đăng nhập với Google</p>
+             </a>
       </div>
       <p className="text-sm text-center">
         Bạn chưa có tài khoản?{" "}
-        <button type="button" onClick={onSwitch} className="text-blue-500 underline">Tạo tài khoản mới</button>
+        <button type="button" onClick={onSwitch} className={styles.form_link_register}>Tạo tài khoản mới</button>
       </p >
     </form >
   )
