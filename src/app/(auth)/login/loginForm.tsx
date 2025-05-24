@@ -1,62 +1,79 @@
-
+import { useState } from "react";
 import styles from "./style.module.css";
-import Image from 'next/image';
+import CustomButton from "@/components/customButton";
+import CustomInput from "@/components/customInput";
+import GoogleSignInButton from "@/components/googleSignInButton";
+import { useTranslations } from "next-intl";
+import { validateLoginForm, LoginFormData, LoginFormErrors } from "@/validators/loginValidator";
+import { toast } from "sonner";
 
 type Props = {
-  onSwitch: () => void
-}
+  onSwitch: () => void;
+};
 
 export default function LoginForm({ onSwitch }: Props) {
+  const t = useTranslations();
+
+  const [formData, setFormData] = useState<LoginFormData>({
+    phoneOrEmail: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState<LoginFormErrors>({
+    phoneOrEmail: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validateLoginForm(formData);
+    setErrors(validationErrors);
+
+    const hasErrors = Object.values(validationErrors).some((error) => error !== "");
+    if (!hasErrors) {
+      toast.success(t("form.loginSuccessfully"))
+    }
+  };
+
   return (
-    <form >
-      <div>
-        <Image className={styles.form_logo}
-          src="/images/logo.png"
-          alt="Picture of the login"
-          width={100}
-          height={100}
+    <>
+      <form className={styles.loginForm} onSubmit={handleSubmit}>
+        <h1 className="text-center mb-7 text-2xl font-bold text-blue-900">ĐĂNG NHẬP</h1>
+        <CustomInput
+          label={t("form.phoneOrEmail")}
+          name="phoneOrEmail"
+          value={formData.phoneOrEmail}
+          onChange={handleChange}
+          error={errors.phoneOrEmail}
+          required
         />
-        <div>
-          <p className={styles.form_heading_top}>Đăng nhập tài khoản VTravel của bạn</p>
-        </div>
-      </div>
-
-      <div>
-        <div className={styles.form_row}>
-          <label htmlFor="" className={styles.form_label}>Nhập email hoặc sđt</label>
-          <input placeholder="Nhập Email hoặc SĐT tài khoản VTravel của bạn" name="email" type="email" className={styles.form_input} />
-        </div>
-        <div className={styles.form_row}>
-          <label htmlFor="" className={styles.form_label}>Nhập mật khẩu</label>
-          <input placeholder="Nhập mật khẩu của bạn" name="pass" type="text" className={styles.form_input} />
-        </div>
-        <div className={styles.form_btn_login}>
-          <button type="submit" className={styles.form_btn_login}>
-            <span> Đăng nhập</span>
-          </button>
-        </div>
-      </div>
-
-      <div >
-        <p className={styles.form_line}>Hoặc</p>
-        <div className={styles.form_btn_link}>
-          <div className={styles.form_item_link}>
-            <a href="" title="google icons">
-              <Image className={styles.form_icon_gg}
-                src="/images/icon_gg.png"
-                alt="Icon link google"
-                width={60}
-                height={60}
-              />
-              <p>Đăng nhập với Google</p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <p className="text-sm text-center">
-        Bạn chưa có tài khoản?{" "}
-        <button type="button" onClick={onSwitch} className="text-blue-500 underline">Tạo tài khoản mới</button>
-      </p >
-    </form >
-  )
+        <CustomInput
+          label={t("form.password")}
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+          error={errors.password}
+          required
+        />
+        <CustomButton
+          text={t("form.btnLogin")}
+          className="w-full py-6 mt-3 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba]"
+        />
+      </form>
+      <div className={`${styles.line} `}><div></div><p className="text-[15px] text-gray-500">{t("form.or")}</p><div></div></div>
+      <GoogleSignInButton />
+      <p className="text-sm text-center mt-2">
+        {`${t("form.noAccount")} `}
+        <button type="button" onClick={onSwitch} className="text-blue-500 underline cursor-pointer">
+          {t("form.btnRegister")}
+        </button>
+      </p>
+    </>
+  );
 }

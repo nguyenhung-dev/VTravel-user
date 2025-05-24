@@ -10,8 +10,12 @@
     "btnRegister": "Sign Up",
     "btnLogin": "Sign In",
     "registeredSuccessfully": "Registered successfully!",
+    "loginSuccessfully": "Login successfully",
     "haveAccount": "Do you already have an account?",
-    "noAccount": "Don't have an account?"
+    "noAccount": "Don't have an account?",
+    "phoneOrEmail": "Phone/Email",
+    "or": "Or",
+    "signInWithGoogle": "Sign in with Google"
   },
   "header": {
     "home": "Home",

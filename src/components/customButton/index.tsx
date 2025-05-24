@@ -11,10 +11,6 @@ interface IProps {
   href?: string;
   onClick?: () => void;
   className?: string;
-  bgColor?: string;
-  textColor?: string;
-  borderColor?: string;
-  padding?: string;
 }
 
 const CustomButton: React.FC<IProps> = ({
@@ -23,17 +19,8 @@ const CustomButton: React.FC<IProps> = ({
   href = "#",
   onClick,
   className,
-  bgColor = "bg-blue-500",
-  textColor = "text-white",
-  borderColor = "border-transparent",
-  padding = "px-4 py-2",
 }) => {
   const baseClass = cn(
-    "rounded-lg border font-medium transition-colors duration-200 hover:opacity-90",
-    bgColor,
-    textColor,
-    borderColor,
-    padding,
     className
   );
 

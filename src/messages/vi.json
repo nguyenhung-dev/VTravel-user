@@ -10,8 +10,12 @@
     "btnRegister": "Đăng ký",
     "btnLogin": "Đăng nhập",
     "registeredSuccessfully": "Đăng ký thành công!",
+    "loginSuccessfully": "Đăng nhập thành công!",
     "haveAccount": "Bạn đã có tài khoản?",
-    "noAccount": "Bạn chưa có tài khoản?"
+    "noAccount": "Bạn chưa có tài khoản?",
+    "phoneOrEmail": "Số điện thoại/Email",
+    "or": "Hoặc",
+    "signInWithGoogle": "Đăng nhập bằng Google"
   },
   "header": {
     "home": "Trang chủ",

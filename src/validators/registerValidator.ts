@@ -19,26 +19,25 @@ export const validateRegisterForm = (data: {
   };
 
   if (!data.fullname.trim()) {
-    errors.fullname = 'Họ tên không được bỏ trống';
+    errors.fullname = 'Full name is required.';
   }
 
   if (!data.phone.trim()) {
-    errors.phone = 'Số điện thoại bắt buộc';
+    errors.phone = 'Phone number is required.';
   } else if (!/^0\d{9}$/.test(data.phone)) {
-    errors.phone = 'Số điện thoại không hợp lệ';
+    errors.phone = 'Invalid phone number.';
   }
 
   if (!data.email.trim()) {
-    errors.email = 'Email bắt buộc';
+    errors.email = 'Email is required.';
   } else if (!/\S+@\S+\.\S+/.test(data.email)) {
-    errors.email = 'Email không hợp lệ';
+    errors.email = 'Invalid email.';
   }
 
   if (!data.password.trim()) {
-    errors.password = 'Mật khẩu không được để trống';
+    errors.password = 'Password is required.';
   } else if (data.password.length < 6) {
-    errors.password = 'Mật khẩu phải ít nhất 6 ký tự';
+    errors.password = 'Password must be at least 6 characters.';
   }
-
   return errors;
 };

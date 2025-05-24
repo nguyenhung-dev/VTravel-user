@@ -23,7 +23,6 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{isLogin ? "Đăng nhập" : "Đăng ký"}</DialogTitle>
         </DialogHeader>
 
         {isLogin ? (
