@@ -28,7 +28,7 @@
     "banner": {
       "titleBanner": "Discover VietNam"
     },
-    "intro": {
+    "travelStory": {
       "title": "Write your memorable travel story with us",
       "subTitle": "Vietnam - Destination of all experiences",
       "desc": "Let us accompany you, from exciting adventures to peaceful moments of relaxation. Together, we will write unforgettable memories on the journey to discover the beauty of Vietnam.",
@@ -37,5 +37,9 @@
       "listDesc1": "Discover unique itineraries, enjoy world-class service and experience Vietnam your way.",
       "listDesc2": "Our team of experienced tour guides will help you discover Vietnam in the most complete and wonderful way."
     }
+  },
+  "intro": {
+    "title": "Discover VietNam",
+    "desc": "We, VTravel, are proud to be a travel company specializing in providing unique tours and special itineraries. A team of professional consultants, experienced tour guides, sharing knowledge and dedicated customer care."
   }
 }

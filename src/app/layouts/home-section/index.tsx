@@ -1,5 +1,6 @@
 import Banner from "./banner";
+import TravelStory from "./travelStory";
 import Intro from "./intro";
 
 
-export { Banner, Intro }
+export { Banner, TravelStory, Intro }

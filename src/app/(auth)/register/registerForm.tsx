@@ -90,6 +90,5 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
         <button type="button" onClick={onSwitch} className="text-blue-500 underline cursor-pointer">{t("form.btnLogin")}</button>
       </p >
     </>
->>>>>>> origin/main
   )
 }

@@ -9,28 +9,10 @@
   align-items: center;
   gap: 15px;
 }
-=======
+
 .line div {
   height: 1px;
   border-radius: 10px;
   background-color: rgb(188, 188, 188);
   flex: 1;
->>>>>>> origin/main
-}
-
-.form_icon_gg {
-  display: inline;
-}
-
-.form_name_link {
-  display: inline;
-  padding-left: 8px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.form_link_register {
-  text-decoration: none;
-  font-weight: 600;
-  color: rgb(88 222 234);
 }

@@ -1,13 +1,10 @@
-=======
+
 .registerForm input {
   border: 1px solid rgba(4, 159, 225, 0.649);
   transition: 0.2s ease;
   padding: 10px 15px;
+<<<<<<< HEAD
 >>>>>>> origin/main
-}
-
-.form_link_login {
-  text-decoration: none;
-  font-weight: 600;
-  color: rgb(88 222 234);
+=======
+>>>>>>> 836f700df8742296fe1e46e44408cfe21dee5011
 }
