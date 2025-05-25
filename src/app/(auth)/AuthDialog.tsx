@@ -22,9 +22,9 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
+        <DialogTitle className="invisible">{isLogin ? "Đăng nhập" : "Đăng ký"}</DialogTitle>
         <DialogHeader>
         </DialogHeader>
-
         {isLogin ? (
           <LoginForm onSwitch={() => setIsLogin(false)} />
         ) : (

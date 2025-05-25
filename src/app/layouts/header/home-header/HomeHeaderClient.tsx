@@ -26,8 +26,6 @@ function classNames(...classes: string[]) {
 export default function HomeHeaderClient({ navigation }: Props) {
   const [showForm, setShowForm] = useState<boolean>(false)
 
-  const [isAuth, setIsAuth] = useState<boolean>(false);
-
   const [isSticky, setIsSticky] = useState<boolean>(false);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 export default function Banner() {
-  const t = useTranslations()
+  const t = useTranslations();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Banner() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
             >
-              Khám phá Việt Nam
+              {t('homePage.banner.titleBanner')}
             </motion.h1>
           </div>
         </div>

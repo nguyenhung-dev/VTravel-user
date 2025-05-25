@@ -43,8 +43,8 @@
   --color-text-header: rgb(46, 46, 46);
   --color-content: #656565;
   --size-content: 15px;
-  --size-heading: 24px;
-  --size-sub-heading: 19px;
+  --size-heading: 4.125rem;
+  --size-sub-heading: 1.125rem;
 }
 
 @theme inline {
