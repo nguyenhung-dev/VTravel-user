@@ -65,7 +65,7 @@ export default function LoginForm({ onSwitch }: Props) {
           text={t("form.btnLogin")}
           className="w-full py-6 mt-3 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba]"
         />
-      </form>
+      </form >
       <div className={`${styles.line} `}><div></div><p className="text-[15px] text-gray-500">{t("form.or")}</p><div></div></div>
       <GoogleSignInButton />
       <p className="text-sm text-center mt-2">
