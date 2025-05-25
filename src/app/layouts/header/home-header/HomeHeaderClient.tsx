@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react
 import Link from "next/link";
 import Image from 'next/image';
 import AuthDialog from '@/app/(auth)/AuthDialog';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
 
@@ -28,18 +28,28 @@ export default function HomeHeaderClient({ navigation }: Props) {
 
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
-  const [scrolled, setScrolled] = useState(false);
+  const [isSticky, setIsSticky] = useState<boolean>(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={classNames(
-      styles.header,
-      "top-0 left-0 right-0 fixed z-10 transition-colors duration-300",
-      scrolled ? "bg-white shadow-md" : ""
-    )}>
+    <header className={`${styles.header} ${isSticky ? styles.sticky : ""} "top-0 left-0 right-0 fixed z-10 transition-colors duration-300"`}>
       <Disclosure as="nav">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="relative gap-10 flex h-28 items-center justify-between">
+          <div className="relative gap-10 flex items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button*/}
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
@@ -54,7 +64,7 @@ export default function HomeHeaderClient({ navigation }: Props) {
                 <Image
                   alt="Your Company"
                   src="/images/logo.png"
-                  className="w-[150px]"
+                  className={`${styles.logo}`}
                   width={128}
                   height={80}
                   quality={100}
