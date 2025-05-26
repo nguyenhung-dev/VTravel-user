@@ -1,13 +1,16 @@
-import { headers } from "next/headers";
-import HomeHeader from "./home-header";
-// import DefaultHeader from "./default-header";
+import { getTranslations } from 'next-intl/server';
+import HeaderClient from "./HomeHeaderClient";
 
 export default async function Header() {
+  const t = await getTranslations();
 
-  const headersList = await headers()
+  const navigation = [
+    { name: t("header.home"), href: '/', current: true },
+    { name: t("header.about"), href: '/about', current: false },
+    { name: t("header.tours"), href: '/tours', current: false },
+    { name: t("header.service"), href: '/service', current: false },
+    { name: t("header.contact"), href: '/contact', current: false },
+  ];
 
-  const pathname = headersList.get("x-pathname");
-  console.log(">>>pathname: ", pathname);
-
-  return <HomeHeader />;
+  return <HeaderClient navigation={navigation} />;
 }

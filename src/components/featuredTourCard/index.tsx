@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoMdAirplane } from "react-icons/io";
 import { MdAccessTime } from "react-icons/md";
-import CustomButton from "@/components/customButton";
+import { FaStar } from "react-icons/fa";
 import "./style.css";
 
 interface IProps {
@@ -17,7 +17,7 @@ interface IProps {
 }
 
 export default function FeaturedTourCard(props: IProps) {
-  const { nameTour = "", originalPrice, promotionPrice, time, startAddress, rating, href = "/", imgUrl = "" } = props;
+  const { nameTour = "", originalPrice = 0, promotionPrice = 0, time, startAddress, rating = 0, href = "/", imgUrl = "" } = props;
 
   function formatCurrency(value?: number) {
     return value?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -56,6 +56,11 @@ export default function FeaturedTourCard(props: IProps) {
           </div>
         </div>
         <div className="absolute z-0 left-0 right-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+        <div className="absolute top-5 right-5 flex flex-col gap-3">
+          {Array.from({ length: Math.ceil(rating) }, (_, i) => (
+            <FaStar key={i} className="text-yellow-400 text-[1rem]" />
+          ))}
+        </div>
       </Link>
     </div>
   )

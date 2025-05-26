@@ -5,6 +5,7 @@
   font-weight: 500;
   padding: 20px 0;
   transition: 0.4s ease;
+  position: fixed;
 }
 .header a {
   margin: 0 10px;
@@ -12,7 +13,6 @@
   display: inline-block;
   font-weight: 700;
 }
-
 .header button svg {
   width: 25px;
   height: 25px;
@@ -21,10 +21,12 @@
 }
 .header .logo {
   width: 150px;
+  height: auto;
   transition: 0.4s ease;
 }
 .header.sticky .logo {
   width: 120px;
+  height: auto;
 }
 .header button svg {
   color: #fff;
@@ -33,8 +35,19 @@
   background-color: #fff;
   padding: 10px 0;
   color: black;
-  box-shadow: 0 0 5px 5px #00003429;
+  position: fixed;
+  box-shadow: 0 0 10px 3px rgb(209 209 209);
 }
 .header.sticky button svg {
   color: black;
+}
+.headerPage {
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0 0 10px 3px rgb(209 209 209);
+  --color-text: #4b4b4b;
+  color: var(--color-text);
+}
+.headerPage button svg {
+  color: var(--color-text);
 }

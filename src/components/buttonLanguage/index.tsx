@@ -21,18 +21,15 @@ export default function ButtonLanguage() {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold cursor-pointer">
-          <Image
-            alt={position === "en" ? "English" : "Tiếng Việt"}
-            src={`/svg/language/${position}.svg`}
-            width={20}
-            height={20}
-            className="w-[25px] h-[25px]"
-          />
-        </MenuButton>
-      </div>
-
+      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold cursor-pointer">
+        <Image
+          alt={position === "en" ? "English" : "Tiếng Việt"}
+          src={`/svg/language/${position}.svg`}
+          width={20}
+          height={20}
+          className="w-[25px] h-[25px]"
+        />
+      </MenuButton>
       <MenuItems
         transition
         className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"

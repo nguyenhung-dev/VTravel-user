@@ -1,6 +1,7 @@
 import styles from "./style.module.css";
 import { useTranslations } from "next-intl";
 import ButtonGlobal from "@/components/buttonGlobal";
+import Counter from "@/components/counter";
 import Image from "next/image";
 
 export default function Intro() {
@@ -20,7 +21,7 @@ export default function Intro() {
             <div>
               <p className="uppercase text-[#6a6a6a] font-extrabold text-[1.25rem]">Hành trình</p>
               <div className="text-[var(--color-primary)] font-bold text-[4.125rem]">
-                <span>10</span>
+                <Counter targetNumber={10} duration={2000} />
                 <span className="text-[3.125rem] inline-block ml-1">năm</span>
               </div>
               <p className="text-[#454545] font-extrabold text-[1.125rem]">Khởi nguồn và phát triển</p>
@@ -28,7 +29,7 @@ export default function Intro() {
             <div>
               <p className="uppercase text-[#6a6a6a] font-extrabold text-[1.25rem]">Phủ sóng</p>
               <div className="text-[var(--color-primary)] font-bold text-[4.125rem]">
-                <span>63</span>
+                <Counter targetNumber={63} duration={2000} />
                 <span className="text-[3.125rem] inline-block ml-1">tỉnh thành</span>
               </div>
               <p className="text-[#454545] font-extrabold text-[1.125rem]">Khám phá mọi miền đất nước </p>

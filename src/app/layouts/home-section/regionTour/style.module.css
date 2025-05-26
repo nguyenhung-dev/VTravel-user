@@ -1,0 +1,10 @@
+.regionTour {
+  background-image: url("/images/bg-tour3mien.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.distance {
+  height: 100px;
+  width: 100%;
+}

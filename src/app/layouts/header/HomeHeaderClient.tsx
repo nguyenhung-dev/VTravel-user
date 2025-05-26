@@ -8,6 +8,7 @@ import AuthDialog from '@/app/(auth)/AuthDialog';
 import { useState, useEffect } from 'react';
 import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
+import { usePathname } from 'next/navigation';
 
 type NavigationItem = {
   name: string;
@@ -23,10 +24,18 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function HomeHeaderClient({ navigation }: Props) {
+export default function HeaderClient({ navigation }: Props) {
   const [showForm, setShowForm] = useState<boolean>(false)
-
   const [isSticky, setIsSticky] = useState<boolean>(false);
+  const [isHome, setIsHome] = useState(true);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log("Pathname changed:", pathname);
+    setIsHome(pathname === "/vi" || pathname === "/en" || pathname === "/vi/" || pathname === "/en/");
+  }, [pathname]);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,13 +47,16 @@ export default function HomeHeaderClient({ navigation }: Props) {
     };
 
     window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <header className={`${styles.header} ${isSticky ? styles.sticky : ""} "top-0 left-0 right-0 fixed z-10 transition-colors duration-300"`}>
+    <header className={`${styles.header} ${isSticky ? styles.sticky : ""} ${!isHome ? styles.headerPage : ""} "top-0 left-0 right-0 z-10 transition-colors duration-300"`}>
       <Disclosure as="nav">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative gap-10 flex items-center justify-between">
@@ -63,8 +75,8 @@ export default function HomeHeaderClient({ navigation }: Props) {
                   alt="Your Company"
                   src="/images/logo.png"
                   className={`${styles.logo}`}
-                  width={128}
-                  height={80}
+                  width={1000}
+                  height={700}
                   quality={100}
                 />
               </div>
@@ -86,7 +98,7 @@ export default function HomeHeaderClient({ navigation }: Props) {
             <div className="absolute inset-y-0 gap-2 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 type="button"
-                className="relative rounded-full  p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2focus:outline-hidden"
+                className="relative rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden"
               >
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">View notifications</span>
@@ -94,7 +106,7 @@ export default function HomeHeaderClient({ navigation }: Props) {
               </button>
               <button
                 onClick={() => setShowForm(true)}
-                className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2  focus:outline-hidden'>
+                className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden'>
                 <UserCircleIcon />
               </button>
               <AuthDialog open={showForm} onOpenChange={setShowForm} />
