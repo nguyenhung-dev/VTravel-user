@@ -9,6 +9,7 @@
   align-items: center;
   gap: 15px;
 }
+
 .line div {
   height: 1px;
   border-radius: 10px;

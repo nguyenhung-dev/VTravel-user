@@ -52,6 +52,7 @@ export default function LoginForm({ onSwitch }: Props) {
           error={errors.phoneOrEmail}
           required
         />
+
         <CustomInput
           label={t("form.password")}
           name="password"
