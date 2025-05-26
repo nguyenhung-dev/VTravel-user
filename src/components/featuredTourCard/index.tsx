@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoMdAirplane } from "react-icons/io";
 import { MdAccessTime } from "react-icons/md";
+import CustomButton from "@/components/customButton";
+import "./style.css";
 
 interface IProps {
   href?: string;
@@ -16,21 +18,44 @@ interface IProps {
 
 export default function FeaturedTourCard(props: IProps) {
   const { nameTour = "", originalPrice, promotionPrice, time, startAddress, rating, href = "/", imgUrl = "" } = props;
+
+  function formatCurrency(value?: number) {
+    return value?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+  }
+
   return (
     <div className="rounded-[20px] overflow-hidden relative h-[600px]">
       <Link href={href}>
         <Image src={imgUrl} alt={nameTour} width={600} height={1000} quality={100} className="w-full h-full object-cover object-center" />
-        <div>
-          <div>
-            <IoMdAirplane />
-            <span>Xuất phát</span>
-            <span>{nameTour}</span>
+        <div className="absolute z-1 left-0 right-0 bottom-0 py-5 px-5 text-[#fff]" >
+          <div className="flex items-center gap-3 text-[#ffd220] uppercase text-[0.95rem] font-extrabold mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><IoMdAirplane size={18} /></div>
+              <div className="flex items-center gap-1">
+                <span>Xuất phát:</span>
+                <span>{startAddress}</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><MdAccessTime size={18} /></div>
+              <span>{time}</span>
+            </div>
           </div>
-          <div>
-            <MdAccessTime />
-            <span>{time}</span>
+          <div className="font-extrabold text-[1.55rem] mb-3"><h3>{nameTour}</h3></div>
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-[#ffd220] text-[1.75rem] font-bold leading-[1.2]">{formatCurrency(promotionPrice)}</p>
+              <p className="font-medium line-through text-[1.25rem]">{formatCurrency(originalPrice)}</p>
+            </div>
+            <button className="tour-learn-more">
+              <span className="tour-circle" aria-hidden="true">
+                <span className="tour-icon tour-arrow"></span>
+              </span>
+              <span className="tour-button-text">Khám phá</span>
+            </button>
           </div>
         </div>
+        <div className="absolute z-0 left-0 right-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
       </Link>
     </div>
   )
