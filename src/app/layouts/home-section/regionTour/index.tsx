@@ -16,6 +16,7 @@ export default function RegionTour() {
           description="Miền Bắc Việt Nam là nơi lưu giữ những giá trị văn hóa truyền thống và di sản lịch sử quý báu. Từ thủ đô Hà Nội cổ kính, đến Hạ Long huyền thoại với kỳ quan thiên nhiên thế giới, hay những cao nguyên đá hùng vĩ của Hà Giang, mỗi vùng đất đều mang trong mình những câu chuyện hấp dẫn. Hãy bắt đầu chuyến hành trình để cảm nhận nhịp sống yên bình nhưng cũng đầy sôi động nơi đây."
           data={TOURSMIENBAC}
           classNameImg="w-full"
+          nameListTour="Danh sách tour miền Bắc"
         />
         <div className={styles.distance}></div>
         <RegionTourLayout
@@ -28,6 +29,7 @@ export default function RegionTour() {
           isReverse={true}
           wImg={300}
           hImg={300}
+          nameListTour="Danh sách tour miền Trung"
         />
         <div className={styles.distance}></div>
         <RegionTourLayout
@@ -39,6 +41,7 @@ export default function RegionTour() {
           data={TOURSMIENNAM}
           wImg={300}
           hImg={300}
+          nameListTour="Danh sách tour miền Nam"
         />
       </div>
       <div className="absolute bg-[#fcf6ecdb] top-0 left-0 bottom-0 right-0 z-0"></div>

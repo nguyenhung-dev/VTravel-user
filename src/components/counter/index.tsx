@@ -16,7 +16,6 @@ export default function Counter({ targetNumber, duration = 2000 }: CounterProps)
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !hasAnimated.current) {
         hasAnimated.current = true;
-        let start = 0;
         const startTime = performance.now();
 
         const animate = (time: number) => {
@@ -31,7 +30,6 @@ export default function Counter({ targetNumber, duration = 2000 }: CounterProps)
             setCount(targetNumber);
           }
         };
-
         requestAnimationFrame(animate);
       }
     }, { threshold: 0.5 });

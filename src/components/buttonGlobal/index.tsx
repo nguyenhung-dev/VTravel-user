@@ -12,7 +12,7 @@ interface IProps {
 }
 
 export default function ButtonGlobal(props: IProps) {
-  const { text, asLink = "false", href, onClick, className } = props;
+  const { text, asLink = false, href, onClick, className } = props;
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!asLink) {
       e.preventDefault();

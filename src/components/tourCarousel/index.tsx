@@ -9,7 +9,7 @@ import styles from './style.module.css';
 import "./btnanimation.css";
 import { GiSteeringWheel } from "react-icons/gi";
 
-interface Tour {
+interface ITour {
   id: number;
   imgUrl: string;
   vehicle: string;
@@ -17,12 +17,12 @@ interface Tour {
   time: string;
 }
 
-interface IProps {
-  tours: Tour[];
+type TProps = {
+  tours: ITour[];
   href?: string;
 }
 
-export default function TourCarousel({ tours, href = "/" }: IProps) {
+export default function TourCarousel({ tours, href = "/" }: TProps) {
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },

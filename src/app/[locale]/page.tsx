@@ -1,4 +1,4 @@
-import { Banner, TravelStory, Intro, Tours, RegionTour } from "@/app/layouts/home-section";
+import { Banner, TravelStory, Intro, Tours, RegionTour, FeedBack } from "@/app/layouts/home-section";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Intro />
       <Tours />
       <RegionTour />
+      <FeedBack />
       <TravelStory />
     </>
   );

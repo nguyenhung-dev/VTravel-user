@@ -8,6 +8,8 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'
 import { Toaster } from "sonner";
+import BackToTop from "@/components/backToTop";
+import BoxChat from "@/components/boxchat";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -22,6 +24,9 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: "VTravel - Trang chủ",
   description: "Du lịch Việt Nam",
+  icons: {
+    icon: "/images/logo-title.png"
+  },
 };
 
 export default async function RootLayout({
@@ -36,16 +41,15 @@ export default async function RootLayout({
   }
   return (
     <html lang={locale}>
-      <body
-        suppressHydrationWarning
-        className={`${nunito.variable} ${dancingScript.variable}`}
-      >
+      <body className="relative">
         <NextIntlClientProvider>
           <Toaster richColors position="top-center" />
           <Header />
           {children}
           <Footer />
         </NextIntlClientProvider>
+        <BoxChat />
+        <BackToTop />
       </body>
     </html>
   );
