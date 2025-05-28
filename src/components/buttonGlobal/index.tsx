@@ -13,18 +13,18 @@ interface IProps {
 
 export default function ButtonGlobal(props: IProps) {
   const { text, asLink = false, href, onClick, className } = props;
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
     if (!asLink) {
       e.preventDefault();
-      onClick && onClick();
+      onClick?.();
     }
   };
   return (
-    <div className={`btn-conteiner ${className || ""}`}>
+    <div className={`btn-conteiner ${className || ""}`} onClick={asLink ? undefined : handleClick}>
       <a
         className="btn-content"
         href={asLink ? href || "#" : "#"}
-        onClick={handleClick}
+        onClick={asLink ? undefined : handleClick}
       >
         <p className="btn-title">{text}</p>
         <span className="icon-arrow">
