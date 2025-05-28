@@ -23,7 +23,7 @@ export default function ButtonGlobal(props: IProps) {
     <div className={`btn-conteiner ${className || ""}`}>
       <a
         className="btn-content"
-        href={asLink && href ? href : "#"}
+        href={asLink ? href || "#" : "#"}
         onClick={handleClick}
       >
         <p className="btn-title">{text}</p>

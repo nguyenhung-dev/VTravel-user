@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Dancing_Script, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import "./utilities.css";
 import Header from "@/app/layouts/header";
@@ -15,12 +15,6 @@ const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["vietnamese"],
 });
-
-const dancingScript = Dancing_Script({
-  variable: "--font-dancing",
-  subsets: ["vietnamese"],
-});
-
 export const metadata: Metadata = {
   title: "VTravel - Trang chủ",
   description: "Du lịch Việt Nam",
@@ -28,7 +22,6 @@ export const metadata: Metadata = {
     icon: "/images/logo-title.png"
   },
 };
-
 export default async function RootLayout({
   children, params
 }: Readonly<{
@@ -41,7 +34,7 @@ export default async function RootLayout({
   }
   return (
     <html lang={locale}>
-      <body className="relative">
+      <body className={`${nunito.variable} relative`}>
         <NextIntlClientProvider>
           <Toaster richColors position="top-center" />
           <Header />
