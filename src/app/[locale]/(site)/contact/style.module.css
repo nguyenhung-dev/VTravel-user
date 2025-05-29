@@ -1,0 +1,197 @@
+.header{
+  width: 100%;
+  height: 170px;
+  background-color: rgb(179, 68, 226);
+  text-align: center;
+}
+
+.h1 {
+    font-size: 40px;
+    font-weight: 800;
+    padding-top: 35px;
+    color: aliceblue;
+}
+
+.p {
+    font-size: 24px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.title {
+    
+    width: 1000px;
+    color: rgb(29, 29, 30);
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: 800;
+    opacity: .4;
+    margin-left: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form_contact {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgb(234, 234, 234);
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 50px;
+}
+
+.input_select {
+    border-bottom: 10px;
+    width: 900px;
+    height: 60px;
+    border: cornflowerblue;
+    border: 1px solid rgb(64, 194, 237);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.item_select {
+    font-size: 18px;
+}
+
+.label_input {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.form_2row {
+    margin-top: 30px;
+    display: inline-flex;
+}
+
+.form_sdt {
+    margin-left: 20px;
+}
+
+.input_email {
+    display: block;
+    border-bottom: 10px;
+    width: 550px;
+    height: 60px;
+    border: cornflowerblue;
+    border: 1px solid rgb(64, 194, 237);
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.input_sdt {
+    display: block;
+    border-bottom: 10px;
+    width: 330px;
+    height: 60px;
+    border: cornflowerblue;
+    border: 1px solid rgb(64, 194, 237);
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.input_describe {
+    display: block;
+    border-bottom: 10px;
+    width: 900px;
+    height: 300px;
+    border: cornflowerblue;
+    border: 1px solid rgb(64, 194, 237);
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+}
+
+.btn_done {
+    color: white;
+    background-color: rgb(81, 191, 238);
+    width: 100%;
+    height: 60px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+/* Hotline */
+.form_hotline {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid rgb(234, 234, 234);
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 30px 50px;
+}
+
+.title_hl {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.item_hl {
+    font-size: 18px;
+    opacity: .5;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.phone_number {
+    margin-left: 5px;
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: 750;
+    color: rgb(179, 68, 226);
+}
+
+/* address */
+.form_address {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 50px;
+    border: 1px solid rgb(234, 234, 234);
+}
+
+.name_address {
+    margin: 15px 0;
+}
+
+.item_address {
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-flex;
+}
+
+
+/* global */
+.text_sz18 {
+    font-size: 18px;
+    font-weight: 450;
+    opacity: .8;
+}
+
+.text_sz16 {
+    font-size: 16px;
+    font-weight: 450;
+    opacity: .8;
+}
+
