@@ -19,7 +19,6 @@ interface IGuide {
 
 type TProps = {
   guides: IGuide[];
-  href?: string;
 }
 
 const carousel: KeenSliderPlugin = (slider) => {
@@ -70,7 +69,7 @@ const carousel: KeenSliderPlugin = (slider) => {
 };
 
 export default function TourGuideCarousel(props: TProps) {
-  const { guides, href } = props;
+  const { guides } = props;
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,

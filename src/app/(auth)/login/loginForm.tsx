@@ -63,9 +63,10 @@ export default function LoginForm({ onSwitch }: Props) {
           required
         />
         <CustomButton
-          children={t("form.btnLogin")}
           className="flex justify-center items-center w-full py-3 mt-8 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba] rounded-[10px]"
-        />
+        >
+          {t("form.btnLogin")}
+        </CustomButton>
       </form >
       <div className={`${styles.line} `}><div></div><p className="text-[15px] text-gray-500">{t("form.or")}</p><div></div></div>
       <GoogleSignInButton />
