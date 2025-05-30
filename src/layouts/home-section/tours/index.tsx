@@ -2,9 +2,10 @@ import styles from "./style.module.css";
 import ButtonGlobal from "@/components/buttonGlobal";
 import FeaturedTourCard from "@/components/featuredTourCard";
 import TOURDATA from "@/data/tours.json";
-import GUIDEDATA from "@/data/guides.json";
+import GUIDEDATA from "@/data/travel_guide.json";
 import Marquee from "react-fast-marquee";
-import GuideCard from "@/components/guideCard";
+import GuideCard from "@/components/travelGuideCard";
+import Image from "next/image";
 
 export default function Tours() {
   const firstList = TOURDATA.slice(0, 8);
@@ -18,7 +19,7 @@ export default function Tours() {
           <h2 className="font-extrabold text-[#fff1ba]">Khám phá Việt Nam cùng VTravel</h2>
           <ButtonGlobal text="Khám phá ngay" className="mt-8" />
         </div>
-        <div className="w-[calc(100%-500px)] ml-[500px]">
+        <div className="w-[calc(100%-500px)] ml-[500px] relative">
           <div className="flex gap-10">
             <div className="list-tour w-1/2 flex flex-col gap-10">
               {firstList.map((tour, index) => <FeaturedTourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} />)}
@@ -27,6 +28,7 @@ export default function Tours() {
               {secondList.map((tour, index) => <FeaturedTourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} />)}
             </div>
           </div>
+          <Image src="/images/plane.png" alt="plane" width={500} height={500} quality={100} className="absolute top-[-100px] left-[50%] object-cover object-center transform translate-y-[-100%] translate-x-[-50%] w-[600px] h-auto" />
         </div>
       </div>
       <div className="absolute z-4 left-0 right-0 top-0 transform translate-y-[-50%]">

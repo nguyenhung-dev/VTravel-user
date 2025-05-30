@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
 import { usePathname } from 'next/navigation';
+import CustomButton from '@/components/customButton';
 
 type NavigationItem = {
   name: string;
@@ -87,7 +88,7 @@ export default function HeaderClient({ navigation }: Props) {
                       key={item.name}
                       href={item.href}
                       aria-current={item.current ? 'page' : undefined}
-                      className={``}
+                      className={`${styles.menuItem}`}
                     >
                       {item.name}
                     </Link>
@@ -96,19 +97,18 @@ export default function HeaderClient({ navigation }: Props) {
               </div>
             </div>
             <div className="absolute inset-y-0 gap-2 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button
-                type="button"
-                className="relative rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden"
+              <CustomButton
+                className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-hidden"
               >
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">View notifications</span>
                 <BellIcon aria-hidden="true" />
-              </button>
-              <button
+              </CustomButton>
+              <CustomButton
                 onClick={() => setShowForm(true)}
                 className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden'>
                 <UserCircleIcon />
-              </button>
+              </CustomButton>
               <AuthDialog open={showForm} onOpenChange={setShowForm} />
               <ButtonLanguage />
             </div>

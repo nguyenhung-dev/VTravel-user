@@ -83,7 +83,7 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
           error={formErrors.password}
           required
         />
-        <CustomButton text={t("form.btnRegister")} className="w-full py-6 mt-3 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba] " />
+        <CustomButton children={t("form.btnRegister")} className="flex justify-center items-center w-full py-3 mt-8 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba] rounded-[10px]" />
       </form>
       <p className="text-sm text-center mt-2">
         {`${t("form.haveAccount")} `}

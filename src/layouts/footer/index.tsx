@@ -34,7 +34,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className={`${styles.footer} pt-20 relative`}>
+    <footer className={`${styles.footer} pt-20 relative z-2 bg-[#fcf6eb]`}>
       <div className="container m-auto flex gap-10 relative z-1">
         <div className="flex-1">
           <Image src="/images/logo.png" alt="VTravel" width={500} height={500} quality={100} className="w-[150px] h-auto mb-3" />
@@ -140,7 +140,6 @@ export default function Footer() {
           © 2025 <span className="text-[#01b5f1] inline-block font-bold px-1.5">VTravel</span>. All rights reserved.
         </div>
       </div>
-      <div className={`${styles.overlay} absolute top-0 left-0 right-0 bottom-0 bg-[#ffffffef] z-0`}></div>
     </footer >
   )
 }

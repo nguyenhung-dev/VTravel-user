@@ -16,3 +16,6 @@
 .prev {
   transform: translateX(-60%);
 }
+.keenSliderSlid {
+  overflow: visible !important;
+}

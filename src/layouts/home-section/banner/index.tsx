@@ -1,8 +1,5 @@
-'use client'
-
 import styles from './style.module.css';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 
 export default function Banner() {
   const t = useTranslations();
@@ -20,14 +17,9 @@ export default function Banner() {
           ></iframe>
           <div className={`${styles.overlay}`}></div>
           <div className={`${styles.title}`}>
-            <motion.h1
-              className="text-white font-bold text-center"
-              initial={{ opacity: 0, scale: 0.3 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-            >
+            <h1 className="text-white font-bold text-center">
               {t('homePage.banner.titleBanner')}
-            </motion.h1>
+            </h1>
           </div>
         </div>
       </section>

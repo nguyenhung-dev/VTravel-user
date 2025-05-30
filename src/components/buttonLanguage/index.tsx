@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import CustomButton from "../customButton";
 
 export default function ButtonLanguage() {
   const router = useRouter();
@@ -21,13 +22,13 @@ export default function ButtonLanguage() {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold cursor-pointer">
+      <MenuButton className="flex ml-1 w-full justify-center gap-x-1.5 rounded-md text-sm font-semibold cursor-pointer">
         <Image
           alt={position === "en" ? "English" : "Tiếng Việt"}
           src={`/svg/language/${position}.svg`}
           width={20}
           height={20}
-          className="w-[25px] h-[25px]"
+          className="w-[23px] h-[23px]"
         />
       </MenuButton>
       <MenuItems
@@ -36,22 +37,22 @@ export default function ButtonLanguage() {
       >
         <div className="py-1">
           <MenuItem>
-            <button
+            <CustomButton
               onClick={() => changeLanguage("vi")}
               className="w-full px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-3"
             >
               <Image alt="Tiếng Việt" src="/svg/language/vi.svg" width={20} height={20} />
               Tiếng Việt
-            </button>
+            </CustomButton>
           </MenuItem>
           <MenuItem>
-            <button
+            <CustomButton
               onClick={() => changeLanguage("en")}
               className="w-full px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-3"
             >
               <Image alt="English" src="/svg/language/en.svg" width={20} height={20} />
               English
-            </button>
+            </CustomButton>
           </MenuItem>
         </div>
       </MenuItems>

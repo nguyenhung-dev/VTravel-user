@@ -5,7 +5,7 @@ import FeedBackCard from "@/components/feedbackCard";
 
 export default function FeedBack() {
   return (
-    <section className={`${styles.feedback} py-32 relative z-1`}>
+    <section className={`${styles.feedback} py-32 relative z-1 feedback-section border-tl-[20px] overflow-hidden`}>
       <h2 className="text-center font-bold relative z-1 uppercase text-7xl text-[#fff]">Trải nghiệm khó quên</h2>
       <div className="container m-auto relative z-1  flex justify-center my-10 pb-20">
         <div className="relative">

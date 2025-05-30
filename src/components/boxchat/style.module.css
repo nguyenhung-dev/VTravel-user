@@ -10,10 +10,9 @@
     rgba(178, 104, 232, 1) 0%,
     rgba(0, 193, 241, 1) 100%
   );
-  transition: all 0.3s ease-in-out 0s;
-  box-shadow: rgba(105, 215, 255, 0.698) 0px 0px 0px 0px;
-  animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running
-    pulse;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0.5);
+  animation: pulse 2s ease-in-out infinite;
   align-items: center;
   border: 0;
   cursor: pointer;
@@ -22,7 +21,13 @@
   transform: scale(1.1);
 }
 @keyframes pulse {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px 15px rgba(105, 215, 255, 0.3);
+  }
   100% {
-    box-shadow: 0 0 10px 25px rgba(193, 244, 246, 0);
+    box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0);
   }
 }

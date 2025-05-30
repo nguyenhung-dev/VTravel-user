@@ -1,11 +1,12 @@
 "use client";
 import "./style.css"
 import { useTranslations } from "next-intl";
+import CustomButton from "@/components/customButton";
 
 export default function GoogleSignInButton() {
   const t = useTranslations();
   return (
-    <button className="gsi-material-button">
+    <CustomButton className="gsi-material-button">
       <div className="gsi-material-button-state"></div>
       <div className="gsi-material-button-content-wrapper">
         <div className="gsi-material-button-icon">
@@ -39,6 +40,6 @@ export default function GoogleSignInButton() {
         </span>
         <span className="sr-only"> {t("form.signInWithGoogle")}</span>
       </div>
-    </button>
+    </CustomButton>
   );
 }

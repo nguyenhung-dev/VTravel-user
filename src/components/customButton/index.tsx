@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 interface IProps {
-  text: string;
+  children?: React.ReactNode;
   asLink?: boolean;
   href?: string;
   onClick?: () => void;
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const CustomButton: React.FC<IProps> = ({
-  text,
+  children,
   asLink = false,
   href = "#",
   onClick,
@@ -27,14 +27,14 @@ const CustomButton: React.FC<IProps> = ({
   if (asLink) {
     return (
       <Link href={href}>
-        <span className={baseClass}>{text}</span>
+        <span className={baseClass}>{children}</span>
       </Link>
     );
   }
 
   return (
     <Button onClick={onClick} className={baseClass}>
-      {text}
+      {children}
     </Button>
   );
 };

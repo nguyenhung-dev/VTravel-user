@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import "./utilities.css";
-import Header from "@/app/layouts/header";
-import Footer from "@/app/layouts/footer";
+import Header from "@/layouts/header";
+import Footer from "@/layouts/footer";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'

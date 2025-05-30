@@ -8,6 +8,7 @@ import 'keen-slider/keen-slider.min.css';
 import styles from './style.module.css';
 import "./btnanimation.css";
 import { GiSteeringWheel } from "react-icons/gi";
+import CustomButton from '@/components/customButton';
 
 interface ITour {
   id: number;
@@ -43,9 +44,9 @@ export default function TourCarousel({ tours, href = "/" }: TProps) {
     <div className="relative">
       <div ref={sliderRef} className="keen-slider">
         {tours.map((tour) => (
-          <div key={tour.id} className="keen-slider__slide ">
-            <div className="rounded-[10px] h-full flex flex-col overflow-hidden shadow-lg bg-[#ffffff80]">
-              <Image src={tour.imgUrl} alt={tour.tourName} width={300} height={200} className="object-cover w-full h-[250px]" />
+          <div key={tour.id} className={`${styles.keenSliderSlid} keen-slider__slide`}>
+            <div className="relative rounded-[10px] h-full flex flex-col shadow-lg bg-[#ffffff80]">
+              <Image src={tour.imgUrl} alt={tour.tourName} width={300} height={200} className="object-cover w-full h-[250px] rounded-[10px]" />
               <div className="p-4 flex flex-col justify-between gap-8 flex-1">
                 <div className='flex-1'>
                   <div className='flex items-center text-[#01b5f3] uppercase gap-2 mb-2'>
@@ -66,14 +67,18 @@ export default function TourCarousel({ tours, href = "/" }: TProps) {
                   </Link>
                 </div>
               </div>
+              <div className='absolute top-[10px] left-[10px]'>
+                <div className='bg-[#ab00f2] px-5 py-1 text-[#fff] rounded-tl-[10px]'>{tour.time}</div>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          </div >
+        ))
+        }
+      </div >
       <div className='absolute left-0 right-0 top-[50%] transform -translate-y-1/2 w-full flex justify-between z-10'>
-        <button onClick={prev} className={`${styles.btn} ${styles.prev}`}><IoIosArrowBack size={23} color='#fff' /></button>
-        <button onClick={next} className={`${styles.btn} ${styles.next}`}><IoIosArrowForward size={23} color='#fff' /></button>
+        <CustomButton onClick={prev} className={`${styles.btn} ${styles.prev}`}><IoIosArrowBack size={23} color='#fff' /></CustomButton>
+        <CustomButton onClick={next} className={`${styles.btn} ${styles.next}`}><IoIosArrowForward size={23} color='#fff' /></CustomButton>
       </div>
-    </div>
+    </div >
   );
 }
