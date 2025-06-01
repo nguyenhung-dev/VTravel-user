@@ -22,7 +22,7 @@ export default function Guide() {
       </div>
       <div className={`${styles.bgCloud} absolute z-1 top-0 left-0 right-0 transform translate-y-[-50%]  h-[200px] `}></div>
       <div className={`${styles.cloud} absolute z-2 h-[300px] top-0 transform translate-y-[-50%] left-0 right-0`}>
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full overflow-hidden">
           <Image src="/images/cloud-flying-1.png" alt="cloud1" width={200} height={200} className={styles.cloudImage} style={{ animationDuration: "15s", left: "0%" }} />
           <Image src="/images/animate-cloud-2.png" alt="cloud2" width={200} height={200} className={styles.cloudImage} style={{ animationDuration: "20s", left: "20%" }} />
           <Image src="/images/animate-cloud-4.png" alt="cloud3" width={200} height={200} className={styles.cloudImage} style={{ animationDuration: "30s", left: "40%" }} />
