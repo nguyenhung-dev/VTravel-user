@@ -7,6 +7,8 @@ import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./style.css";
 import CustomButton from "@/components/customButton";
+import { FaFireAlt } from "react-icons/fa";
+import { IoLanguage } from "react-icons/io5";
 
 interface IGuide {
   id: number;
@@ -88,30 +90,36 @@ export default function TourGuideCarousel(props: TProps) {
             guides.map((guide) => {
               return (
                 <div className="carousel__cell rounded-[10px] relative" key={guide.id}>
-                  <Image src={guide.imgUrl ?? "/public/images/avt-default.jpg"} alt={guide.fullname ?? "avatar"} width={500} height={500} quality={100} />
-                  <div className="mt-2">
-                    <h3 className="text-center text-[#1d005a] font-bold text-[21px]">{guide.fullname}</h3>
-                    <div>
-                      <span>{guide.exp}</span>
-                      <span> kinh nghiệm</span>
+                  <Image src={guide.imgUrl ?? "/public/images/avt-default.jpg"} alt={guide.fullname ?? "avatar"} width={500} height={500} quality={100} className="w-full h-[200px] object-cover object-center" />
+                  <div className="py-3 bg-[#a9e8ff] px-4">
+                    <div className="mb-5">
+                      <h3 className="text-center text-[#1d005a] font-bold text-[21px]">{guide.fullname}</h3>
+                      <div className="flex items-center gap-1.5">
+                        <FaFireAlt color="red" />
+                        <div>
+                          <span>{guide.exp}</span>
+                          <span> EXP</span>
+                        </div>
+                      </div>
+                      <div className="rating absolute top-[10px] left-[10px] flex flex-col gap-1 ">
+                        {Array.from({ length: guide.rating ?? 0 }, (_, index) => (
+                          <FaStar key={index} className="text-yellow-300 text-[1rem]" />
+                        ))}
+                      </div>
+                      <div className="language flex items-center gap-1.5">
+                        <IoLanguage />
+                        <div>
+                          {guide.language?.join(', ')}
+                        </div>
+                      </div>
                     </div>
-                    <div className="rating absolute top-[10px] left-[10px] flex flex-col gap-1 ">
-                      {Array.from({ length: guide.rating ?? 0 }, (_, index) => (
-                        <FaStar key={index} className="text-yellow-300 text-[1rem]" />
-                      ))}
-                    </div>
-                    <div className="language">
-                      {guide.language?.map((lang, index) => (
-                        <span key={index} className="lang">{`${lang}, `}</span>
-                      ))}
-                    </div>
+                    <CustomButton className="tour-learn-more">
+                      <span className="tour-circle" aria-hidden="true">
+                        <span className="tour-icon tour-arrow"></span>
+                      </span>
+                      <span className="tour-button-text">Xem chi tiết</span>
+                    </CustomButton>
                   </div>
-                  <CustomButton className="tour-learn-more">
-                    <span className="tour-circle" aria-hidden="true">
-                      <span className="tour-icon tour-arrow"></span>
-                    </span>
-                    <span className="tour-button-text">Xem chi tiết</span>
-                  </CustomButton>
                 </div>
               )
             })

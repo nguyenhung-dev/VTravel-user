@@ -3,10 +3,11 @@ import TOURSMIENBAC from "@/data/tours_mienbac.json";
 import TOURSMIENTRUNG from "@/data/tours_mientrung.json";
 import TOURSMIENNAM from "@/data/tours_miennam.json";
 import RegionTourLayout from "./layout";
+
 export default function RegionTour() {
 
   return (
-    <section className={`${styles.regionTour} relative py-32`}>
+    <section className={`${styles.regionTour} relative z-10 pt-32 pb-40`}>
       <div className="container m-auto relative z-1">
         <RegionTourLayout
           href="/"

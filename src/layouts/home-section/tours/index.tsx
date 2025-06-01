@@ -12,11 +12,11 @@ export default function Tours() {
   const secondList = TOURDATA.slice(8);
 
   return (
-    <section className={`${styles.tours} relative pt-36`}>
+    <section className={`${styles.tours} relative z-10 pt-36`}>
       <div className="container m-auto relative h-full">
         <div className={`${styles.stickyBox} uppercase max-w-[480px]`}>
-          <h4 className="font-extrabold text-[#c5c5c5]">Danh sách Tours</h4>
-          <h2 className="font-extrabold text-[#fff1ba]">Khám phá Việt Nam cùng VTravel</h2>
+          <h4 className="font-extrabold text-[#8a8a8a]">Danh sách Tours</h4>
+          <h2 className="font-extrabold text-[var(--color-primary)]">Khám phá Việt Nam cùng VTravel</h2>
           <ButtonGlobal text="Khám phá ngay" className="mt-8" />
         </div>
         <div className="w-[calc(100%-500px)] ml-[500px] relative">

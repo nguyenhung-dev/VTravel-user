@@ -15,7 +15,7 @@ export default function GuideCard(props: IProps) {
   return (
     <div className="relative overflow-hidden rounded-2xl h-[350px] w-[550px] text-[#fff]">
       <Link href={href}>
-        <Image src={imgUrl} alt={title} width={1000} height={600} quality={100} />
+        <Image src={imgUrl} alt={title} width={1000} height={600} quality={100} className="w-full h-full object-cover object-center" />
         <div className="absolute z-1  left-0 right-0 bottom-0 py-5 px-5">
           <div className="flex items-center gap-1.5">
             <FaMapLocationDot color="#ffd220" />

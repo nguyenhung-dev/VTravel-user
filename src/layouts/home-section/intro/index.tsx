@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Intro() {
   const t = useTranslations();
   return (
-    <section className={`${styles.intro} pb-72 pt-60 relative flex gap-5 text-[var(--color-primary)]`}>
+    <section className={`${styles.intro} pb-72 pt-60 relative z-10 flex gap-5 text-[var(--color-primary)]`}>
       <img src="/svg/moutain.svg" alt="moutain" className="absolute top-0 left-0 right-0 w-full transform translate-y-[-60%]" />
       <div className="container m-auto flex gap-24">
         <div className="w-[50%] relative">

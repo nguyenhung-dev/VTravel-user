@@ -10,7 +10,7 @@ export default function TravelStory() {
 
   return (
     <section className={`${styles.intro} py-24 text-[#fff]`}>
-      <div className="container relative z-1 m-auto flex gap-10">
+      <div className="container relative z-10 m-auto flex gap-10">
         <div className={`${styles.left} w-1/2`}>
           <div className="w-full h-full px-5 rounded-[10px] overflow-hidden" data-aos="flip-left">
             <Image src="/images/intro-image.webp" alt="Intro VTravel" width={800} height={1000} quality={100} className="rounded-[15px]" />

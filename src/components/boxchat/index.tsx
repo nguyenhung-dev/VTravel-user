@@ -4,7 +4,7 @@ import CustomButton from "@/components/customButton";
 
 export default function BoxChat() {
   return (
-    <div className="fixed right-[25px] bottom-[150px] z-7">
+    <div className="fixed right-[25px] bottom-[150px] z-15">
       <CustomButton className={`${styles.button}`}>
         <MdSupportAgent size={28} />
       </CustomButton>
