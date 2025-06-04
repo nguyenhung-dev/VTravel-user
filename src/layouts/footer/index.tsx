@@ -34,7 +34,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className={`${styles.footer} pt-20 relative z-2 bg-[#fcf6eb]`}>
+    <footer className={`${styles.footer} pt-20 relative z-10 bg-[#fcf6eb]`}>
       <div className="container m-auto flex gap-10 relative z-1">
         <div className="flex-1">
           <Image src="/images/logo.png" alt="VTravel" width={500} height={500} quality={100} className="w-[150px] h-auto mb-3" />

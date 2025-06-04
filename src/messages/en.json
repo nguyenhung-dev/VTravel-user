@@ -22,7 +22,9 @@
     "about": "About us",
     "service": "Services",
     "contact": "Contact us",
-    "tours": "Tours"
+    "tours": "Tours",
+    "destination": "Destination",
+    "blog": "Blog"
   },
   "homePage": {
     "banner": {

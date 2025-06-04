@@ -7,14 +7,14 @@
   transition: 0.4s ease;
   position: fixed;
 }
-.header a {
-  margin: 0 10px;
-  padding: 12px 15px;
+.header .menuItem {
+  padding: 14px 15px;
   display: inline-block;
   font-weight: 700;
   transition: 0.2s ease;
+  font-size: 16px;
 }
-.header a:hover {
+.header .menuItem:hover {
   background-color: #00b0e1;
   border-radius: 15px;
   color: #fff;
@@ -40,7 +40,7 @@
 .header.sticky {
   background-color: #fff;
   padding: 10px 0;
-  color: black;
+  color: rgb(57, 57, 57);
   position: fixed;
   box-shadow: 0 0 10px 3px rgb(209 209 209);
 }
@@ -56,7 +56,4 @@
 }
 .headerPage button svg {
   color: var(--color-text);
-}
-
-.menuItem {
 }

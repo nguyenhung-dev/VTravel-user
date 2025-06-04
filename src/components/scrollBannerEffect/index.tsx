@@ -1,12 +1,20 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function ScrollBannerEffect({ children }: { children: React.ReactNode }) {
   const { scrollY } = useScroll();
+  const [windowHeight, setWindowHeight] = useState(0);
 
-  const opacity = useTransform(scrollY, [0, window.innerHeight], [1, 0]);
-  const translateY = useTransform(scrollY, [0, window.innerHeight], [0, -100]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
+
+  const opacity = useTransform(scrollY, [0, windowHeight || 1], [1, 0]);
+  const translateY = useTransform(scrollY, [0, windowHeight || 1], [0, -100]);
 
   return (
     <motion.div

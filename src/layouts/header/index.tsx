@@ -8,7 +8,9 @@ export default async function Header() {
     { name: t("header.home"), href: '/', current: true },
     { name: t("header.about"), href: '/about', current: false },
     { name: t("header.tours"), href: '/tours', current: false },
+    { name: t("header.destination"), href: '/destination', current: false },
     { name: t("header.service"), href: '/service', current: false },
+    { name: t("header.blog"), href: '/blog', current: false },
     { name: t("header.contact"), href: '/contact', current: false },
   ];
 
