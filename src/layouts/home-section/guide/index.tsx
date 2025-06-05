@@ -10,7 +10,7 @@ export default function Guide() {
       <div className="container m-auto flex">
         <div className="mb-15 w-1/2">
           <p className="uppercase text-[#636363] font-bold text-[18px] mb-2 ">Hành trình an tâm, trải nghiệm tuyệt vời</p>
-          <h3 className="text-[var(--color-primary)] text-4xl font-[900] leading-[1.3]">Đồng hành cùng đội ngũ hướng dẫn viên chuyên nghiệp</h3>
+          <h3 className="uppercase text-[var(--color-primary)] text-4xl font-[900] leading-[1.3]">Đồng hành cùng đội ngũ hướng dẫn viên chuyên nghiệp</h3>
           <p className="text-[18px] text-[var(--color-content)] mt-7">
             Với đội ngũ hướng dẫn viên giàu kinh nghiệm và am hiểu văn hoá bản địa, chúng tôi cam kết mang đến cho bạn những chuyến đi an toàn, nhiều trải nghiệm đáng nhớ và những câu chuyện hấp dẫn về đất nước Việt Nam tươi đẹp. Tận hưởng từng khoảnh khắc trong chuyến hành trình của bạn cùng VTravel!
           </p>

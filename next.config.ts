@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
   images: {
     domains: [
+      'cdn1.ivivu.com',
       'cdn2.ivivu.com',
       'scontent.fdad3-1.fna.fbcdn.net',
       'scontent.fdad3-2.fna.fbcdn.net',

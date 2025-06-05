@@ -1,4 +1,4 @@
-import { Banner, TravelStory, Intro, Tours, RegionTour, FeedBack, Guide } from "@/layouts/home-section";
+import { Banner, TravelStory, Intro, Tours, RegionTour, FeedBack, Guide, Service } from "@/layouts/home-section";
 import AutoScrollToTop from "@/components/autoScrollToTop";
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
       <Tours />
       <RegionTour />
       <Guide />
+      <Service />
       <FeedBack />
       <TravelStory />
     </>

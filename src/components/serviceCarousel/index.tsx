@@ -5,30 +5,61 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import Image from 'next/image';
+import { FaStar } from 'react-icons/fa6';
 
+interface IServiceItem {
+  id: number;
+  title?: string;
+  description?: string;
+  ImgUrl?: string;
+  price?: string;
+  buttonText: string;
+  rating?: number;
+}
 
-export default function ServiceCarousel() {
+type TProps = {
+  data: IServiceItem[];
+}
+
+export default function ServiceCarousel({ data }: TProps) {
   return (
-    <Swiper
-      effect={'coverflow'}
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={'auto'}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }}
-      pagination={{ clickable: true }}
-      modules={[EffectCoverflow, Pagination]}
-      className="mySwiper"
-    >
-      <SwiperSlide><img src="/images/1.jpg" /></SwiperSlide>
-      <SwiperSlide><img src="/images/2.jpg" /></SwiperSlide>
-      <SwiperSlide><img src="/images/3.jpg" /></SwiperSlide>
-      <SwiperSlide><img src="/images/4.jpg" /></SwiperSlide>
-    </Swiper>
+    <div>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={{ clickable: true }}
+        modules={[EffectCoverflow, Pagination]}
+        className="mySwiper"
+      >
+        {data.map((item) => (
+          <SwiperSlide key={item.id}>
+            <div>
+              <div className='relative'>
+                <Image src={item.ImgUrl ?? ""} alt={item.title ?? ""} width={300} height={300} />
+                <div className='absolute top-[10px] left-[10px] flex items-center'>
+                  <span>{item.rating}</span>
+                  <FaStar className="text-yellow-400 text-[1rem]" />
+                </div>
+              </div>
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
