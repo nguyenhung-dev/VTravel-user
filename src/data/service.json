@@ -4,7 +4,8 @@
     "title": "Đặt xe máy",
     "description": "Thuê xe máy tự lái chất lượng, giao tận nơi.",
     "ImgUrl": "https://cdn1.ivivu.com/images/2025/03/28/16/png(5)_.webp",
-    "price": "Từ 100.000đ/ngày",
+    "price": 100000,
+    "unit": "ngày",
     "buttonText": "Thuê ngay",
     "rating": 4.5
   },
@@ -13,7 +14,8 @@
     "title": "Book xe khách",
     "description": "Đặt vé xe khách tuyến đường bạn muốn, giá rẻ.",
     "ImgUrl": "https://cdn1.ivivu.com/images/2025/01/10/18/z5375306457123_877d7edf7eada56d5ad5795b5003e304_.webp",
-    "price": "Chỉ từ 50.000đ/chuyến",
+    "price": 50000,
+    "unit": "vé",
     "buttonText": "Đặt vé",
     "rating": 4.5
   },
@@ -22,7 +24,8 @@
     "title": "Thuê phòng nghỉ",
     "description": "Phòng nghỉ từ homestay đến resort cao cấp.",
     "ImgUrl": "https://cdn1.ivivu.com/images/2024/01/19/12/48d58d899ccbff7932b04bbf2ff810b3_cr_.webp",
-    "price": "Giá từ 200.000đ/đêm",
+    "price": 200000,
+    "unit": "đêm",
     "buttonText": "Xem phòng",
     "rating": 4.5
   },
@@ -31,7 +34,8 @@
     "title": "Thuê hướng dẫn viên",
     "description": "HDV bản địa chuyên nghiệp, thân thiện.",
     "ImgUrl": "https://cdn1.ivivu.com/images/2024/02/07/16/vinwonders-nam-hoi-an-thien-duong-giai-tri-cho-moi-lua-tuoi_cr_.webp",
-    "price": "Chỉ từ 500.000đ/ngày",
+    "price": 500000,
+    "unit": "ngày",
     "buttonText": "Thuê ngay",
     "rating": 4.5
   },
@@ -40,7 +44,8 @@
     "title": "Đặt tour trọn gói",
     "description": "Tour du lịch trọn gói, giá tốt, khởi hành hằng tuần.",
     "ImgUrl": "https://cdn1.ivivu.com/images/2025/01/17/11/a120240110103817(1)_.webp",
-    "price": "Từ 1.500.000đ/người",
+    "price": 1500000,
+    "unit": "người",
     "buttonText": "Xem tour",
     "rating": 4.5
   }
