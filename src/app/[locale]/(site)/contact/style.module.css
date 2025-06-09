@@ -1,35 +1,3 @@
-.header{
-  width: 100%;
-  height: 170px;
-  background-color: rgb(179, 68, 226);
-  text-align: center;
-}
-
-.h1 {
-    font-size: 40px;
-    font-weight: 800;
-    padding-top: 35px;
-    color: aliceblue;
-}
-
-.p {
-    font-size: 24px;
-    font-weight: 500;
-    color: aliceblue;
-}
-
-.title {
-    
-    width: 1000px;
-    color: rgb(29, 29, 30);
-    margin-top: 20px;
-    font-size: 26px;
-    font-weight: 800;
-    opacity: .4;
-    margin-left: 800px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
 .form_contact {
     width: 1000px;
@@ -46,7 +14,6 @@
     border-bottom: 10px;
     width: 900px;
     height: 60px;
-    border: cornflowerblue;
     border: 1px solid rgb(64, 194, 237);
     font-size: 18px;
     font-weight: 500;
@@ -55,6 +22,10 @@
     cursor: pointer;
 }
 
+/* .input_select:focus {
+  border: 4px solid rgb(64, 194, 237);
+} */
+ 
 .item_select {
     font-size: 18px;
 }
@@ -83,12 +54,15 @@
     border-bottom: 10px;
     width: 550px;
     height: 60px;
-    border: cornflowerblue;
     border: 1px solid rgb(64, 194, 237);
     font-size: 20px;
     font-weight: 400;
     border-radius: 10px;
     padding: 10px 20px;
+}
+
+.input_email:focus {
+  border: 4px solid rgb(64, 194, 237);
 }
 
 .input_sdt {
@@ -96,7 +70,6 @@
     border-bottom: 10px;
     width: 330px;
     height: 60px;
-    border: cornflowerblue;
     border: 1px solid rgb(64, 194, 237);
     font-size: 20px;
     font-weight: 400;
@@ -104,17 +77,25 @@
     padding: 10px 20px;
 }
 
+.input_sdt:focus {
+  border: 4px solid rgb(64, 194, 237);
+}
+
 .input_describe {
     display: block;
     border-bottom: 10px;
     width: 900px;
     height: 300px;
-    border: cornflowerblue;
     border: 1px solid rgb(64, 194, 237);
     font-size: 20px;
     font-weight: 400;
     border-radius: 10px;
 }
+
+.input_describe:focus {
+  border: 4px solid rgb(64, 194, 237);
+}
+
 
 .btn_done {
     color: white;
@@ -169,6 +150,7 @@
     border-radius: 10px;
     padding: 30px 50px;
     border: 1px solid rgb(234, 234, 234);
+    margin-bottom: 30px;
 }
 
 .name_address {
@@ -176,7 +158,7 @@
 }
 
 .item_address {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     display: inline-flex;
 }
