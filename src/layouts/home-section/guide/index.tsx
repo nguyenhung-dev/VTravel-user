@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 
 export default function Guide() {
   return (
-    <section className="relative z-10 pt-36 pb-24 bg-[#ffffff]">
+    <section className="relative z-10 pt-32 pb-24 bg-[#ffffff]">
       <div className="container m-auto flex">
         <div className="mb-15 w-1/2">
           <p className="uppercase text-[#636363] font-bold text-[18px] mb-2 ">Hành trình an tâm, trải nghiệm tuyệt vời</p>

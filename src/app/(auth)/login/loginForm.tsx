@@ -51,6 +51,7 @@ export default function LoginForm({ onSwitch }: Props) {
           onChange={handleChange}
           error={errors.phoneOrEmail}
           required
+          className="mb-5"
         />
 
         <CustomInput
@@ -61,6 +62,7 @@ export default function LoginForm({ onSwitch }: Props) {
           onChange={handleChange}
           error={errors.password}
           required
+          className="mb-5"
         />
         <CustomButton
           className="flex justify-center items-center w-full py-3 mt-8 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba] rounded-[10px]"

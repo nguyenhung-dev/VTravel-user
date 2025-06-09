@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
@@ -9,6 +10,9 @@ interface IProps {
   value?: string;
   required?: boolean;
   error?: string;
+  className?: string;
+  inputClassName?: string;
+  disableFocusRing?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -21,6 +25,9 @@ export default function CustomInput(props: IProps) {
     value,
     required = false,
     error,
+    className = '',
+    inputClassName = '',
+    disableFocusRing,
     onChange,
   } = props;
 
@@ -28,7 +35,7 @@ export default function CustomInput(props: IProps) {
   const isPassword = type === 'password';
 
   return (
-    <div className="mb-4 relative">
+    <div className={`relative ${className}`}>
       {label && (
         <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
           {label} {required && <span className="text-red-500">*</span>}
@@ -42,8 +49,10 @@ export default function CustomInput(props: IProps) {
         value={value}
         onChange={onChange}
         required={required}
-        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 ${error ? 'border-red-500' : 'border-gray-300'
-          }`}
+        className={`w-full px-3 py-2 border rounded-md focus:outline-none 
+            ${disableFocusRing ? 'focus:ring-0' : 'focus:ring-2 focus:ring-cyan-400'} 
+            ${error ? 'border-red-500' : 'border-gray-300'} 
+            ${inputClassName}`}
       />
       {isPassword && (
         <button

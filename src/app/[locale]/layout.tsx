@@ -9,7 +9,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'
 import { Toaster } from "sonner";
 import BackToTop from "@/components/backToTop";
-import BoxChat from "@/components/boxchat";
+import BtnBookNow from "@/components/bookNow";
+import BookChat from "@/components/boxchat";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -41,7 +42,8 @@ export default async function RootLayout({
           {children}
           <Footer />
         </NextIntlClientProvider>
-        <BoxChat />
+        <BtnBookNow />
+        <BookChat />
         <BackToTop />
       </body>
     </html>

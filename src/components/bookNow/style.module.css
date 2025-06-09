@@ -1,21 +1,3 @@
-@keyframes shake {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(-10deg);
-  }
-  75% {
-    transform: rotate(6deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 .button {
   display: flex;
   justify-content: center;
@@ -30,12 +12,22 @@
   );
   transition: all 0.3s ease-in-out;
   box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0.5);
+  animation: pulse 2s ease-in-out infinite;
   align-items: center;
   border: 0;
   cursor: pointer;
 }
-
-/* Thêm hiệu ứng shake khi hover */
-.button:hover svg {
-  animation: shake 0.4s ease;
+.button:is(:hover, :focus) {
+  transform: scale(1.1);
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px 15px rgba(105, 215, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(105, 215, 255, 0);
+  }
 }

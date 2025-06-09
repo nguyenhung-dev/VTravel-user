@@ -8,6 +8,7 @@ import 'keen-slider/keen-slider.min.css';
 import styles from './style.module.css';
 import "./btnanimation.css";
 import CustomButton from '@/components/customButton';
+import { FaStar } from 'react-icons/fa6';
 
 interface IService {
   id?: number;
@@ -60,13 +61,13 @@ export default function ServiceCarousel({ services, href = "/" }: TProps) {
                       {service.title}
                     </Link>
                   </h3>
-                  <p>
+                  <p className='text-[#4a4a4a]'>
                     {service.description}
                   </p>
-                  <div>
-                    <span>Chỉ từ</span>
-                    <span>{formatCurrency(service.price)}</span>
-                    <span>/{service.unit}</span>
+                  <div className='mt-3'>
+                    <span className='mr-1'>Chỉ từ</span>
+                    <span className='inline-block font-bold text-3xl text-[#fb0011] mx-1'>{formatCurrency(service.price)}</span>
+                    <span>/ {service.unit}</span>
                   </div>
                 </div>
                 <div>
@@ -76,6 +77,9 @@ export default function ServiceCarousel({ services, href = "/" }: TProps) {
                     </div>
                   </Link>
                 </div>
+              </div>
+              <div className='absolute top-[10px] left-[10px] flex items-center gap-1 px-4 py-2 bg-blue-500 rounded-2xl'>
+                <p className='leading-[1] text-[#fff]'>{service.rating}</p> <FaStar className="text-yellow-400" />
               </div>
             </div>
           </div >

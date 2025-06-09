@@ -1,12 +1,12 @@
+import CustomButton from "../customButton";
+import { RiCustomerServiceFill } from "react-icons/ri";
 import styles from "./style.module.css";
-import { MdSupportAgent } from "react-icons/md";
-import CustomButton from "@/components/customButton";
 
-export default function BoxChat() {
+export default function BookChat() {
   return (
     <div className="fixed right-[25px] bottom-[150px] z-15">
       <CustomButton className={`${styles.button}`}>
-        <MdSupportAgent size={28} />
+        <RiCustomerServiceFill size={28} />
       </CustomButton>
     </div>
   )

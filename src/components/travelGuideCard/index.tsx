@@ -13,7 +13,7 @@ interface IProps {
 export default function GuideCard(props: IProps) {
   const { title = "", excerpt = "", imgUrl = "", address = "", href = "/" } = props;
   return (
-    <div className="relative overflow-hidden rounded-2xl h-[350px] w-[550px] text-[#fff]">
+    <div className="relative overflow-hidden rounded-2xl h-[350px] w-[550px] text-[#fff] border border-transparent hover:border-purple-700 hover:border-[3px] transition-all duration-100">
       <Link href={href}>
         <Image src={imgUrl} alt={title} width={1000} height={600} quality={100} className="w-full h-full object-cover object-center" />
         <div className="absolute z-1  left-0 right-0 bottom-0 py-5 px-5">

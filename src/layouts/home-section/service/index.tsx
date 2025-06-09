@@ -4,7 +4,7 @@ import ServiceCarousel from "@/components/serviceCarousel";
 
 export default function Service() {
   return (
-    <section className="relative z-10 py-36 bg-[#ffffff]">
+    <section className="relative z-10 py-32 bg-[#ffffff]">
       <div className=" container m-auto" >
         <div className="text-center mb-14">
           <p className="uppercase text-[#636363] font-bold text-[18px] mb-2 ">Dịch vụ nổi bật
