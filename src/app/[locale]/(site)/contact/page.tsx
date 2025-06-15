@@ -51,7 +51,7 @@ export default function ContactPage() {
                       <SelectLabel className="text-xl font-medium">Chọn dịch vụ</SelectLabel>
                       <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="apple">Vé máy bay</SelectItem>
                       <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="banana">Du lịch</SelectItem>
-                      <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm h-12" value="blueberry">Khách sạn</SelectItem>
+                      <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="blueberry">Khách sạn</SelectItem>
                       <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="grapes">Visa</SelectItem>
                       <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="pineapple">Tuyển dụng</SelectItem>
                     </SelectGroup>
@@ -72,61 +72,74 @@ export default function ContactPage() {
                   <Input type="text" name="email" placeholder="Nhập email" />
                 </div>
               </div>
-              <div className="xl:ml-3 lg:ml-3 md:ml-0 sm:ml-0 xl:mt-0 lg:mt-0 md:mt-7 sm:mt-7">
-                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="phone">Số điện thoại</Label>
-                <div className="xl:w-full lg:w-full md:w-xl sm:w-lg border border-blue-400 rounded-xl">
-                  <Input type="text" name="phone" placeholder="Nhập số điện thoại" />
+              <div className=" xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-auto mt-8">
+                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="fullname">Tên của bạn</Label>
+                <div className="w-full border border-blue-400 rounded-xl">
+                  <Input type="text" name="fullname" placeholder="Nhập tên đầy đủ" />
                 </div>
               </div>
-            </div>
-            <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-auto mt-8">
-              <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="">Nội dung bạn muốn gửi</Label>
-              <div className="w-full min-h-56 border border-blue-400 rounded-xl mb-3" >
-                <Textarea placeholder="Nhập nội dung của bạn ở đây!" />
+              <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-wrap sm:flex-wrap mt-7 ">
+                <div>
+                  <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="email">Email</Label>
+                  <div className="xl:w-[600px] lg:w-[480px] md:w-xl sm:w-lg border border-blue-400 rounded-xl">
+                    <Input type="text" name="email" placeholder="Nhập email" />
+                  </div>
+                </div>
+                <div className="xl:ml-3 lg:ml-3 md:ml-0 sm:ml-0 xl:mt-0 lg:mt-0 md:mt-7 sm:mt-7">
+                  <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="phone">Số điện thoại</Label>
+                  <div className="xl:w-full lg:w-full md:w-xl sm:w-lg border border-blue-400 rounded-xl">
+                    <Input type="text" name="phone" placeholder="Nhập số điện thoại" />
+                  </div>
+                </div>
               </div>
+              <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-auto mt-8">
+                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="">Nội dung bạn muốn gửi</Label>
+                <div className="w-full min-h-56 border border-blue-400 rounded-xl mb-3" >
+                  <Textarea placeholder="Nhập nội dung của bạn ở đây!" />
+                </div>
+              </div>
+              <button className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[60px] xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-center text-white bg-blue-400 rounded-2xl mt-4 cursor-pointer">Gửi ngay</button>
             </div>
-            <button className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[60px] xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-center text-white bg-blue-400 rounded-2xl mt-4 cursor-pointer">Gửi ngay</button>
-          </div>
 
-          <div className="xl:w-5xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mx-auto mb-7 px-14 py-7  bg-white border border-s-gray-100">
-            <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Tổng đài hỗ trợ</h1>
-            <p className="text-lg font-medium text-gray-400 mb-4">Áp dụng cước phí nhà mạng thông thường</p>
-            <h3 className="text-lg text-gray-600 font-normal">Hotline:
-              <p className="text-lg font-bold text-blue-500 ml-1.5 inline-flex">0987 654 321</p>
-            </h3>
-          </div>
+            <div className="xl:w-5xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mx-auto mb-7 px-14 py-7  bg-white border border-s-gray-100">
+              <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Tổng đài hỗ trợ</h1>
+              <p className="text-lg font-medium text-gray-400 mb-4">Áp dụng cước phí nhà mạng thông thường</p>
+              <h3 className="text-lg text-gray-600 font-normal">Hotline:
+                <p className="text-lg font-bold text-blue-500 ml-1.5 inline-flex">0987 654 321</p>
+              </h3>
+            </div>
 
-          <div className="xl:w-5xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mx-auto mb-7 px-14 py-7  bg-white border border-s-gray-100">
-            <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Công ty cổ phần VTravel Discover Việt Nam</h1>
-            <div className="my-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-              </svg>
-              <h2 className="text-lg font-bold inline-flex">Hà Nội</h2>
-              <p className="text-base text-gray-700 font-normal ml-8">123 Lê Duẩn - Văn Miếu - Đống Đa - TĐ. Hà Nội</p>
-              <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[1px] bg-gray-300 mt-4"></div>
-            </div>
-            <div className="my-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-              </svg>
-              <h2 className="text-lg font-bold inline-flex">Đà Nẵng</h2>
-              <p className="text-base text-gray-700 font-normal ml-8">116 Nguyễn Huy Tưởng - Hòa Minh - TP. Đà Nẵng</p>
-              <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[1px] bg-gray-300 mt-4"></div>
-            </div>
-            <div className="my-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-              </svg>
-              <h2 className="text-lg font-bold inline-flex">Hồ Chí Minh</h2>
-              <p className="text-base text-gray-700 font-normal ml-8">345 Lý Thái Tổ - Phường 1 - Quận 3 - TP. Hồ chí Minh</p>
+            <div className="xl:w-5xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mx-auto mb-7 px-14 py-7  bg-white border border-s-gray-100">
+              <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Công ty cổ phần VTravel Discover Việt Nam</h1>
+              <div className="my-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <h2 className="text-lg font-bold inline-flex">Hà Nội</h2>
+                <p className="text-base text-gray-700 font-normal ml-8">123 Lê Duẩn - Văn Miếu - Đống Đa - TĐ. Hà Nội</p>
+                <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[1px] bg-gray-300 mt-4"></div>
+              </div>
+              <div className="my-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <h2 className="text-lg font-bold inline-flex">Đà Nẵng</h2>
+                <p className="text-base text-gray-700 font-normal ml-8">116 Nguyễn Huy Tưởng - Hòa Minh - TP. Đà Nẵng</p>
+                <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[1px] bg-gray-300 mt-4"></div>
+              </div>
+              <div className="my-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 inline-flex mr-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <h2 className="text-lg font-bold inline-flex">Hồ Chí Minh</h2>
+                <p className="text-base text-gray-700 font-normal ml-8">345 Lý Thái Tổ - Phường 1 - Quận 3 - TP. Hồ chí Minh</p>
+              </div>
             </div>
           </div>
         </TabsContent>
-
         <TabsContent value="password">
           <div className="xl:w-5xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mx-auto mb-7 px-14 py-7 bg-white border border-s-gray-100">
             <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Tuyển dụng</h1>
