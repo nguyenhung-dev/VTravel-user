@@ -51,7 +51,7 @@ export default function ContactPage() {
                   <SelectLabel  className="text-xl font-medium">Chọn dịch vụ</SelectLabel>
                   <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="apple">Vé máy bay</SelectItem>
                   <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="banana">Du lịch</SelectItem>
-                  <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm h-12" value="blueberry">Khách sạn</SelectItem>
+                  <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="blueberry">Khách sạn</SelectItem>
                   <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12" value="grapes">Visa</SelectItem>
                   <SelectItem className="xl:text-lg lg:text-lg md:text-sm sm:text-sm px-5 h-12"  value="pineapple">Tuyển dụng</SelectItem>
                 </SelectGroup>
