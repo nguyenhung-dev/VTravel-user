@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import HeaderClient from "./HomeHeaderClient";
+import HeaderClient from "./HeaderClient";
 
 export default async function Header() {
   const t = await getTranslations();

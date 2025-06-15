@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
 import ButtonGlobal from "@/components/buttonGlobal";
-import FeaturedTourCard from "@/components/featuredTourCard";
-import TOURDATA from "@/data/tours.json";
+import TourCard from "@/components/tourCard";
+import TOURDATA from "@/data/featured_tours.json";
 import GUIDEDATA from "@/data/travel_guide.json";
 import Marquee from "react-fast-marquee";
 import GuideCard from "@/components/travelGuideCard";
@@ -22,10 +22,10 @@ export default function Tours() {
         <div className="w-[calc(100%-500px)] ml-[500px] relative">
           <div className="flex gap-10">
             <div className="list-tour w-1/2 flex flex-col gap-10">
-              {firstList.map((tour, index) => <FeaturedTourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} />)}
+              {firstList.map((tour, index) => <TourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} clasName="h-[600px]" bottomClassName="justify-between items-center " />)}
             </div>
             <div className="list-tour w-1/2 pt-[10.69rem] flex flex-col gap-10">
-              {secondList.map((tour, index) => <FeaturedTourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} />)}
+              {secondList.map((tour, index) => <TourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} clasName="h-[600px]" bottomClassName="justify-between items-center " />)}
             </div>
           </div>
           <Image src="/images/plane.png" alt="plane" width={500} height={500} quality={100} className="absolute top-[-100px] left-[50%] object-cover object-center transform translate-y-[-100%] translate-x-[-50%] w-[600px] h-auto" />

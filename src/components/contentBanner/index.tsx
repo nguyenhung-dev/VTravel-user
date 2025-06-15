@@ -4,6 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { SlArrowDown } from "react-icons/sl";
 import CustomInput from "../customInput";
 import CustomButton from "../customButton";
+import ScrollDownIndicator from "../scrollDownIndicator";
 
 export default function ContentBanner() {
   return (
@@ -18,25 +19,7 @@ export default function ContentBanner() {
           <CustomInput placeholder="Tour Vịnh Hạ Long được yêu thích" className="flex-1 mb-0" disableFocusRing />
           <CustomButton className="bg-[#7775de] py-3 px-5 rounded-[30px] text-[#fff]">Tìm kiếm</CustomButton>
         </div>
-        <div className="absolute cursor-pointer bottom-[-100px] left-[50%] transform translate-x-[-50%] translate-y-[100%] flex flex-col items-center" onClick={() => {
-          const section = document.getElementById("intro");
-          section?.scrollIntoView({ behavior: "smooth" });
-        }}>
-          <div className="relative h-[40px]">
-            <SlArrowDown
-              size={23}
-              color="#818181"
-              className="absolute top-0 left-[50%] transform translate-x-[-50%] animate-bounce"
-            />
-            <SlArrowDown
-              size={23}
-              color="#fff"
-              className="absolute top-[12px] left-[50%] transform translate-x-[-50%] animate-bounce"
-            />
-          </div>
-          <span className="text-[#fff] uppercase font-bold">Khám phá</span>
-        </div>
-
+        <ScrollDownIndicator idSection="intro" className="absolute bottom-[-100px] left-[50%] transform translate-x-[-50%] translate-y-[100%]" />
       </div>
     </div>
   )

@@ -30,30 +30,20 @@
   height: auto;
   transition: 0.4s ease;
 }
-.header.sticky .logo {
+.header.headerSticky .logo {
   width: 120px;
   height: auto;
 }
 .header button svg {
   color: #fff;
 }
-.header.sticky {
+.header.headerSticky {
   background-color: #fff;
   padding: 10px 0;
   color: rgb(57, 57, 57);
   position: fixed;
   box-shadow: 0 0 10px 3px rgb(209 209 209);
 }
-.header.sticky button svg {
+.header.headerSticky button svg {
   color: black;
-}
-.headerPage {
-  background-color: #fff;
-  position: relative;
-  box-shadow: 0 0 10px 3px rgb(209 209 209);
-  --color-text: #4b4b4b;
-  color: var(--color-text);
-}
-.headerPage button svg {
-  color: var(--color-text);
 }

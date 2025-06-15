@@ -8,7 +8,6 @@ import AuthDialog from '@/app/(auth)/AuthDialog';
 import { useState, useEffect } from 'react';
 import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
-import { usePathname } from 'next/navigation';
 import CustomButton from '@/components/customButton';
 
 type NavigationItem = {
@@ -28,15 +27,6 @@ function classNames(...classes: string[]) {
 export default function HeaderClient({ navigation }: Props) {
   const [showForm, setShowForm] = useState<boolean>(false)
   const [isSticky, setIsSticky] = useState<boolean>(false);
-  const [isHome, setIsHome] = useState(true);
-
-  const pathname = usePathname();
-
-  useEffect(() => {
-    console.log("Pathname changed:", pathname);
-    setIsHome(pathname === "/vi" || pathname === "/en" || pathname === "/vi/" || pathname === "/en/");
-  }, [pathname]);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +47,7 @@ export default function HeaderClient({ navigation }: Props) {
   }, []);
 
   return (
-    <header className={`${styles.header} ${isSticky ? styles.sticky : ""} ${!isHome ? styles.headerPage : ""} "top-0 left-0 right-0 z-20 transition-colors duration-300"`}>
+    <header className={`${styles.header} ${isSticky ? styles.headerSticky : ""} top-0 left-0 right-0 z-20 transition-colors duration-300`}>
       <Disclosure as="nav">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between">

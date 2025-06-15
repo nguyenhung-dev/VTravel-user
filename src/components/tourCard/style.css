@@ -82,3 +82,11 @@ button:hover .tour-circle .tour-icon.tour-arrow {
 button:hover .tour-button-text {
   color: #fff;
 }
+
+.tour-card img {
+  transition: transform 0.5s ease-in-out;
+}
+
+.tour-card:hover img {
+  transform: scale(1.05);
+}
