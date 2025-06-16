@@ -156,3 +156,9 @@ select {
   border: none;
   outline: none;
 }
+.custom-checkbox {
+  @apply cursor-pointer border-1 border-purple-500 data-[state=checked]:border-purple-700 data-[state=checked]:bg-purple-700;
+}
+.scroll-down-page {
+  @apply absolute z-2 bottom-[20px] left-[50%] transform translate-x-[-50%];
+}

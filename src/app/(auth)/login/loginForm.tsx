@@ -50,7 +50,6 @@ export default function LoginForm({ onSwitch }: Props) {
           value={formData.phoneOrEmail}
           onChange={handleChange}
           error={errors.phoneOrEmail}
-          required
           className="mb-5"
         />
 
@@ -61,7 +60,6 @@ export default function LoginForm({ onSwitch }: Props) {
           value={formData.password}
           onChange={handleChange}
           error={errors.password}
-          required
           className="mb-5"
         />
         <CustomButton

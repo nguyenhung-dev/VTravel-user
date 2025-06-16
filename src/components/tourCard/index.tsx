@@ -10,6 +10,7 @@ interface IProps {
   href?: string;
   imgUrl?: string;
   nameTour?: string;
+  nameDestination?: string;
   originalPrice?: number,
   promotionPrice?: number,
   time?: string,
@@ -19,10 +20,14 @@ interface IProps {
   clasName?: string;
   bottomClassName?: string;
   startAddressHidden?: boolean;
+  isDestination?: boolean;
+  descDestination?: string;
+  btnCard?: string;
+
 }
 
 export default function TourCard(props: IProps) {
-  const { nameTour = "", originalPrice = 0, promotionPrice, time, startAddress, rating = 0, href = "/", imgUrl = "", category = "", clasName = "", bottomClassName = "", startAddressHidden = false } = props;
+  const { nameTour = "", originalPrice = 0, promotionPrice, time, startAddress, rating = 0, href = "/", imgUrl = "", category = "", clasName = "", bottomClassName = "", startAddressHidden = false, isDestination = false, descDestination = "", nameDestination = "", btnCard = "Khám phá" } = props;
 
   function formatCurrency(value?: number) {
     return value?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -33,36 +38,49 @@ export default function TourCard(props: IProps) {
       <Link href={href}>
         <Image src={imgUrl} alt={nameTour} width={600} height={1000} quality={100} className="w-full h-full object-cover object-center transform transition-transform duration-500 ease-in-out will-change-transform delay-75 group-hover:scale-105" />
         <div className="absolute z-1 left-0 right-0 bottom-0 py-5 px-5 text-[#fff]" >
-          <div className="flex items-center gap-3 text-[#ffd220] uppercase text-[0.95rem] font-extrabold mb-2">
-            <div className={`${startAddressHidden ? "hidden" : "flex"} items-center gap-2`}>
-              <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><IoMdAirplane size={18} /></div>
-              <div className="flex items-center gap-1">
-                <span>Xuất phát:</span>
-                <span>{startAddress}</span>
+          {
+            (!isDestination) && (
+              <div className="flex items-center gap-3 text-[#ffd220] uppercase text-[0.95rem] font-extrabold mb-2">
+                <div className={`${startAddressHidden ? "hidden" : "flex"} items-center gap-2`}>
+                  <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><IoMdAirplane size={18} /></div>
+                  <div className="flex items-center gap-1">
+                    <span>Xuất phát:</span>
+                    <span>{startAddress}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><MdAccessTime size={18} /></div>
+                  <span>{time}</span>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><MdAccessTime size={18} /></div>
-              <span>{time}</span>
-            </div>
-          </div>
-          <div className="font-extrabold text-[24px] mb-3 leading-[1.1]"><h3>{nameTour}</h3></div>
+            )
+          }
+          {
+            isDestination ?
+              <div>
+                <p className="text-[1.1rem] font-bold">{nameDestination}</p>
+                <p className="text-[1.1rem] mt-2">{descDestination}</p>
+              </div>
+              : <div className="font-extrabold text-[24px] mb-3 leading-[1.1]"><h3>{nameTour}</h3></div>
+          }
           <div className={`${bottomClassName ?? ""} flex`}>
             {
-              promotionPrice != undefined && promotionPrice > 0 && promotionPrice < originalPrice ? (
-                <div>
-                  <p className="text-[#ffd220] text-[1.75rem] font-bold leading-[1.2]">{formatCurrency(promotionPrice)}</p>
-                  <p className="font-medium line-through text-[1.25rem]">{formatCurrency(originalPrice)}</p>
-                </div>
-              ) : (
-                <p className="text-[#ffd220] text-[1.75rem] font-bold leading-[1.2]">{formatCurrency(originalPrice)}</p>
+              !isDestination && (
+                promotionPrice != undefined && promotionPrice > 0 && promotionPrice < originalPrice ? (
+                  <div>
+                    <p className="text-[#ffd220] text-[1.75rem] font-bold leading-[1.2]">{formatCurrency(promotionPrice)}</p>
+                    <p className="font-medium line-through text-[1.25rem]">{formatCurrency(originalPrice)}</p>
+                  </div>
+                ) : (
+                  <p className="text-[#ffd220] text-[1.75rem] font-bold leading-[1.2]">{formatCurrency(originalPrice)}</p>
+                )
               )
             }
             <CustomButton className="tour-learn-more">
               <span className="tour-circle" aria-hidden="true">
                 <span className="tour-icon tour-arrow"></span>
               </span>
-              <span className="tour-button-text">Khám phá</span>
+              <span className="tour-button-text">{btnCard}</span>
             </CustomButton>
           </div>
         </div>

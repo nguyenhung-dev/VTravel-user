@@ -53,7 +53,6 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
           value={formData.fullname}
           onChange={handleChange}
           error={formErrors.fullname}
-          required
           className="mb-5"
         />
         <CustomInput
@@ -63,7 +62,6 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
           value={formData.phone}
           onChange={handleChange}
           error={formErrors.phone}
-          required
           className="mb-5"
         />
         <CustomInput
@@ -74,7 +72,6 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
           value={formData.email}
           onChange={handleChange}
           error={formErrors.email}
-          required
           className="mb-5"
         />
         <CustomInput
@@ -84,7 +81,6 @@ export default function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
           value={formData.password}
           onChange={handleChange}
           error={formErrors.password}
-          required
           className="mb-5"
         />
         <CustomButton className="flex justify-center items-center w-full py-3 mt-8 cursor-pointer text-[18px] bg-[#8566e2] hover:bg-[#664aba] rounded-[10px]" >

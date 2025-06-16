@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "/images/halong.jpg",
+    "nameDestination": "Vịnh Hạ Long",
+    "desDestination": "Kỳ quan thiên nhiên thế giới với hàng ngàn đảo đá vôi tuyệt đẹp.",
+    "area": "dongbac"
+  },
+  {
+    "id": 2,
+    "imgUrl": "/images/sapa.jpg",
+    "nameDestination": "Sa Pa",
+    "desDestination": "Thị trấn vùng cao với ruộng bậc thang hùng vĩ và văn hóa dân tộc đặc sắc.",
+    "area": "taybac"
+  },
+  {
+    "id": 3,
+    "imgUrl": "/images/hanoi.jpg",
+    "nameDestination": "Hà Nội",
+    "desDestination": "Thủ đô ngàn năm văn hiến với phố cổ, hồ Gươm và ẩm thực phong phú.",
+    "area": "dongbangsonghong"
+  },
+  {
+    "id": 4,
+    "imgUrl": "/images/ninhbinh.jpg",
+    "nameDestination": "Ninh Bình",
+    "desDestination": "Vịnh Hạ Long trên cạn với Tràng An, Tam Cốc và cố đô Hoa Lư.",
+    "area": "bactrungbo"
+  },
+  {
+    "id": 5,
+    "imgUrl": "/images/phongnha.jpg",
+    "nameDestination": "Phong Nha - Kẻ Bàng",
+    "desDestination": "Di sản thiên nhiên với hang động kỳ vĩ và hệ sinh thái đa dạng.",
+    "area": "bactrungbo"
+  },
+  {
+    "id": 6,
+    "imgUrl": "/images/hue.jpg",
+    "nameDestination": "Huế",
+    "desDestination": "Kinh đô cổ với Hoàng thành, lăng tẩm và sông Hương thơ mộng.",
+    "area": "bactrungbo"
+  },
+  {
+    "id": 7,
+    "imgUrl": "/images/danang.jpg",
+    "nameDestination": "Đà Nẵng",
+    "desDestination": "Thành phố đáng sống với biển Mỹ Khê, Bà Nà Hills và cầu Rồng.",
+    "area": "namtrungbo"
+  },
+  {
+    "id": 8,
+    "imgUrl": "/images/hoian.jpg",
+    "nameDestination": "Hội An",
+    "desDestination": "Phố cổ lung linh đèn lồng với kiến trúc cổ và văn hóa độc đáo.",
+    "area": "namtrungbo"
+  },
+  {
+    "id": 9,
+    "imgUrl": "/images/nhatrang.jpg",
+    "nameDestination": "Nha Trang",
+    "desDestination": "Thành phố biển nổi tiếng với bãi tắm đẹp và đảo hòn Mun, hòn Tằm.",
+    "area": "namtrungbo"
+  },
+  {
+    "id": 10,
+    "imgUrl": "/images/dalat.jpg",
+    "nameDestination": "Đà Lạt",
+    "desDestination": "Thành phố sương mù với khí hậu mát mẻ, thung lũng tình yêu và hoa.",
+    "area": "taynguyen"
+  },
+  {
+    "id": 11,
+    "imgUrl": "/images/muine.jpg",
+    "nameDestination": "Mũi Né",
+    "desDestination": "Thiên đường nghỉ dưỡng với đồi cát bay và bãi biển hoang sơ.",
+    "area": "namtrungbo"
+  },
+  {
+    "id": 12,
+    "imgUrl": "/images/phuquoc.jpg",
+    "nameDestination": "Phú Quốc",
+    "desDestination": "Hòn đảo ngọc với biển xanh cát trắng và hệ sinh thái đa dạng.",
+    "area": "taynambo"
+  },
+  {
+    "id": 13,
+    "imgUrl": "/images/camau.jpg",
+    "nameDestination": "Cà Mau",
+    "desDestination": "Mũi đất tận cùng Tổ quốc với rừng U Minh và hệ sinh thái ngập mặn.",
+    "area": "taynambo"
+  },
+  {
+    "id": 14,
+    "imgUrl": "/images/chau-doc.jpg",
+    "nameDestination": "Châu Đốc",
+    "desDestination": "Vùng đất tâm linh với Miếu Bà Chúa Xứ và làng nổi Chăm.",
+    "area": "taynambo"
+  },
+  {
+    "id": 15,
+    "imgUrl": "/images/condao.jpg",
+    "nameDestination": "Côn Đảo",
+    "desDestination": "Thiên đường hoang sơ với bãi biển xanh ngọc và lịch sử hào hùng.",
+    "area": "dongnambo"
+  }
+]

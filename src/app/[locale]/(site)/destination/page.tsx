@@ -1,23 +1,23 @@
 import styles from "./style.module.css";
 import Image from "next/image";
 import ScrollDownIndicator from '@/components/scrollDownIndicator';
-import TourFilterSection from "./tourFilterSection";
+import TourFilterSection from "./destinationFilterSection";
 import BannerPage from "@/layouts/banner";
 
-export default function ToursPage() {
+export default function DestinationPage() {
   return (
     <>
       <BannerPage classNameSection={`${styles.banner} h-[700px] w-full`}>
         <div className='absolute z-1 top-0 left-0 right-0 bottom-0 flex justify-between items-center container m-auto'>
           <div>
             <h1 className={`${styles.mainTitle} font-[900] text-[180px] leading-[1]`}>VTRAVEL</h1>
-            <h3 className={`${styles.subTitle} font-[700] text-[120px]`}>Our Tour</h3>
+            <h3 className={`${styles.subTitle} font-[700] text-[120px]`}>Destinations</h3>
           </div>
           <div>
             <Image src="/images/vietnam-map-tour.png" alt='Vtravel tour' width={500} height={500} className='h-[500px] w-auto' />
           </div>
         </div>
-        <ScrollDownIndicator idSection='tourlist' text='Xem tất cả Tour' className='scroll-down-page' />
+        <ScrollDownIndicator idSection='destinationlist' text='Xem tất cả Điểm đến' className='scroll-down-page' />
       </BannerPage>
       <TourFilterSection />
     </>

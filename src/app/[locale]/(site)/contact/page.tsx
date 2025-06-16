@@ -1,4 +1,3 @@
-// import style from "./style.module.css";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -23,7 +22,7 @@ xl: 1280px
 export default function ContactPage() {
 
   return (
-    <div>
+    <div className="mt-28">
       <header className=" w-full xl:h-44 lg:h-40 md:h-36 sm:h-32 text-center xl:py-12 lg:py-10 md:py-9 sm:py-8 bg-purple-400">
         <h1 className="xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl font-extrabold text-white">LIÊN HỆ CHÚNG TÔI</h1>
         <p className="xl:text-2xl lg:text-2xl md:text-xl sm:text-lg text-white font-medium mt-3">Chúng tôi luôn sẵn sàng hỗ trợ, dù bạn ở bất cứ nơi đâu!</p>
