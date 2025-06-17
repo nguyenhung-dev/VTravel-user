@@ -23,7 +23,7 @@ interface IProps {
   isDestination?: boolean;
   descDestination?: string;
   btnCard?: string;
-
+  area?: string;
 }
 
 export default function TourCard(props: IProps) {
@@ -34,7 +34,7 @@ export default function TourCard(props: IProps) {
   }
 
   return (
-    <div className={`group ${clasName ?? ""} rounded-[20px] overflow-hidden relative transition-all duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl`}>
+    <div className={`group ${clasName ?? ""} main-card rounded-[20px] overflow-hidden relative transition-all duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl`}>
       <Link href={href}>
         <Image src={imgUrl} alt={nameTour} width={600} height={1000} quality={100} className="w-full h-full object-cover object-center transform transition-transform duration-500 ease-in-out will-change-transform delay-75 group-hover:scale-105" />
         <div className="absolute z-1 left-0 right-0 bottom-0 py-5 px-5 text-[#fff]" >
@@ -58,12 +58,12 @@ export default function TourCard(props: IProps) {
           {
             isDestination ?
               <div>
-                <p className="text-[1.1rem] font-bold">{nameDestination}</p>
-                <p className="text-[1.1rem] mt-2">{descDestination}</p>
+                <div className="name-card font-extrabold text-[24px] mb-3 leading-[1.1]"><h3>{nameDestination}</h3></div>
+                <p className="text-[1.1rem] mt-2 text-gray-300 mb-4">{descDestination}</p>
               </div>
-              : <div className="font-extrabold text-[24px] mb-3 leading-[1.1]"><h3>{nameTour}</h3></div>
+              : <div className="font-extrabold text-[24px] mb-3 leading-[1.1] name-card"><h3>{nameTour}</h3></div>
           }
-          <div className={`${bottomClassName ?? ""} flex`}>
+          <div className={`${bottomClassName ?? ""} flex gap-8`}>
             {
               !isDestination && (
                 promotionPrice != undefined && promotionPrice > 0 && promotionPrice < originalPrice ? (

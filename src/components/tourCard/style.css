@@ -1,5 +1,5 @@
 button.tour-learn-more {
-  width: 12rem;
+  width: 100%;
   height: auto;
   position: relative;
   display: inline-block;
@@ -82,11 +82,9 @@ button:hover .tour-circle .tour-icon.tour-arrow {
 button:hover .tour-button-text {
   color: #fff;
 }
-
-.tour-card img {
-  transition: transform 0.5s ease-in-out;
+.name-card {
+  transition: 0.3s ease-in-out;
 }
-
-.tour-card:hover img {
-  transform: scale(1.05);
+.main-card:hover .name-card {
+  color: #02d9ff;
 }

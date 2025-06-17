@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-export default function ScrollBannerEffect({ children }: { children: React.ReactNode }) {
+export default function ScrollAnimation({ children }: { children: React.ReactNode }) {
   const { scrollY } = useScroll();
   const [windowHeight, setWindowHeight] = useState(0);
 

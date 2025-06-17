@@ -1,107 +1,107 @@
 [
   {
     "id": 1,
-    "imgUrl": "/images/halong.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Vịnh Hạ Long",
-    "desDestination": "Kỳ quan thiên nhiên thế giới với hàng ngàn đảo đá vôi tuyệt đẹp.",
-    "area": "dongbac"
+    "desDestination": "Kỳ quan thiên nhiên thế giới với hàng ngàn đảo đá vôi tuyệt đẹp, hấp dẫn du khách trong và ngoài nước.",
+    "area": "dongbacbo"
   },
   {
     "id": 2,
-    "imgUrl": "/images/sapa.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Sa Pa",
-    "desDestination": "Thị trấn vùng cao với ruộng bậc thang hùng vĩ và văn hóa dân tộc đặc sắc.",
-    "area": "taybac"
+    "desDestination": "Thị trấn vùng cao với ruộng bậc thang hùng vĩ, không khí se lạnh và văn hóa dân tộc đặc sắc.",
+    "area": "taybacbo"
   },
   {
     "id": 3,
-    "imgUrl": "/images/hanoi.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Hà Nội",
-    "desDestination": "Thủ đô ngàn năm văn hiến với phố cổ, hồ Gươm và ẩm thực phong phú.",
+    "desDestination": "Thủ đô ngàn năm văn hiến với phố cổ, hồ Gươm, di tích lịch sử và ẩm thực phong phú.",
     "area": "dongbangsonghong"
   },
   {
     "id": 4,
-    "imgUrl": "/images/ninhbinh.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Ninh Bình",
-    "desDestination": "Vịnh Hạ Long trên cạn với Tràng An, Tam Cốc và cố đô Hoa Lư.",
-    "area": "bactrungbo"
+    "desDestination": "Vịnh Hạ Long trên cạn với Tràng An, Tam Cốc, cố đô Hoa Lư và cảnh quan núi đá vôi tuyệt đẹp.",
+    "area": "dongbangsonghong"
   },
   {
     "id": 5,
-    "imgUrl": "/images/phongnha.jpg",
+    "imgUrl":"https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Phong Nha - Kẻ Bàng",
-    "desDestination": "Di sản thiên nhiên với hang động kỳ vĩ và hệ sinh thái đa dạng.",
+    "desDestination": "Di sản thiên nhiên thế giới với hệ thống hang động kỳ vĩ và hệ sinh thái phong phú.",
     "area": "bactrungbo"
   },
   {
     "id": 6,
-    "imgUrl": "/images/hue.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Huế",
-    "desDestination": "Kinh đô cổ với Hoàng thành, lăng tẩm và sông Hương thơ mộng.",
+    "desDestination": "Kinh đô cổ xưa với Hoàng thành, lăng tẩm triều Nguyễn và dòng sông Hương thơ mộng.",
     "area": "bactrungbo"
   },
   {
     "id": 7,
-    "imgUrl": "/images/danang.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Đà Nẵng",
-    "desDestination": "Thành phố đáng sống với biển Mỹ Khê, Bà Nà Hills và cầu Rồng.",
+    "desDestination": "Thành phố đáng sống với biển Mỹ Khê, Bà Nà Hills, cầu Rồng và nhiều điểm du lịch hấp dẫn.",
     "area": "namtrungbo"
   },
   {
     "id": 8,
-    "imgUrl": "/images/hoian.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Hội An",
-    "desDestination": "Phố cổ lung linh đèn lồng với kiến trúc cổ và văn hóa độc đáo.",
+    "desDestination": "Phố cổ lung linh đèn lồng với kiến trúc cổ, chợ đêm và không gian văn hóa truyền thống.",
     "area": "namtrungbo"
   },
   {
     "id": 9,
-    "imgUrl": "/images/nhatrang.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Nha Trang",
-    "desDestination": "Thành phố biển nổi tiếng với bãi tắm đẹp và đảo hòn Mun, hòn Tằm.",
+    "desDestination": "Thành phố biển nổi tiếng với bãi biển dài, đảo Hòn Mun, Hòn Tằm và dịch vụ nghỉ dưỡng cao cấp.",
     "area": "namtrungbo"
   },
   {
     "id": 10,
-    "imgUrl": "/images/dalat.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Đà Lạt",
-    "desDestination": "Thành phố sương mù với khí hậu mát mẻ, thung lũng tình yêu và hoa.",
+    "desDestination": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm, thung lũng tình yêu và đồi thông lãng mạn.",
     "area": "taynguyen"
   },
   {
     "id": 11,
-    "imgUrl": "/images/muine.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Mũi Né",
-    "desDestination": "Thiên đường nghỉ dưỡng với đồi cát bay và bãi biển hoang sơ.",
+    "desDestination": "Thiên đường du lịch biển với đồi cát bay độc đáo, biển xanh và các khu resort ven biển.",
     "area": "namtrungbo"
   },
   {
     "id": 12,
-    "imgUrl": "/images/phuquoc.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Phú Quốc",
-    "desDestination": "Hòn đảo ngọc với biển xanh cát trắng và hệ sinh thái đa dạng.",
+    "desDestination": "Hòn đảo ngọc lớn nhất Việt Nam với biển xanh, rạn san hô và nhiều khu nghỉ dưỡng cao cấp.",
     "area": "taynambo"
   },
   {
     "id": 13,
-    "imgUrl": "/images/camau.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Cà Mau",
-    "desDestination": "Mũi đất tận cùng Tổ quốc với rừng U Minh và hệ sinh thái ngập mặn.",
+    "desDestination": "Mũi đất cực Nam Tổ quốc với rừng ngập mặn U Minh và nét văn hóa miền Tây đặc sắc.",
     "area": "taynambo"
   },
   {
     "id": 14,
-    "imgUrl": "/images/chau-doc.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Châu Đốc",
-    "desDestination": "Vùng đất tâm linh với Miếu Bà Chúa Xứ và làng nổi Chăm.",
+    "desDestination": "Vùng đất tâm linh nổi tiếng với Miếu Bà Chúa Xứ, núi Sam và làng nổi người Chăm độc đáo.",
     "area": "taynambo"
   },
   {
     "id": 15,
-    "imgUrl": "/images/condao.jpg",
+    "imgUrl": "https://cdn2.ivivu.com/2023/02/09/12/ivivu-da-nang-ban-dao-750x460.gif",
     "nameDestination": "Côn Đảo",
-    "desDestination": "Thiên đường hoang sơ với bãi biển xanh ngọc và lịch sử hào hùng.",
+    "desDestination": "Hòn đảo hoang sơ với biển xanh ngọc, lịch sử hào hùng và nơi yên nghỉ của nữ anh hùng Võ Thị Sáu.",
     "area": "dongnambo"
   }
 ]

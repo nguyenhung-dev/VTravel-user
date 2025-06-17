@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
 import Image from "next/image";
 import FEEDBACKDATA from "@/data/feedback.json";
-import FeedBackCard from "@/components/feedbackCard";
+import FeedBackCard from "./feedbackCard";
 
 export default function FeedBack() {
   return (

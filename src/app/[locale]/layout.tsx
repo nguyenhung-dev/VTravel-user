@@ -17,10 +17,11 @@ const nunito = Nunito({
   subsets: ["vietnamese"],
 });
 export const metadata: Metadata = {
-  title: "VTravel - Trang chủ",
-  description: "Du lịch Việt Nam",
+  title: "VTravel",
+  description: "Khám phá các địa điểm du lịch hấp dẫn trên khắp Việt Nam cùng VTravel. Tìm hiểu về các tour, điểm đến và trải nghiệm độc đáo.",
   icons: {
-    icon: "/images/logo-title.png"
+    shortcut: "/images/logo-title.png",
+    icon: "/images/logo-title.png",
   },
 };
 export default async function RootLayout({
