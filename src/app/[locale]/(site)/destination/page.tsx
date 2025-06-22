@@ -25,7 +25,7 @@ export default function DestinationPage() {
             <h3 className={`${styles.subTitle} font-[700] text-[120px]`}>Destinations</h3>
           </MotionFade>
           <MotionFade animation="fadeInRightToLeft">
-            <Image src="/images/vietnam-map-tour.png" alt='Vtravel tour' width={500} height={500} className='h-[500px] w-auto' />
+            <Image src="/images/vietnam-map-tour.png" alt='Vtravel tour' width={500} height={500} className='h-[500px] w-auto'/>
           </MotionFade>
         </div>
         <ScrollDownIndicator idSection='destinationlist' text='Xem tất cả Điểm đến' className='scroll-down-page' />
