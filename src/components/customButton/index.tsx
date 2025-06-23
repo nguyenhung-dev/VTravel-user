@@ -5,11 +5,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface IProps {
+interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   asLink?: boolean;
   href?: string;
-  onClick?: () => void;
   className?: string;
 }
 
@@ -17,12 +16,10 @@ const CustomButton: React.FC<IProps> = ({
   children,
   asLink = false,
   href = "#",
-  onClick,
   className,
+  ...rest
 }) => {
-  const baseClass = cn(
-    className
-  );
+  const baseClass = cn(className);
 
   if (asLink) {
     return (
@@ -33,7 +30,7 @@ const CustomButton: React.FC<IProps> = ({
   }
 
   return (
-    <Button onClick={onClick} className={baseClass}>
+    <Button className={baseClass} {...rest}>
       {children}
     </Button>
   );

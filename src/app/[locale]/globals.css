@@ -134,7 +134,6 @@ body {
   background-color: var(--background-color);
   font-size: 16px;
   position: relative;
-  height: 400vh;
   scroll-behavior: smooth;
 }
 *,

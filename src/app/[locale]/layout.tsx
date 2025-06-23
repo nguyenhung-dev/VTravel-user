@@ -5,12 +5,14 @@ import "./utilities.css";
 import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { getMessages } from "next-intl/server";
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing'
 import { Toaster } from "sonner";
 import BackToTop from "@/components/backToTop";
 import BtnBookNow from "@/components/bookNow";
 import BookChat from "@/components/boxchat";
+import { Providers } from "../providers";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -34,18 +36,18 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const messages = await getMessages();
   return (
     <html lang={locale}>
       <body className={`${nunito.variable} relative`}>
-        <NextIntlClientProvider>
-          <Toaster richColors position="top-center" />
+        <Providers locale={locale} messages={messages}>
           <Header />
           {children}
           <Footer />
-        </NextIntlClientProvider>
-        <BtnBookNow />
-        <BookChat />
-        <BackToTop />
+          <BtnBookNow />
+          <BookChat />
+          <BackToTop />
+        </Providers>
       </body>
     </html>
   );

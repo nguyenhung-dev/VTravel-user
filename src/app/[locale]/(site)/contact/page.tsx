@@ -28,10 +28,10 @@ export default function ContactPage() {
     <div>
       <BannerPage classNameSection={`${style.banner} h-[900px] w-full`}>
         <div className='py-56'>
-        <MotionFade animation="fadeInBottomToTop">
-        <h3 className={`${style.subTitle} font-[700] text-[100px] italic text-center`}>Contact Us</h3>
-        <h1 className={`${style.mainTitle} font-[900] text-[150px] leading-[1] text-center`}>VTRAVEL</h1>
-        </MotionFade>
+          <MotionFade animation="fadeInBottomToTop">
+            <h3 className={`${style.subTitle} font-[700] text-[100px] italic text-center`}>Contact Us</h3>
+            <h1 className={`${style.mainTitle} font-[900] text-[150px] leading-[1] text-center`}>VTRAVEL</h1>
+          </MotionFade>
         </div>
       </BannerPage>
       <Tabs defaultValue="account">
@@ -71,27 +71,27 @@ export default function ContactPage() {
                 <Input type="text" name="fullname" placeholder="Nhập tên đầy đủ" />
               </div>
             </div>
-              <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-wrap sm:flex-wrap mt-7 ">
-                <div>
-                 <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="email">Email</Label>
-                 <div className="xl:w-[600px] lg:w-[480px] md:w-xl sm:w-lg border border-blue-400 rounded-xl">
-                 <Input type="text" name="email" placeholder="Nhập email" />
-                </div> 
-                </div>
-                <div className="xl:ml-3 lg:ml-3 md:ml-0 sm:ml-0 xl:mt-0 lg:mt-0 md:mt-7 sm:mt-7">
-                  <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="phone">Số điện thoại</Label>
-                  <div className="xl:w-full lg:w-full md:w-xl sm:w-lg border border-blue-400 rounded-xl">
-                    <Input type="text" name="phone" placeholder="Nhập số điện thoại" />
-                  </div>
+            <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-wrap sm:flex-wrap mt-7 ">
+              <div>
+                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="email">Email</Label>
+                <div className="xl:w-[600px] lg:w-[480px] md:w-xl sm:w-lg border border-blue-400 rounded-xl">
+                  <Input type="text" name="email" placeholder="Nhập email" />
                 </div>
               </div>
-              <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-auto mt-8">
-                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="">Nội dung bạn muốn gửi</Label>
-                <div className="w-full min-h-56 border border-blue-400 rounded-xl mb-3" >
-                  <Textarea placeholder="Nhập nội dung của bạn ở đây!" />
+              <div className="xl:ml-3 lg:ml-3 md:ml-0 sm:ml-0 xl:mt-0 lg:mt-0 md:mt-7 sm:mt-7">
+                <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="phone">Số điện thoại</Label>
+                <div className="xl:w-full lg:w-full md:w-xl sm:w-lg border border-blue-400 rounded-xl">
+                  <Input type="text" name="phone" placeholder="Nhập số điện thoại" />
                 </div>
               </div>
-              <button className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[60px] xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-center text-white bg-blue-400 rounded-2xl mt-4 cursor-pointer mb-8">Gửi ngay</button>
+            </div>
+            <div className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-auto mt-8">
+              <Label className="xl:text-xl lg:text-xl md:text-lg sm:text-lg font-bold mb-2" htmlFor="">Nội dung bạn muốn gửi</Label>
+              <div className="w-full min-h-56 border border-blue-400 rounded-xl mb-3" >
+                <Textarea placeholder="Nhập nội dung của bạn ở đây!" />
+              </div>
+            </div>
+            <button className="xl:w-4xl lg:w-2xl md:w-xl sm:w-lg h-[60px] xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-center text-white bg-blue-400 rounded-2xl mt-4 cursor-pointer mb-8">Gửi ngay</button>
 
             <div className="xl:w-4xl lg:w-3xl md:w-2xl sm:w-xl h-auto rounded-2xl mb-7 px-14 py-7 bg-white border border-s-gray-100">
               <h1 className="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold mb-1.5">Tổng đài hỗ trợ</h1>

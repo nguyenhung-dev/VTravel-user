@@ -1,43 +1,48 @@
-export type RegisterFormErrors = {
+interface RegisterFormData {
   fullname: string;
-  phone: string;
   email: string;
+  phone: string;
   password: string;
-};
+}
 
-export const validateRegisterForm = (data: {
+interface RegisterFormErrors {
   fullname: string;
-  phone: string;
   email: string;
+  phone: string;
   password: string;
-}): RegisterFormErrors => {
+}
+
+export function validateRegisterForm(data: RegisterFormData): RegisterFormErrors {
   const errors: RegisterFormErrors = {
     fullname: '',
-    phone: '',
     email: '',
+    phone: '',
     password: '',
   };
 
   if (!data.fullname.trim()) {
-    errors.fullname = 'Full name is required.';
+    errors.fullname = 'Vui lòng nhập họ và tên';
   }
 
+  const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
   if (!data.phone.trim()) {
-    errors.phone = 'Phone number is required.';
-  } else if (!/^0\d{9}$/.test(data.phone)) {
-    errors.phone = 'Invalid phone number.';
+    errors.phone = 'Vui lòng nhập số điện thoại';
+  } else if (!phoneRegex.test(data.phone)) {
+    errors.phone = 'Số điện thoại không hợp lệ';
   }
 
+  const emailRegex = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
   if (!data.email.trim()) {
-    errors.email = 'Email is required.';
-  } else if (!/\S+@\S+\.\S+/.test(data.email)) {
-    errors.email = 'Invalid email.';
+    errors.email = 'Vui lòng nhập email';
+  } else if (!emailRegex.test(data.email)) {
+    errors.email = 'Email không hợp lệ';
   }
 
   if (!data.password.trim()) {
-    errors.password = 'Password is required.';
+    errors.password = 'Vui lòng nhập mật khẩu';
   } else if (data.password.length < 6) {
-    errors.password = 'Password must be at least 6 characters.';
+    errors.password = 'Mật khẩu phải có ít nhất 6 ký tự';
   }
+
   return errors;
-};
+}
