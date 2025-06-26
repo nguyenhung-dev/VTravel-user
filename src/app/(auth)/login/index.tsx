@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "sonner";
+import { signIn } from "next-auth/react";
 import {
   Form,
   FormControl,
@@ -37,9 +40,12 @@ type FormValues = z.infer<typeof formSchema>;
 
 type Props = {
   onSwitch: () => void;
+  onLoginVerifiedSuccess: (user: any) => void;
+  onNeedVerify: (userId: string) => void;
 };
 
-export default function LoginForm({ onSwitch }: Props) {
+
+export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVerify }: Props) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,12 +55,43 @@ export default function LoginForm({ onSwitch }: Props) {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function onSubmit(values: FormValues) {
-    console.log("Dữ liệu đăng nhập:", values);
-    // TODO: Gọi API đăng nhập tại đây
+  async function onSubmit(values: FormValues) {
+    setLoading(true);
+    const payload = {
+      login: values.info,
+      password: values.password,
+    };
+
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        payload
+      });
+
+      if (res?.ok) {
+        // ✅ đăng nhập thành công, session sẽ được lưu bởi NextAuth
+        const session = await getSession();
+        const user = session?.user;
+
+        onLoginVerifiedSuccess(user);
+      } else {
+        toast.warning("Tài khoản chưa xác thực hoặc thông tin sai.");
+      }
+
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+
   }
-
+  const RequiredLabel = ({ label, required = false }: { label: string; required?: boolean }) => (
+    <FormLabel className="text-[15px] font-[700] inline-block text-gray-600">
+      {label} {required && <span className="text-red-500">*</span>}
+    </FormLabel>
+  );
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -63,9 +100,9 @@ export default function LoginForm({ onSwitch }: Props) {
           name="info"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email/Số điện thoại</FormLabel>
+              <RequiredLabel label="Email/Số điện thoại" required />
               <FormControl>
-                <Input placeholder="example@gmail.com / 0912345678" {...field} />
+                <Input className="input-style" placeholder="example@gmail.com / 0912345678" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -77,14 +114,14 @@ export default function LoginForm({ onSwitch }: Props) {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mật khẩu</FormLabel>
+              <RequiredLabel label="Mật khẩu" required />
               <div className="relative">
                 <FormControl>
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="••••••"
                     {...field}
-                    className="pr-10"
+                    className="input-style"
                   />
                 </FormControl>
                 <button
@@ -105,8 +142,8 @@ export default function LoginForm({ onSwitch }: Props) {
           )}
         />
 
-        <Button type="submit" className="w-full mt-2">
-          Đăng nhập
+        <Button type="submit" className="button-style mt-5" disabled={loading}>
+          {loading ? "Đang đăng ký..." : "Đăng ký"}
         </Button>
       </form>
 
@@ -115,7 +152,7 @@ export default function LoginForm({ onSwitch }: Props) {
         <button
           type="button"
           onClick={onSwitch}
-          className="text-blue-600 underline"
+          className="text-blue-600 underline cursor-pointer"
         >
           Đăng ký
         </button>

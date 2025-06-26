@@ -105,7 +105,7 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-[600px]">
         <DialogHeader>
-          <DialogTitle className="text-center">
+          <DialogTitle className="text-center text-2xl mb-8 font-extrabold text-[#020085]">
             {step === "login"
               ? "Đăng nhập"
               : step === "register"
@@ -117,7 +117,18 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
         </DialogHeader>
 
         {step === "login" && (
-          <LoginForm onSwitch={() => setStep("register")} />
+          <LoginForm
+            onSwitch={() => setStep("register")}
+            onLoginVerifiedSuccess={(user) => {
+              // ✅ xử lý lưu user hoặc dùng NextAuth signin ở đây
+              toast.success("Đăng nhập thành công!");
+              onOpenChange(false); // đóng dialog
+            }}
+            onNeedVerify={(userId) => {
+              setUserId(userId);
+              setStep("verify-method");
+            }}
+          />
         )}
         {step === "register" && (
           <RegisterForm

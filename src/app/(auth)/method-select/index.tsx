@@ -26,11 +26,11 @@ export default function MethodSelect({ onSelect }: Props) {
         Vui lòng chọn phương thức để xác thực tài khoản của bạn.
       </p>
 
-      <div className="flex flex-col gap-4 mt-6">
+      <div className="flex flex-col gap-5 mt-6 mb-6">
         <Button
           variant="outline"
           disabled={loadingMethod !== null}
-          className="w-full flex items-center gap-2 justify-center"
+          className="w-full h-[45px] flex items-center gap-2 justify-center bg-[#dadada] hover:bg-[#8d8d8d] text-[15px] shadow-2xl cursor-pointer"
           onClick={() => handleSelect("email")}
         >
           {loadingMethod === "email" ? (
@@ -49,7 +49,7 @@ export default function MethodSelect({ onSelect }: Props) {
         <Button
           variant="outline"
           disabled={loadingMethod !== null}
-          className="w-full flex items-center gap-2 justify-center"
+          className="w-full h-[45px] flex items-center gap-2 justify-center bg-[#dadada] hover:bg-[#8d8d8d] text-[15px] shadow-2xl cursor-pointer"
           onClick={() => handleSelect("phone")}
         >
           {loadingMethod === "phone" ? (

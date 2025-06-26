@@ -92,6 +92,11 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
       setLoading(false);
     }
   }
+  const RequiredLabel = ({ label, required = false }: { label: string; required?: boolean }) => (
+    <FormLabel className="text-[15px] font-[700] inline-block text-gray-600">
+      {label} {required && <span className="text-red-500">*</span>}
+    </FormLabel>
+  );
 
   return (
     <Form {...form}>
@@ -101,9 +106,9 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           name="full_name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Họ và tên</FormLabel>
+              <RequiredLabel label="Họ và tên" required />
               <FormControl>
-                <Input placeholder="Nguyễn Văn A" {...field} />
+                <Input className="input-style" placeholder="Nguyễn Văn A" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -115,9 +120,9 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <RequiredLabel label="Email" required />
               <FormControl>
-                <Input type="email" placeholder="example@gmail.com" {...field} />
+                <Input className="input-style" type="email" placeholder="example@gmail.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -129,9 +134,9 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Số điện thoại</FormLabel>
+              <RequiredLabel label="Số điện thoại" required />
               <FormControl>
-                <Input placeholder="0123456789" {...field} />
+                <Input className="input-style" placeholder="0123456789" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -143,14 +148,14 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mật khẩu</FormLabel>
+              <RequiredLabel label="Mật khẩu" required />
               <div className="relative">
                 <FormControl>
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="••••••"
                     {...field}
-                    className="pr-10"
+                    className="input-style"
                   />
                 </FormControl>
                 <button
@@ -167,7 +172,7 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           )}
         />
 
-        <Button type="submit" className="w-full mt-2 text-black" disabled={loading}>
+        <Button type="submit" className="button-style mt-5" disabled={loading}>
           {loading ? "Đang đăng ký..." : "Đăng ký"}
         </Button>
       </form>
@@ -177,7 +182,7 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
         <button
           type="button"
           onClick={onSwitch}
-          className="text-blue-600 underline"
+          className="text-blue-600 underline cursor-pointer"
         >
           Đăng nhập
         </button>
