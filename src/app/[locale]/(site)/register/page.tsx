@@ -44,6 +44,24 @@ export default function RegisterPage() {
     mode: "onTouched",
   });
 
+  // ======== 🔁 Restore state on load =========
+  useEffect(() => {
+    const session = localStorage.getItem("otpSession");
+    if (session) {
+      const { userId, method, expiresAt } = JSON.parse(session);
+      const remaining = Math.floor((expiresAt - Date.now()) / 1000);
+      if (remaining > 0) {
+        setUserId(userId);
+        setOtpMethod(method);
+        setOtpExpireSeconds(remaining);
+        setStep(3);
+      } else {
+        localStorage.removeItem("otpSession");
+      }
+    }
+  }, []);
+
+  // ========== 🕒 Countdown OTP =============
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (step === 3 && otpExpireSeconds > 0) {
@@ -69,6 +87,18 @@ export default function RegisterPage() {
     }
   }, [step]);
 
+  const saveOtpSession = (userId: number, method: 'email' | 'phone') => {
+    localStorage.setItem("otpSession", JSON.stringify({
+      userId,
+      method,
+      expiresAt: Date.now() + 120000
+    }));
+  };
+
+  const clearOtpSession = () => {
+    localStorage.removeItem("otpSession");
+  };
+
   const onSubmit = async (data: FormData) => {
     try {
       const res = await axios.post("http://localhost:8000/api/register", data);
@@ -92,6 +122,7 @@ export default function RegisterPage() {
       setOtpMethod(method);
       setStep(3);
       setOtpExpireSeconds(120);
+      saveOtpSession(userId, method);
       toast.success(`Đã gửi mã OTP qua ${method === 'email' ? 'email' : 'số điện thoại'}`);
     } catch (err: any) {
       toast.error(err?.response?.data?.message || 'Không thể gửi OTP');
@@ -106,6 +137,7 @@ export default function RegisterPage() {
         code: otpCode
       });
       setStep(4);
+      clearOtpSession();
       toast.success("Xác thực thành công!");
     } catch (err: any) {
       toast.error(err?.response?.data?.message || 'Mã OTP không đúng hoặc đã hết hạn');

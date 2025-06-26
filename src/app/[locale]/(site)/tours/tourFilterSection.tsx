@@ -91,7 +91,7 @@ export default function TourFilterSection() {
       <div className='flex gap-8'>
         <div className="w-1/4 ">
           <div className='rounded-[20px] px-6 py-8 sticky top-28 shadow-lg' style={{
-            background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%);"
+            background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%)"
           }}>
             <div>
               <h4 className='font-bold text-[23px] text-[#6169db]'>Theo miền</h4>
