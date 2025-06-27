@@ -36,7 +36,6 @@
     "next": "15.3.2",
     "next-auth": "^4.24.11",
     "next-i18next": "^15.4.2",
-    "next-intl": "^4.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",

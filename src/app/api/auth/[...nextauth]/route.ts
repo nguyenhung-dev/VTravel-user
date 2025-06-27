@@ -23,10 +23,10 @@ const handler = NextAuth({
           const user = res.data.user;
 
           if (user && user.is_verified === 1) {
-            return user; // ✅ cho phép đăng nhập
+            return user; 
           }
 
-          return null; // ❌ từ chối nếu chưa xác thực
+          return null; 
         } catch (error) {
           console.error("Authorize error:", error);
           return null;
@@ -37,7 +37,7 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.user = user; // lưu user vào token
+        token.user = user; 
       }
       return token;
     },
@@ -50,9 +50,9 @@ const handler = NextAuth({
     strategy: "jwt",
   },
   pages: {
-    signIn: "/auth/login", // nếu có custom page
+    signIn: "/auth/login",
   },
-  secret: process.env.NEXTAUTH_SECRET, // bắt buộc
+  secret: process.env.NEXTAUTH_SECRET, 
 });
 
 export { handler as GET, handler as POST };

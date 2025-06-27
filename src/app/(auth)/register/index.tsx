@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import {
   Form,
@@ -17,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import axios from "axios";
 
 const formSchema = z.object({
   full_name: z.string().min(1, "Tên không được bỏ trống").max(100),
@@ -50,6 +50,8 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const apiUrl = 'http://localhost:8000/api';
+
   async function onSubmit(values: FormValues) {
     setLoading(true);
     const payload = {
@@ -59,7 +61,7 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
       password: values.password,
     }
     try {
-      const res = await axios.post("http://localhost:8000/api/register", payload);
+      const res = await axios.post(`${apiUrl}/register`, payload);
 
       const data = res.data;
 

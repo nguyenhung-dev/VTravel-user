@@ -108,13 +108,13 @@ export default function OtpVerification({
       </div>
 
       <p className="text-sm text-muted-foreground">
-        Mã sẽ hết hạn sau <strong>{formatTime(timeLeft)}</strong>
+        Mã sẽ hết hạn sau <strong className="text-blue-800">{formatTime(timeLeft)}</strong>
       </p>
 
       <Button
         onClick={() => handleVerifyOtp(otp)}
         disabled={otp.length !== 6 || loading}
-        className="w-full text-back"
+        className="w-full text-[#fff] bg-cyan-500 cursor-pointer py-5"
       >
         {loading ? "Đang xác thực..." : "Xác thực"}
       </Button>
@@ -123,7 +123,7 @@ export default function OtpVerification({
         variant="ghost"
         onClick={handleResend}
         disabled={resendCooldown > 0 || resending}
-        className="text-blue-600 underline text-sm"
+        className="w-full text-[#fff] bg-gray-600 cursor-pointer py-5"
       >
         {resending
           ? "Đang gửi lại..."

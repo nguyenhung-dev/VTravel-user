@@ -12,8 +12,9 @@ import RegisterForm from "./register";
 import MethodSelect from "./method-select";
 import OtpVerification from "./otp-verification";
 import { Button } from "@/components/ui/button";
-import axios from "axios";
 import { toast } from "sonner";
+import API from "@/lib/api";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 type Step = "login" | "register" | "verify-method" | "verify-otp" | "success";
 
@@ -76,7 +77,7 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
     if (!userId) return;
     setMethod(method);
     try {
-      const res = await axios.post("http://localhost:8000/api/otp/send", {
+      const res = await API.post("/otp/send", {
         method,
         user_id: userId,
       });
@@ -149,11 +150,18 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
         )}
         {step === "success" && (
           <div className="text-center space-y-4 py-6">
-            <p className="text-xl font-semibold text-green-600">🎉 Đăng ký thành công!</p>
+            <p className="text-xl font-semibold text-green-600">Đăng ký thành công!</p>
+            <div className="flex justify-center my-5">
+              <DotLottieReact
+                src="https://lottie.host/c2b7dd91-b54d-4f96-b612-0ed20ceb710a/adFhGPJj5J.lottie"
+                autoplay
+                className="w-[300px]"
+              />
+            </div>
             <p>Bạn có thể sử dụng tài khoản để đăng nhập.</p>
-            <Button onClick={() => {// Đóng dialog
-              setStep("login");    // Reset về bước login nếu mở lại
-            }} className="text-black">
+            <Button onClick={() => {
+              setStep("login");
+            }} className="bg-emerald-700 text-[#fff] py-5 px-10 cursor-pointer">
               OK
             </Button>
           </div>
