@@ -53,7 +53,7 @@ export default function ServiceCarousel({ services, href = "/" }: TProps) {
         {services.map((service) => (
           <div key={service.id} className={`${styles.keenSliderSlid} keen-slider__slide`}>
             <div className="relative rounded-[10px] h-full flex flex-col shadow-lg bg-[#ffffff80]">
-              <Image src={service.ImgUrl ?? "/images/avt-default.jpg"} alt={service.title ?? "dịch vụ"} width={300} height={200} className="object-cover w-full h-[250px] rounded-[10px]" />
+              <Image src={service.ImgUrl ?? "/images/avt-default.jpg"} alt={service.title ?? "dịch vụ"} width={300} height={200} className="object-cover w-full h-[200px] rounded-[10px]" />
               <div className="p-4 flex flex-col justify-between gap-8 flex-1">
                 <div className='flex-1'>
                   <h3>

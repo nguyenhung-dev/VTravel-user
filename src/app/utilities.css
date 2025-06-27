@@ -1,9 +1,8 @@
 .sub-title {
-  font-family: Dancing Script, cursive;
-  font-weight: 500;
-  font-size: 28px;
+  font-weight: 800;
+  font-size: 20px !important;
+  color: #8a8a8a;
 }
-
 .main-title {
   font-weight: 700;
   font-size: 40px;
@@ -14,9 +13,10 @@
 }
 
 .desc {
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #959595;
 }
 .color-desc {
   color: #00151ab7;

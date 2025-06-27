@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import "./globals.css";
-import "./utilities.css";
 import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
-import { hasLocale } from 'next-intl';
-import { getMessages } from "next-intl/server";
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing'
 import BackToTop from "@/components/backToTop";
 import BtnBookNow from "@/components/bookNow";
 import BookChat from "@/components/boxchat";
-import { Providers } from "../providers";
+import { Providers } from "./providers";
 import { Toaster } from 'sonner'
+import "./globals.css";
+import "./utilities.css";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -27,21 +23,15 @@ export const metadata: Metadata = {
   },
 };
 export default async function RootLayout({
-  children, params
+  children
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-  const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang="vi">
       <body className={`${nunito.variable} relative`}>
         <Toaster richColors position="top-center" />
-        <Providers locale={locale} messages={messages}>
+        <Providers>
           <Header />
           {children}
           <Footer />

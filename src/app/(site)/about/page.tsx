@@ -1,53 +1,52 @@
-import styles from "./style.module.css"; 
+import styles from "./style.module.css";
 import Image from "next/image"
 import Counter from "@/components/counter";
 import BannerPage from "@/layouts/banner";
 import MotionFade from "@/components/motionFade";
 export default function AboutPage() {
-
   return (
     <div >
-       <BannerPage classNameSection={`${styles.banner} h-[900px] w-full`}>
-          <div className='pl-[250px] pt-60'>
+      <BannerPage classNameSection={`${styles.banner} h-screen w-full`}>
+        <div className='container relative z-2 h-full flex items-center pb-20'>
           <MotionFade animation="fadeInBottomToTop">
-            <h3 className={`${styles.subTitle} font-[700] text-[120px] italic w-[1800px] h-auto `}>About Us</h3>
-            <h1 className={`${styles.mainTitle} font-[900] text-[180px] leading-[1] w-[1800px] h-auto`}>VTRAVEL</h1>
+            <h3 className={`${styles.subTitle} font-[700] text-[120px] italic h-auto `}>About Us</h3>
+            <h1 className={`${styles.mainTitle} font-[900] text-[180px] leading-[1] h-auto`}>VTRAVEL</h1>
           </MotionFade>
         </div>
-        </BannerPage>
-      <form className="w-[1530px] h-auto mx-auto" action="">
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-10">
-        <div>
-          <Image src="/images/banner2-about.jpg" width={700} height={400} quality={100} alt="Ảnh banner about us" className="object-cover h-[800px] mt-[-200px] rounded-xl"/> 
-        </div>
-        <div className="col-span-1 pt-12 ml-[-40px]">
-        <h1 className="text-5xl font-extrabold text-blue-500 tracking-wider leading-16">Hành trình vạn dặm bắt đầu từ một bước chân</h1>
-          <p className="text-2xl tracking-wider font-normal leading-normal text-gray-700 pt-3"><b>VTravel</b> không chỉ tổ chức những chuyến đi, mà kiến tạo hành trình sống động - nơi mỗi khoảnh khắc đều mang ý nghĩa, mỗi điểm đến là một dấu ấn, và mỗi khách hàng là một người bạn đồng hành trọn vẹn.</p>
-          <div className="w-full h-[1px] bg-gray-500 mx-0 mt-10"></div>
-          <div className="grid grid-flow-col grid-cols-4 gap-7">
+      </BannerPage>
+      <section id="about" className="container">
+        <div className="flex gap-8">
           <div>
-            <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
-            <b className="text-5xl text-orange-500 font-extrabold">
-             <Counter targetNumber={100} duration={2000}/>+</b>
-            <p className="text-2xl font-normal text-gray-700 pt-10">Tour đang hoạt động</p>
+            <Image src="/images/banner2-about.jpg" width={700} height={400} quality={100} alt="Ảnh banner about us" className="object-cover relative z-2 h-[700px] mt-[-160px] w-[500px] rounded-xl shadow-gray-800 shadow-2xl" />
           </div>
-          <div>
-            <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
-            <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={45000} duration={2000}/>+</b>
-            <p className="text-2xl font-normal text-gray-700 pt-10">Khách hàng đã phục vụ</p>
+          <div className="flex-1 pt-12">
+            <h1 className="text-5xl font-extrabold text-blue-500 tracking-wider leading-16">Hành trình vạn dặm bắt đầu từ một bước chân</h1>
+            <p className="text-2xl tracking-wider font-normal leading-normal text-gray-700 pt-3"><b>VTravel</b> không chỉ tổ chức những chuyến đi, mà kiến tạo hành trình sống động - nơi mỗi khoảnh khắc đều mang ý nghĩa, mỗi điểm đến là một dấu ấn, và mỗi khách hàng là một người bạn đồng hành trọn vẹn.</p>
+            <div className="w-full h-[1px] bg-gray-500 mx-0 mt-10"></div>
+            <div className="grid grid-flow-col grid-cols-4 gap-7">
+              <div>
+                <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
+                <b className="text-5xl text-orange-500 font-extrabold">
+                  <Counter targetNumber={100} duration={2000} />+</b>
+                <p className="text-2xl font-normal text-gray-700 pt-10">Tour đang hoạt động</p>
+              </div>
+              <div>
+                <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
+                <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={45000} duration={2000} />+</b>
+                <p className="text-2xl font-normal text-gray-700 pt-10">Khách hàng đã phục vụ</p>
+              </div>
+              <div>
+                <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
+                <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={10} duration={2000} />+</b>
+                <p className="text-2xl font-normal text-gray-700 pt-10">Năm kinh nghiệm</p>
+              </div>
+              <div>
+                <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
+                <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={200} duration={2000} />+</b>
+                <p className="text-2xl font-normal text-gray-700 pt-10">Nhân viên & Hướng dẫn viên</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
-            <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={10} duration={2000}/>+</b>
-            <p className="text-2xl font-normal text-gray-700 pt-10">Năm kinh nghiệm</p>
-          </div>
-          <div>
-            <div className="w-[120px] h-[6px] bg-orange-500 mt-[-5px] mb-10"></div>
-            <b className="text-5xl text-orange-500 font-extrabold"><Counter targetNumber={200} duration={2000}/>+</b>
-            <p className="text-2xl font-normal text-gray-700 pt-10">Nhân viên & Hướng dẫn viên</p>
-          </div>
-          </div>
-        </div>
         </div>
         <h1 className="text-5xl font-extrabold text-gray-900 text-center pt-24 pb-5">LEADERSHIP</h1>
         <div className="w-36 h-[5px] bg-blue-500 mx-auto rounded-2xl"></div>
@@ -121,7 +120,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-      </form>
+      </section>
 
       <div className="w-full h-auto tracking-wider bg-gradient-to-b from-blue-100 to-gray-50 p-8 rounded-t-[35%]">
         <h1 className="text-5xl font-extrabold text-gray-800 text-center pt-12 pb-5">VTravel luôn sẵn sàng đồng hành & cam kết</h1>

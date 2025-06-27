@@ -23,7 +23,7 @@ export default function Banner() {
               className={styles.iframe}
             ></iframe>
           </div>
-          <TitleBanner title='KHÁM PHÁ VIETNAM' />
+          <TitleBanner title='KHÁM PHÁ VIỆT NAM' />
           <ContentBanner />
           <OverlayBanner />
         </section>

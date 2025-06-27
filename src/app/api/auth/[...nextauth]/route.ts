@@ -11,6 +11,9 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        if (!credentials?.login || !credentials?.password) {
+          return null;
+        }
         try {
           const res = await axios.post("http://localhost:8000/api/login", {
             login: credentials.login,

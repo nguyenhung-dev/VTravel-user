@@ -16,12 +16,16 @@ export default function Footer() {
       link: "/"
     },
     {
-      title: "Giới thiệu",
+      title: "Về chúng tôi",
       link: "/about"
     },
     {
       title: "Tours",
       link: "/tours"
+    },
+    {
+      title: "Điểm đến",
+      link: "/destination"
     },
     {
       title: "Dịch vụ",

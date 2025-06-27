@@ -16,7 +16,7 @@ export default function ContentBanner() {
         transition={{ delay: 5, duration: 1.2, ease: "easeOut" }}
       >
         <div className="text-center">
-          <h1 className="font-extrabold text-[130px] uppercase text-[#ffffffd0] leading-[1]">
+          <h1 className="font-[900] text-[130px] uppercase text-[#ffffffec] leading-[1]">
             VTRAVEL
           </h1>
           <h3 className="text-[50px] font-extrabold text-[#ffeb3b]">
