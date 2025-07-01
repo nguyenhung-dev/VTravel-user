@@ -22,8 +22,8 @@ export default function BlogPage() {
           </MotionFade>
           </div>
           <ScrollDownIndicator idSection='destinationlist' text='Xem tất cả Blog' className='scroll-down-page' />
-        </BannerPage>
-        <div className="w-[1530px] mx-auto">
+      </BannerPage>
+        <div className="container m-auto">
          <div className="grid grid-flow-row-dense grid-cols-2 gap-10"> 
          <div>
           <h1 className="text-3xl font-extrabold text-black mt-5 mb-3">Điểm nổi bật</h1>
