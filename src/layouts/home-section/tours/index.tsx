@@ -14,17 +14,17 @@ export default function Tours() {
   return (
     <section className={`${styles.tours} relative z-10 pt-36`}>
       <div className="container m-auto relative h-full">
-        <div className={`${styles.stickyBox} uppercase max-w-[480px]`}>
-          <h4 className="font-extrabold text-[#8a8a8a]">Danh sách Tours</h4>
-          <h2 className="font-extrabold text-[var(--color-primary)]">Khám phá Việt Nam cùng VTravel</h2>
+        <div className={`${styles.stickyBox} uppercase max-w-[400px]`}>
+          <h4 className="sub-title">Danh sách Tours</h4>
+          <h2 className="font-[900] text-[var(--color-primary)] text-[52px]">Khám phá Việt Nam cùng VTravel</h2>
           <ButtonGlobal text="Khám phá ngay" className="mt-8" />
         </div>
-        <div className="w-[calc(100%-500px)] ml-[500px] relative">
-          <div className="flex gap-10">
-            <div className="list-tour w-1/2 flex flex-col gap-10">
+        <div className="w-[calc(100%-400px)] ml-[400px] relative">
+          <div className="flex gap-7">
+            <div className="list-tour w-1/2 flex flex-col gap-7">
               {firstList.map((tour, index) => <TourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} clasName="h-[600px]" bottomClassName="justify-between items-center " />)}
             </div>
-            <div className="list-tour w-1/2 pt-[10.69rem] flex flex-col gap-10">
+            <div className="list-tour w-1/2 pt-[10.69rem] flex flex-col gap-7">
               {secondList.map((tour, index) => <TourCard key={index} imgUrl={tour.imgUrl} nameTour={tour.nameTour} startAddress={tour.startAddress} time={tour.time} promotionPrice={tour.promotionPrice} originalPrice={tour.originalPrice} rating={tour.rating} clasName="h-[600px]" bottomClassName="justify-between items-center " />)}
             </div>
           </div>

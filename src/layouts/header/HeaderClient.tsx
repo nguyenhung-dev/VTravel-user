@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from 'next/image';
 import AuthDialog from '@/app/(auth)/AuthDialog';
 import { useState, useEffect } from 'react';
-import ButtonLanguage from "@/components/buttonLanguage";
 import styles from "./style.module.css";
 import CustomButton from '@/components/customButton';
 
@@ -76,6 +75,7 @@ export default function HeaderClient({ navigation }: Props) {
                     <Link
                       key={item.name}
                       href={item.href}
+                      prefetch={true}
                       aria-current={item.current ? 'page' : undefined}
                       className={`${styles.menuItem}`}
                     >
@@ -99,7 +99,6 @@ export default function HeaderClient({ navigation }: Props) {
                 <UserCircleIcon />
               </CustomButton>
               <AuthDialog open={showForm} onOpenChange={setShowForm} />
-              <ButtonLanguage />
             </div>
           </div>
         </div>

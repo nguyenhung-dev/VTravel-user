@@ -5,8 +5,8 @@ import styles from "./style.module.css";
 export default function BookChat() {
   return (
     <div className="fixed right-[25px] bottom-[150px] z-15">
-      <CustomButton className={`${styles.button}`}>
-        <RiCustomerServiceFill size={28} />
+      <CustomButton className={`${styles.button} text-[28px]`}>
+        <RiCustomerServiceFill className="size-7" />
       </CustomButton>
     </div>
   )

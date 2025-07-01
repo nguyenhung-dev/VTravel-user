@@ -40,7 +40,7 @@ export default function TourCard(props: IProps) {
         <div className="absolute z-1 left-0 right-0 bottom-0 py-5 px-5 text-[#fff]" >
           {
             (!isDestination) && (
-              <div className="flex items-center gap-3 text-[#ffd220] uppercase text-[0.95rem] font-extrabold mb-2">
+              <div className="flex flex-col gap-3 text-[#ffd220] uppercase text-[0.95rem] font-extrabold mb-2">
                 <div className={`${startAddressHidden ? "hidden" : "flex"} items-center gap-2`}>
                   <div className="w-[23px] h-[23px] rounded-[50%] flex items-center justify-center bg-[#13c4fa81]"><IoMdAirplane size={18} /></div>
                   <div className="flex items-center gap-1">
@@ -76,12 +76,14 @@ export default function TourCard(props: IProps) {
                 )
               )
             }
-            <CustomButton className="tour-learn-more">
-              <span className="tour-circle" aria-hidden="true">
-                <span className="tour-icon tour-arrow"></span>
-              </span>
-              <span className="tour-button-text">{btnCard}</span>
-            </CustomButton>
+            <div className="flex-1">
+              <CustomButton className="tour-learn-more">
+                <span className="tour-circle" aria-hidden="true">
+                  <span className="tour-icon tour-arrow"></span>
+                </span>
+                <span className="tour-button-text">{btnCard}</span>
+              </CustomButton>
+            </div>
           </div>
         </div>
         <div className="absolute z-0 left-0 right-0 bottom-0 h-[70%] bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
@@ -90,7 +92,7 @@ export default function TourCard(props: IProps) {
             <FaStar key={i} className="text-yellow-400 text-[1rem]" />
           ))}
         </div>
-      </Link>
-    </div>
+      </Link >
+    </div >
   )
 }

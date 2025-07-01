@@ -2,7 +2,7 @@
 
 import styles from "./style.module.css";
 import CustomButton from "../customButton";
-import { FaLocationArrow } from "react-icons/fa6";
+import { IoIosArrowUp } from "react-icons/io";
 
 export default function BackToTop() {
   const handleBackToTop = () => {
@@ -16,10 +16,10 @@ export default function BackToTop() {
       <CustomButton className={`${styles.button}`} onClick={handleBackToTop}>
         <div className={`${styles.buttonBox}`}>
           <span className={`${styles.buttonElem}`}>
-            <FaLocationArrow size={20} />
+            <IoIosArrowUp size={25} />
           </span>
           <span className={`${styles.buttonElem}`}>
-            <FaLocationArrow size={20} />
+            <IoIosArrowUp size={25} />
           </span>
         </div>
       </CustomButton>

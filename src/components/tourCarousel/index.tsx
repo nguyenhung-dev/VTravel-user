@@ -46,7 +46,7 @@ export default function TourCarousel({ tours, href = "/" }: TProps) {
         {tours.map((tour) => (
           <div key={tour.id} className={`${styles.keenSliderSlid} keen-slider__slide`}>
             <div className="relative rounded-[10px] h-full flex flex-col shadow-lg bg-[#ffffff80]">
-              <Image src={tour.imgUrl} alt={tour.tourName} width={300} height={200} className="object-cover w-full h-[250px] rounded-[10px]" />
+              <Image src={tour.imgUrl} alt={tour.tourName} width={300} height={200} className="object-cover w-full h-[200px] rounded-[10px]" />
               <div className="p-4 flex flex-col justify-between gap-8 flex-1">
                 <div className='flex-1'>
                   <div className='flex items-center text-[#01b5f3] uppercase gap-2 mb-2'>
@@ -54,7 +54,7 @@ export default function TourCarousel({ tours, href = "/" }: TProps) {
                     <p className="text-[14px] font-[700]">Phương tiện: {tour.vehicle}</p>
                   </div>
                   <h3>
-                    <Link href={href} className="font-bold text-[#2d2d2d] text-[22px] inline-block transition-all duration-300 hover:text-[#01b5f3] hover:underline">
+                    <Link href={href} className="font-extrabold text-[#2d2d2d] text-[20px] inline-block transition-all duration-300 hover:text-[#01b5f3] hover:underline">
                       {tour.tourName}
                     </Link>
                   </h3>

@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import styles from "./style.module.css";
 import { PaperAirplaneIcon, UserGroupIcon } from '@heroicons/react/24/outline'
 import Image from "next/image";
@@ -8,8 +7,6 @@ import GUIDEDATA from "@/data/travel_guide.json";
 import Marquee from "react-fast-marquee";
 
 export default function TravelStory() {
-
-  const t = useTranslations();
 
   return (
     <>
@@ -22,11 +19,11 @@ export default function TravelStory() {
           </div>
           <div className="w-1/2" data-aos="fade-up">
             <div className="mb-5">
-              <h5 className="sub-title">{t("homePage.travelStory.subTitle")}</h5>
-              <h2 className="main-title">{t("homePage.travelStory.title")}</h2>
+              <h5 className="sub-title">Cùng bạn viết nên câu chuyện du lịch đáng nhớ</h5>
+              <h2 className="main-title">Việt Nam - Điểm đến của mọi trải nghiệm</h2>
             </div>
             <span className="desc mb-10 inline-block ">
-              {t("homePage.travelStory.desc")}
+              Hãy để chúng tôi đồng hành cùng bạn, từ những chuyến phiêu lưu lý thú đến những khoảnh khắc thư giãn yên bình. Cùng nhau, chúng ta sẽ viết nên những kỷ niệm khó quên trong chuyến hành trình khám phá vẻ đẹp Việt Nam.
             </span>
             <ul className={`${styles.list}`}>
               <li className="mb-7">
@@ -36,8 +33,8 @@ export default function TravelStory() {
                   </div>
                 </div>
                 <div>
-                  <h6>{t("homePage.travelStory.listTitle1")}</h6>
-                  <span>{t("homePage.travelStory.listDesc1")}</span>
+                  <h6>Chuyến đi độc quyền</h6>
+                  <span>Khám phá những hành trình đặc biệt, tận hưởng dịch vụ đẳng cấp và trải nghiệm Việt Nam theo cách riêng của bạn.</span>
                 </div>
               </li>
               <li>
@@ -47,12 +44,12 @@ export default function TravelStory() {
                   </div>
                 </div>
                 <div>
-                  <h6>{t("homePage.travelStory.listTitle2")}</h6>
-                  <span>{t("homePage.travelStory.listDesc2")}</span>
+                  <h6>Hướng dẫn viên chuyên nghiệp</h6>
+                  <span>Khám phá những hành trình đặc biệt, tận hưởng dịch vụ đẳng cấp và trải nghiệm Việt Nam theo cách riêng của bạn.</span>
                 </div>
               </li>
             </ul>
-            <ButtonGlobal text={t("textBtn.learnMore")} className="mt-10" />
+            <ButtonGlobal text="Xem thêm" className="mt-10" />
           </div>
         </div>
         <div className="py-36 absolute z-10 bottom-0 left-0 right-0 transform translate-y-[50%]">

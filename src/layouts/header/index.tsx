@@ -1,17 +1,16 @@
-import { getTranslations } from 'next-intl/server';
+
 import HeaderClient from "./HeaderClient";
 
 export default async function Header() {
-  const t = await getTranslations();
 
   const navigation = [
-    { name: t("header.home"), href: '/', current: true },
-    { name: t("header.about"), href: '/about', current: false },
-    { name: t("header.tours"), href: '/tours', current: false },
-    { name: t("header.destination"), href: '/destination', current: false },
-    { name: t("header.service"), href: '/service', current: false },
-    { name: t("header.blog"), href: '/blog', current: false },
-    { name: t("header.contact"), href: '/contact', current: false },
+    { name: "Trang chủ", href: '/', current: true },
+    { name: "Về chúng tôi", href: '/about', current: false },
+    { name: "Tours", href: '/tours', current: false },
+    { name: "Điểm đến", href: '/destination', current: false },
+    { name: "Dịch vụ", href: '/service', current: false },
+    { name: "Blog", href: '/blog', current: false },
+    { name: "Liên hệ", href: '/contact', current: false },
   ];
 
   return <HeaderClient navigation={navigation} />;
