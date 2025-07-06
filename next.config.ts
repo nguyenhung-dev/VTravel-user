@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     domains: [
       'cdn1.ivivu.com',
       'cdn2.ivivu.com',
+      'cdn3.ivivu.com',
       'scontent.fdad3-1.fna.fbcdn.net',
       'scontent.fdad3-2.fna.fbcdn.net',
       'scontent.fdad3-3.fna.fbcdn.net',
