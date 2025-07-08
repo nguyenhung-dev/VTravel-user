@@ -1,6 +1,6 @@
 "use client"
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import Link from "next/link";
 import Image from 'next/image';
@@ -8,6 +8,19 @@ import AuthDialog from '@/app/(auth)/AuthDialog';
 import { useState, useEffect } from 'react';
 import styles from "./style.module.css";
 import CustomButton from '@/components/customButton';
+import { useAuth } from "@/contexts/AuthProvider";
+import { Loader2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+} from "@/components/ui/alert-dialog";
 
 type NavigationItem = {
   name: string;
@@ -26,6 +39,7 @@ function classNames(...classes: string[]) {
 export default function HeaderClient({ navigation }: Props) {
   const [showForm, setShowForm] = useState<boolean>(false)
   const [isSticky, setIsSticky] = useState<boolean>(false);
+  const { user, isAuthenticated, logout, loading } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +99,7 @@ export default function HeaderClient({ navigation }: Props) {
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 gap-2 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <CustomButton
                 className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-hidden"
               >
@@ -93,12 +107,63 @@ export default function HeaderClient({ navigation }: Props) {
                 <span className="sr-only">View notifications</span>
                 <BellIcon aria-hidden="true" />
               </CustomButton>
-              <CustomButton
-                onClick={() => setShowForm(true)}
-                className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden'>
-                <UserCircleIcon />
-              </CustomButton>
               <AuthDialog open={showForm} onOpenChange={setShowForm} />
+              <div>
+                {loading ? (
+                  <Loader2 className="animate-spin" size={25} />
+                ) : isAuthenticated && user ? (
+
+                  <div className="relative group inline-block">
+                    <button className="py-2 cursor-pointer">
+                      <Image src={user.avatar || "/images/avatar-default.png"} width={50} height={50} quality={100} className="w-[35px] h-[35px] rounded-[50%] object-cover" alt={user.full_name} />
+                    </button>
+
+                    <div className="absolute hidden group-hover:block bg-white right-0 text-black shadow-md rounded-[10px] border border-[#999999] min-w-[200px] z-50">
+                      <ul className="py-2">
+                        <li className="px-5 py-2 cursor-pointer truncate border-b border-[#d1d1d1] text-cyan-600">{user.full_name}</li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">
+                          <Link href="/profile" className="text-black">Thông tin tài khoản</Link>
+                        </li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">Tours yêu thích</li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">Đơn hàng</li>
+                        <li className="px-5 py-2">
+                          <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                              <CustomButton className="bg-red-600 hover:bg-red-400 text-white cursor-pointer rounded-2xl">
+                                Đăng xuất
+                              </CustomButton>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>Bạn chắc chắn muốn đăng xuất?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                  Hành động này sẽ kết thúc phiên đăng nhập hiện tại của bạn.
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
+                              <AlertDialogFooter>
+                                <AlertDialogCancel className="bg-gray-300 hover:bg-gray-400">Hủy</AlertDialogCancel>
+                                <AlertDialogAction
+                                  className="bg-red-600 hover:bg-red-700"
+                                  onClick={logout}
+                                >
+                                  Xác nhận
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <CustomButton
+                    onClick={() => setShowForm(true)}
+                    className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden'>
+                    <UserCircleIcon />
+                  </CustomButton>
+                )}
+
+              </div>
             </div>
           </div>
         </div>

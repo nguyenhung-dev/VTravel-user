@@ -10,12 +10,14 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   asLink?: boolean;
   href?: string;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const CustomButton: React.FC<IProps> = ({
   children,
   asLink = false,
   href = "#",
+  onClick,
   className,
   ...rest
 }) => {
@@ -30,7 +32,7 @@ const CustomButton: React.FC<IProps> = ({
   }
 
   return (
-    <Button className={baseClass} {...rest}>
+    <Button className={baseClass} {...rest} onClick={onClick}>
       {children}
     </Button>
   );

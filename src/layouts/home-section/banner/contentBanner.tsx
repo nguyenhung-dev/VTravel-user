@@ -13,7 +13,7 @@ export default function ContentBanner() {
         className="relative"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 5, duration: 1.2, ease: "easeOut" }}
+        transition={{ delay: 2, duration: 1.2, ease: "easeOut" }}
       >
         <div className="text-center">
           <h1 className="font-[900] text-[130px] uppercase text-[#ffffffec] leading-[1]">
@@ -26,7 +26,7 @@ export default function ContentBanner() {
         <div className="bg-[#ffffff] rounded-[30px] py-2 px-2 flex items-center gap-2 w-[800px] mt-10">
           <CiSearch size={25} className="ml-4" />
           <CustomInput placeholder="Tour Vịnh Hạ Long được yêu thích" className="flex-1 mb-0" disableFocusRing />
-          <CustomButton className="bg-[#7775de] py-3 px-5 rounded-[30px] text-[#fff]">Tìm kiếm</CustomButton>
+          <CustomButton className="bg-[#7775de] hover:bg-[#5756a3] py-6 px-5 rounded-[30px] text-[#fff] font-bold cursor-pointer">Tìm kiếm</CustomButton>
         </div>
         <ScrollDownIndicator
           idSection="intro"

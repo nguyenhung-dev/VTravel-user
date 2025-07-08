@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useEffect } from "react";
+import { useAuth } from "@/contexts/AuthProvider";
 import { getCsrfToken } from "@/utils/getCsrfToken";
+
 import {
   Form,
   FormControl,
@@ -17,7 +20,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import axios from "axios";
 import { API } from "@/lib/api";
 
 const formSchema = z.object({
@@ -28,74 +30,77 @@ const formSchema = z.object({
     .min(10, "Số điện thoại phải có ít nhất 10 chữ số")
     .max(15)
     .regex(/^(0|\+84)[0-9]{9,10}$/, "Số điện thoại không hợp lệ"),
-  password: z.string().min(6, "Mật khẩu tối thiểu 6 ký tự").max(50),
+  password: z
+    .string()
+    .optional()
+    .refine(
+      (val) => !val || val.length >= 6,
+      { message: "Mật khẩu tối thiểu 6 ký tự" }
+    ),
 });
+
 
 type FormValues = z.infer<typeof formSchema>;
 
 type Props = {
-  onSwitch: () => void;
-  onSuccess: (user: { id: string }, expireTime: number) => void;
+  user: {
+    full_name: string;
+    email: string;
+    phone?: string;
+  } | null;
 };
 
-export default function RegisterForm({ onSwitch, onSuccess }: Props) {
+export default function UpdateInfo({ user }: Props) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      full_name: "",
-      email: "",
-      phone: "",
+      full_name: user?.full_name || "",
+      email: user?.email || "",
+      phone: user?.phone || "",
       password: "",
     },
   });
 
+  useEffect(() => {
+    if (user) {
+      form.reset({
+        full_name: user.full_name || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        password: "",
+      });
+    }
+  }, [user, form]);
+
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { refetchUser } = useAuth();
 
   async function onSubmit(values: FormValues) {
     setLoading(true);
-    const payload = {
-      full_name: values.full_name,
-      email: values.email,
-      phone: values.phone,
-      password: values.password,
-    }
-
     try {
+      const payloadToSend: any = {
+        full_name: values.full_name,
+        email: values.email,
+        phone: values.phone,
+      };
+
+      if (values.password?.trim()) {
+        payloadToSend.password = values.password;
+      }
+
       const xsrfToken = await getCsrfToken();
 
-      const res = await API.post("/register", payload, {
+      const res = await API.put("/user/update", payloadToSend, {
         headers: {
           'X-XSRF-TOKEN': xsrfToken ?? '',
         },
       });
-
-      const data = res.data;
-
-      toast.success("Tạo tài khoản thành công! Vui lòng xác thực tài khoản của bạn.");
-
-      console.log(data)
-
-      if (!data?.user?.id) {
-        throw new Error(data?.message || "Đăng ký thất bại");
-      }
-
-      const expireTime = Date.now() + 2 * 60 * 1000;
-      onSuccess(data.user, expireTime);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const errors = error.response?.data?.errors;
-        const messageDetail =
-          errors?.email?.[0] ||
-          errors?.phone?.[0] ||
-          errors?.password?.[0] ||
-          error.response?.data?.message ||
-          "Đã có lỗi xảy ra.";
-
-        toast.error(messageDetail);
-      } else {
-        toast.error("Lỗi hệ thống.");
-      }
+      toast.success("Cập nhật thành công");
+      const user = res.data.user;
+      await refetchUser();
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Lỗi cập nhật");
     } finally {
       setLoading(false);
     }
@@ -156,7 +161,7 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <RequiredLabel label="Mật khẩu" required />
+              <RequiredLabel label="Mật khẩu" />
               <div className="relative">
                 <FormControl>
                   <Input
@@ -181,20 +186,9 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
         />
 
         <Button type="submit" className="button-style mt-5" disabled={loading}>
-          {loading ? "Đang đăng ký..." : "Đăng ký"}
+          {loading ? "Đang cập nhật..." : "Lưu"}
         </Button>
       </form>
-
-      <div className="text-sm text-center mt-4">
-        <span>Bạn đã có tài khoản? </span>
-        <button
-          type="button"
-          onClick={onSwitch}
-          className="text-blue-600 underline cursor-pointer"
-        >
-          Đăng nhập
-        </button>
-      </div>
     </Form>
   );
 }

@@ -23,10 +23,10 @@ const handler = NextAuth({
           const user = res.data.user;
 
           if (user && user.is_verified === 1) {
-            return user; 
+            return user;
           }
 
-          return null; 
+          return null;
         } catch (error) {
           console.error("Authorize error:", error);
           return null;
@@ -37,7 +37,7 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.user = user; 
+        token.user = user;
       }
       return token;
     },
@@ -52,7 +52,7 @@ const handler = NextAuth({
   pages: {
     signIn: "/auth/login",
   },
-  secret: process.env.NEXTAUTH_SECRET, 
+  secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };

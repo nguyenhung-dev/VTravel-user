@@ -89,7 +89,7 @@ export default function TourFilterSection() {
     <section id='tourlist' className="container m-auto mb-20 pt-28">
       <h1 className='text-center mb-12 text-[35px] font-extrabold text-blue-800'>Danh sách Tour - VTravel</h1>
       <div className='flex gap-8'>
-        <div className="w-1/4 ">
+        <div className="w-1/5 ">
           <div className='rounded-[20px] px-6 py-8 sticky top-28 shadow-lg' style={{
             background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%)"
           }}>
@@ -146,7 +146,7 @@ export default function TourFilterSection() {
         <div className="flex-1">
 
           {filteredTours.length > 0 ? (
-            <div className='grid grid-cols-3 gap-7'>
+            <div className='grid grid-cols-3 gap-4'>
               {filteredTours.map((tour, index) => (
                 <TourCard
                   key={index}

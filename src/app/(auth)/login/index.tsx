@@ -6,9 +6,8 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
-import { signIn } from "next-auth/react";
+import { getCsrfToken } from "@/utils/getCsrfToken";
 import {
   Form,
   FormControl,
@@ -18,6 +17,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { API } from "@/lib/api";
+import { useAuth } from "@/contexts/AuthProvider";
 
 const phoneRegex = /^\+?\d{10,15}$/;
 
@@ -56,37 +57,56 @@ export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVeri
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { refetchUser } = useAuth();
 
   async function onSubmit(values: FormValues) {
     setLoading(true);
+
     const payload = {
-      login: values.info,
+      login: values.info.trim(),
       password: values.password,
-    };
+    }
 
     try {
-      const res = await signIn("credentials", {
-        redirect: false,
-        payload
+
+      const xsrfToken = await getCsrfToken();
+
+      console.log('XSRF cookie:', document.cookie);
+
+      const response = await API.post("/login", payload, {
+        headers: {
+          'X-XSRF-TOKEN': xsrfToken ?? '',
+        },
       });
 
-      if (res?.ok) {
-        // ✅ đăng nhập thành công, session sẽ được lưu bởi NextAuth
-        const session = await getSession();
-        const user = session?.user;
+      const user = response.data.user;
 
-        onLoginVerifiedSuccess(user);
+      if (!user.is_verified) {
+        toast.warning("Tài khoản của bạn chưa được xác thực.");
+        onNeedVerify(user.id);
       } else {
-        toast.warning("Tài khoản chưa xác thực hoặc thông tin sai.");
+        onLoginVerifiedSuccess(user);
+        console.log(user);
+        if (response.data?.message) {
+          console.log("✅ Toast login BE")
+          toast.success(response.data.message);
+        } else {
+          console.log("✅ Toast login FE")
+          toast.success("Đăng nhập thành công NÈ");
+        }
+        await refetchUser();
       }
-
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      if (error.response?.data?.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Đăng nhập thất bạiiiii");
+      }
     } finally {
       setLoading(false);
     }
-
   }
+
   const RequiredLabel = ({ label, required = false }: { label: string; required?: boolean }) => (
     <FormLabel className="text-[15px] font-[700] inline-block text-gray-600">
       {label} {required && <span className="text-red-500">*</span>}
@@ -143,7 +163,7 @@ export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVeri
         />
 
         <Button type="submit" className="button-style mt-5" disabled={loading}>
-          {loading ? "Đang đăng ký..." : "Đăng ký"}
+          {loading ? "Đang đăng nhập..." : "Đăng nhập"}
         </Button>
       </form>
 

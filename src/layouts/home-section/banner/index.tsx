@@ -23,9 +23,9 @@ export default function Banner() {
               className={styles.iframe}
             ></iframe>
           </div>
-          <TitleBanner title='KHÁM PHÁ VIỆT NAM' />
+          {/* <TitleBanner title='KHÁM PHÁ VIỆT NAM' /> */}
           <ContentBanner />
-          <OverlayBanner />
+          {/* <OverlayBanner /> */}
         </section>
       </ScrollAnimation>
       <div className={`${styles.spacing}`}></div>
