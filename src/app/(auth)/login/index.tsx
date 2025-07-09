@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { getCsrfToken } from "@/utils/getCsrfToken";
 import {
   Form,
   FormControl,
@@ -18,7 +17,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { API } from "@/lib/api";
-import { useAuth } from "@/contexts/AuthProvider";
+import { useDispatch } from "react-redux";
+import { setAuth } from "@/lib/redux/slices/authSlice";
 
 const phoneRegex = /^\+?\d{10,15}$/;
 
@@ -45,8 +45,11 @@ type Props = {
   onNeedVerify: (userId: string) => void;
 };
 
-
-export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVerify }: Props) {
+export default function LoginForm({
+  onSwitch,
+  onLoginVerifiedSuccess,
+  onNeedVerify,
+}: Props) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,61 +60,63 @@ export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVeri
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { refetchUser } = useAuth();
+  const dispatch = useDispatch();
 
   async function onSubmit(values: FormValues) {
     setLoading(true);
 
-    const payload = {
-      login: values.info.trim(),
-      password: values.password,
-    }
-
     try {
+      const payload = {
+        login: values.info.trim(),
+        password: values.password,
+      };
 
-      const xsrfToken = await getCsrfToken();
+      // Step 1: Gửi login
+      const resLogin = await API.post("/login", payload);
+      const accessToken = resLogin.data.access_token;
 
-      console.log('XSRF cookie:', document.cookie);
+      if (!accessToken) {
+        throw new Error("Không nhận được access token");
+      }
 
-      const response = await API.post("/login", payload, {
-        headers: {
-          'X-XSRF-TOKEN': xsrfToken ?? '',
-        },
-      });
+      // Step 2: Lưu token vào localStorage
+      localStorage.setItem("access_token", accessToken);
 
-      const user = response.data.user;
+      // Step 3: Gọi /me để lấy thông tin user chính xác
+      const resMe = await API.get("/me");
+      const user = resMe.data.user;
 
+      // Step 4: Xác thực
       if (!user.is_verified) {
         toast.warning("Tài khoản của bạn chưa được xác thực.");
         onNeedVerify(user.id);
       } else {
+        // Step 5: Cập nhật Redux
+        dispatch(setAuth({ user, accessToken }));
+        toast.success("Đăng nhập thành công");
         onLoginVerifiedSuccess(user);
-        console.log(user);
-        if (response.data?.message) {
-          console.log("✅ Toast login BE")
-          toast.success(response.data.message);
-        } else {
-          console.log("✅ Toast login FE")
-          toast.success("Đăng nhập thành công NÈ");
-        }
-        await refetchUser();
       }
     } catch (error: any) {
-      if (error.response?.data?.message) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error("Đăng nhập thất bạiiiii");
-      }
+      toast.error(
+        error?.response?.data?.message || "Đăng nhập thất bại"
+      );
     } finally {
       setLoading(false);
     }
   }
 
-  const RequiredLabel = ({ label, required = false }: { label: string; required?: boolean }) => (
+  const RequiredLabel = ({
+    label,
+    required = false,
+  }: {
+    label: string;
+    required?: boolean;
+  }) => (
     <FormLabel className="text-[15px] font-[700] inline-block text-gray-600">
       {label} {required && <span className="text-red-500">*</span>}
     </FormLabel>
   );
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -122,7 +127,11 @@ export default function LoginForm({ onSwitch, onLoginVerifiedSuccess, onNeedVeri
             <FormItem>
               <RequiredLabel label="Email/Số điện thoại" required />
               <FormControl>
-                <Input className="input-style" placeholder="example@gmail.com / 0912345678" {...field} />
+                <Input
+                  className="input-style"
+                  placeholder="example@gmail.com / 0912345678"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

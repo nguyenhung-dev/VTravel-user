@@ -19,7 +19,7 @@ export default function ScrollDownIndicator({ className, text, idSection }: TPro
       <div className="relative h-[40px]">
         <SlArrowDown
           size={23}
-          color="#818181"
+          color="#ffffffb8"
           className="absolute top-0 left-[50%] transform translate-x-[-50%] animate-bounce"
         />
         <SlArrowDown

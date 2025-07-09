@@ -1,6 +1,7 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react";
+import { Provider } from "react-redux";
+import { store } from "@/lib/redux/store";
 import { Toaster } from "sonner";
 
 export function Providers({
@@ -9,9 +10,9 @@ export function Providers({
   children: React.ReactNode;
 }) {
   return (
-    <SessionProvider>
+    <Provider store={store}>
       <Toaster richColors position="top-center" />
       {children}
-    </SessionProvider>
+    </Provider>
   );
 }

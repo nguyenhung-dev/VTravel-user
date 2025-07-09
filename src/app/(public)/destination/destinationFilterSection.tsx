@@ -7,6 +7,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import ButtonGlobal from '@/components/buttonGlobal';
 import { createSlug } from '@/utils/slug';
+import CustomButton from '@/components/customButton';
+import { CiFilter } from "react-icons/ci";
+import { TbRefresh } from "react-icons/tb";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const selectRegion = [
   { id: "taybacbo", label: "Tây Bắc Bộ" },
@@ -42,40 +50,55 @@ export default function DestinationFilterSection() {
 
   return (
     <section id='destinationlist' className="container m-auto mb-20 pt-28">
-      <h1 className='text-center mb-12 text-[35px] font-extrabold text-blue-800'>
-        Danh sách Điểm đến - VTravel
+      <h1 className='text-center mb-10 text-[45px] font-extrabold text-blue-800'>
+        Khám phá các địa điểm du lịch Việt Nam
       </h1>
-      <div className="flex gap-8">
-        <div className="w-1/5">
-          <div
-            className='rounded-[20px] px-6 py-8 sticky top-28 shadow-lg'
-            style={{
-              background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%)"
-            }}
-          >
+      <div className='mb-5 flex gap-4'>
+        <DropdownMenu >
+          <DropdownMenuTrigger asChild>
+            <CustomButton className='bg-[#2a0094] text-[#fff] cursor-pointer'><CiFilter size={25} /><span className=''>Theo khu vực</span></CustomButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className='bg-transparent border-0 shadow-none'>
             <div>
-              <h4 className='font-bold text-[23px] text-[#6169db]'>Theo khu vực</h4>
-              <ul>
-                {selectRegion.map(region => (
-                  <li key={region.id} className='flex items-center gap-2 my-3'>
-                    <Checkbox
-                      id={region.id}
-                      className='custom-checkbox size-4'
-                      checked={regionFilter.includes(region.id)}
-                      onCheckedChange={() => toggleRegion(region.id)}
-                    />
-                    <Label htmlFor={region.id} className='text-[15px]'>
-                      {region.label}
-                    </Label>
-                  </li>
-                ))}
-              </ul>
+              <div
+                className='rounded-[20px] px-6 py-8 sticky top-28 shadow-lg'
+                style={{
+                  background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%)"
+                }}
+              >
+                <div>
+                  <h4 className='font-bold text-[23px] text-[#6169db]'>Theo khu vực</h4>
+                  <ul>
+                    {selectRegion.map(region => (
+                      <li key={region.id} className='flex items-center gap-2 my-3'>
+                        <Checkbox
+                          id={region.id}
+                          className='custom-checkbox size-4'
+                          checked={regionFilter.includes(region.id)}
+                          onCheckedChange={() => toggleRegion(region.id)}
+                        />
+                        <Label htmlFor={region.id} className='text-[15px]'>
+                          {region.label}
+                        </Label>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <CustomButton
+          className='bg-[#2a0094] text-[#fff] cursor-pointer'
+          onClick={() => setRegionFilter([])}>
+          <TbRefresh />
+        </CustomButton>
+      </div>
+      <div className="flex gap-8">
+
         <div className="flex-1">
           {filteredDestination.length > 0 ? (
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-3 gap-6'>
               {filteredDestination.map((destination, index) => (
                 <TourCard
                   key={index}

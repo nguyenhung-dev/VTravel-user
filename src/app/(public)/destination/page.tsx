@@ -30,6 +30,32 @@ export default function DestinationPage() {
         </div>
         <ScrollDownIndicator idSection='destinationlist' text='Xem tất cả Điểm đến' className='scroll-down-page' />
       </BannerPage>
+      <div className="h-[790px] w-full relative">
+        <Image
+          src="/images/nui-scaled.webp"
+          alt="Vietnam"
+          width={1000}
+          height={500}
+          quality={100}
+          className="w-full h-auto object-cover object-center absolute z-3 left-0 right-0 bottom-0"
+        />
+        <h2 className="absolute z-2 left-0 right-0 bottom-[50%] transform translate-y-[60%] text-[200px] font-extrabold w-full text-center" style={{
+          background: "linear-gradient(90deg, rgb(0 182 255 / 31%) 0%, rgb(0 255 245 / 18%) 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent"
+        }}>
+          Việt Nam
+        </h2>
+        <Image
+          src="/images/bg-slide-cloud.webp"
+          alt="Vietnam"
+          width={1000}
+          height={500}
+          quality={100}
+          className="w-full h-auto object-cover object-center absolute z-1 left-0 right-0 top-0"
+        />
+        <Image src="/images/may.png" alt="may" width={1000} height={200} className="w-full h-auto absolute z-4 left-0 right-0 bottom-0" />
+      </div>
       <TourFilterSection />
     </>
   );

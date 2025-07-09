@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { API } from "@/lib/api";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { getCsrfToken } from "@/utils/getCsrfToken";
 
 type Step = "login" | "register" | "verify-method" | "verify-otp" | "success";
 
@@ -78,17 +77,10 @@ export default function AuthDialog({ open, onOpenChange }: Props) {
     if (!userId) return;
     setMethod(method);
     try {
-      const xsrfToken = await getCsrfToken();
-
-      const res = await API.post("/otp/send", {
+      await API.post("/otp/send", {
         method,
         user_id: userId,
-      },
-        {
-          headers: {
-            'X-XSRF-TOKEN': xsrfToken ?? '',
-          },
-        }
+      }
       );
       const expire = Date.now() + 2 * 60 * 1000; // 2 phút
       setOtpExpireTime(expire);

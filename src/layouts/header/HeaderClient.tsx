@@ -1,15 +1,24 @@
-"use client"
+"use client";
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import {
+  Bars3Icon,
+  BellIcon,
+  XMarkIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Image from 'next/image';
-import AuthDialog from '@/app/(auth)/AuthDialog';
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import AuthDialog from "@/app/(auth)/AuthDialog";
+import { useState, useEffect } from "react";
 import styles from "./style.module.css";
-import CustomButton from '@/components/customButton';
-import { useAuth } from "@/contexts/AuthProvider";
+import CustomButton from "@/components/customButton";
 import { Loader2 } from "lucide-react";
+
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -22,6 +31,11 @@ import {
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
 
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "@/lib/redux/thunks/logout";
+import { RootState } from "@/lib/redux/store";
+import type { AppDispatch } from "@/lib/redux/store";
+
 type NavigationItem = {
   name: string;
   href: string;
@@ -33,51 +47,61 @@ type Props = {
 };
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function HeaderClient({ navigation }: Props) {
-  const [showForm, setShowForm] = useState<boolean>(false)
+  const [showForm, setShowForm] = useState<boolean>(false);
   const [isSticky, setIsSticky] = useState<boolean>(false);
-  const { user, isAuthenticated, logout, loading } = useAuth();
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { user, isAuthenticated } = useSelector(
+    (state: RootState) => state.auth
+  );
+  const [loading, setLoading] = useState(false);
+
+  console.log(user)
+  console.log(isAuthenticated)
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    dispatch(logout());
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
-
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header className={`${styles.header} ${isSticky ? styles.headerSticky : ""} top-0 left-0 right-0 z-20 transition-colors duration-300`}>
+    <header
+      className={`${styles.header} ${isSticky ? styles.headerSticky : ""
+        } top-0 left-0 right-0 z-20 transition-colors duration-300`}
+    >
       <Disclosure as="nav">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
-                <span className="absolute -inset-0.5" />
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
-                <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
+                <Bars3Icon className="block size-6 group-data-open:hidden" />
+                <XMarkIcon className="hidden size-6 group-data-open:block" />
               </DisclosureButton>
             </div>
-            <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-between">
+            <div className="flex flex-1 items-center justify-center sm:justify-between">
               <div className="flex shrink-0 items-center">
                 <Image
-                  alt="Your Company"
+                  alt="Logo"
                   src="/images/logo.png"
-                  className={`${styles.logo}`}
+                  className={styles.logo}
                   width={1000}
                   height={700}
                   quality={100}
@@ -90,8 +114,8 @@ export default function HeaderClient({ navigation }: Props) {
                       key={item.name}
                       href={item.href}
                       prefetch={true}
-                      aria-current={item.current ? 'page' : undefined}
-                      className={`${styles.menuItem}`}
+                      aria-current={item.current ? "page" : undefined}
+                      className={styles.menuItem}
                     >
                       {item.name}
                     </Link>
@@ -99,33 +123,45 @@ export default function HeaderClient({ navigation }: Props) {
                 </div>
               </div>
             </div>
+
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <CustomButton
-                className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-hidden"
-              >
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
+              <CustomButton className="relative rounded-full p-1 text-gray-400 hover:text-white">
                 <BellIcon aria-hidden="true" />
               </CustomButton>
+
               <AuthDialog open={showForm} onOpenChange={setShowForm} />
+
               <div>
                 {loading ? (
                   <Loader2 className="animate-spin" size={25} />
                 ) : isAuthenticated && user ? (
-
                   <div className="relative group inline-block">
                     <button className="py-2 cursor-pointer">
-                      <Image src={user.avatar || "/images/avatar-default.png"} width={50} height={50} quality={100} className="w-[35px] h-[35px] rounded-[50%] object-cover" alt={user.full_name} />
+                      <Image
+                        src={user.avatar_url || "/images/avatar-default.png"}
+                        width={50}
+                        height={50}
+                        className="w-[35px] h-[35px] rounded-full object-cover"
+                        alt={user.full_name}
+                      />
                     </button>
 
                     <div className="absolute hidden group-hover:block bg-white right-0 text-black shadow-md rounded-[10px] border border-[#999999] min-w-[200px] z-50">
                       <ul className="py-2">
-                        <li className="px-5 py-2 cursor-pointer truncate border-b border-[#d1d1d1] text-cyan-600">{user.full_name}</li>
-                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">
-                          <Link href="/profile" className="text-black">Thông tin tài khoản</Link>
+                        <li className="px-5 py-2 truncate border-b border-[#d1d1d1] text-cyan-600">
+                          {user.full_name}
                         </li>
-                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">Tours yêu thích</li>
-                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">Đơn hàng</li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">
+                          <Link href="/profile" className="text-black">
+                            Thông tin tài khoản
+                          </Link>
+                        </li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">
+                          Tours yêu thích
+                        </li>
+                        <li className="px-5 py-2 hover:bg-cyan-400 cursor-pointer">
+                          Đơn hàng
+                        </li>
                         <li className="px-5 py-2">
                           <AlertDialog>
                             <AlertDialogTrigger asChild>
@@ -135,16 +171,21 @@ export default function HeaderClient({ navigation }: Props) {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                               <AlertDialogHeader>
-                                <AlertDialogTitle>Bạn chắc chắn muốn đăng xuất?</AlertDialogTitle>
+                                <AlertDialogTitle>
+                                  Bạn chắc chắn muốn đăng xuất?
+                                </AlertDialogTitle>
                                 <AlertDialogDescription>
-                                  Hành động này sẽ kết thúc phiên đăng nhập hiện tại của bạn.
+                                  Hành động này sẽ kết thúc phiên đăng nhập hiện
+                                  tại của bạn.
                                 </AlertDialogDescription>
                               </AlertDialogHeader>
                               <AlertDialogFooter>
-                                <AlertDialogCancel className="bg-gray-300 hover:bg-gray-400">Hủy</AlertDialogCancel>
+                                <AlertDialogCancel className="bg-gray-300 hover:bg-gray-400">
+                                  Hủy
+                                </AlertDialogCancel>
                                 <AlertDialogAction
                                   className="bg-red-600 hover:bg-red-700"
-                                  onClick={logout}
+                                  onClick={handleLogout}
                                 >
                                   Xác nhận
                                 </AlertDialogAction>
@@ -158,11 +199,11 @@ export default function HeaderClient({ navigation }: Props) {
                 ) : (
                   <CustomButton
                     onClick={() => setShowForm(true)}
-                    className='cursor-pointer rounded-full  p-1 text-gray-400 hover:text-white focus:outline-hidden'>
+                    className="cursor-pointer rounded-full p-1 text-gray-400 hover:text-white"
+                  >
                     <UserCircleIcon />
                   </CustomButton>
                 )}
-
               </div>
             </div>
           </div>
@@ -175,10 +216,12 @@ export default function HeaderClient({ navigation }: Props) {
                 key={item.name}
                 as="a"
                 href={item.href}
-                aria-current={item.current ? 'page' : undefined}
+                aria-current={item.current ? "page" : undefined}
                 className={classNames(
-                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                  'block rounded-md px-3 py-2 text-base font-medium',
+                  item.current
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                  "block rounded-md px-3 py-2 text-base font-medium"
                 )}
               >
                 {item.name}
@@ -188,5 +231,5 @@ export default function HeaderClient({ navigation }: Props) {
         </DisclosurePanel>
       </Disclosure>
     </header>
-  )
+  );
 }

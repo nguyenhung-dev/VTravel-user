@@ -6,7 +6,6 @@ import BackToTop from "@/components/backToTop";
 import BtnBookNow from "@/components/bookNow";
 import BookChat from "@/components/boxchat";
 import { Providers } from "./providers";
-import { AuthProvider } from "@/contexts/AuthProvider";
 import { Toaster } from 'sonner'
 import "./globals.css";
 import "./utilities.css";
@@ -32,16 +31,14 @@ export default async function RootLayout({
     <html lang="vi">
       <body className={`${nunito.variable} relative`}>
         <Toaster richColors position="top-center" />
-        <AuthProvider>
-          <Providers>
-            <Header />
-            {children}
-            <Footer />
-            <BtnBookNow />
-            <BookChat />
-            <BackToTop />
-          </Providers>
-        </AuthProvider>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+          <BtnBookNow />
+          <BookChat />
+          <BackToTop />
+        </Providers>
       </body>
     </html>
   );

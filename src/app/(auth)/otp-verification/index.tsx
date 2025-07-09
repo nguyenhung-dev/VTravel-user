@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import styles from "./styles.module.css";
 import { API } from "@/lib/api";
 import { toast } from "sonner";
-import { getCsrfToken } from "@/utils/getCsrfToken";
 
 type Props = {
   userId: string;
@@ -45,18 +44,11 @@ export default function OtpVerification({
   const handleVerifyOtp = async (value: string) => {
     setLoading(true);
     try {
-      const xsrfToken = await getCsrfToken();
-
       await API.post("/otp/verify", {
         user_id: userId,
         method,
         code: value,
-      },
-        {
-          headers: {
-            'X-XSRF-TOKEN': xsrfToken ?? '',
-          },
-        }
+      }
       );
 
       toast.success("Xác thực thành công!");
@@ -74,17 +66,10 @@ export default function OtpVerification({
 
     setResending(true);
     try {
-      const xsrfToken = await getCsrfToken();
-
       await API.post("/otp/send", {
         user_id: userId,
         method,
-      },
-        {
-          headers: {
-            'X-XSRF-TOKEN': xsrfToken ?? '',
-          },
-        }
+      }
       );
 
       const newExpire = Date.now() + 2 * 60 * 1000;

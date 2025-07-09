@@ -6,6 +6,13 @@ import TourCard from '@/components/tourCard';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import ButtonGlobal from '@/components/buttonGlobal';
+import CustomButton from '@/components/customButton';
+import { TbRefresh } from "react-icons/tb";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const selectRegion = [
   { id: "mienbac", label: "Miền Bắc" },
@@ -87,66 +94,88 @@ export default function TourFilterSection() {
 
   return (
     <section id='tourlist' className="container m-auto mb-20 pt-28">
-      <h1 className='text-center mb-12 text-[35px] font-extrabold text-blue-800'>Danh sách Tour - VTravel</h1>
+      <h1 className='text-center mb-10 text-[45px] font-extrabold text-blue-800'>Khám phá tour du lịch tốt nhất</h1>
+      <div className='mb-5 flex gap-4'>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <CustomButton
+              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
+              <span className=''>Theo miền</span>
+            </CustomButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <ul>
+              {selectRegion.map(region => (
+                <li key={region.id} className='flex items-center gap-2 my-3'>
+                  <Checkbox
+                    id={region.id}
+                    className='custom-checkbox size-4'
+                    checked={regionFilter.includes(region.id)}
+                    onCheckedChange={() => toggleRegion(region.id)}
+                  />
+                  <Label htmlFor={region.id} className='text-[15px]'>{region.label}</Label>
+                </li>
+              ))}
+            </ul>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <CustomButton
+              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
+              <span className=''>Theo giá</span>
+            </CustomButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <ul>
+              {selectPrice.map(price => (
+                <li key={price.id} className='flex items-center gap-2 my-3'>
+                  <Checkbox
+                    id={price.id}
+                    className='custom-checkbox size-4'
+                    checked={priceFilter.includes(price.id)}
+                    onCheckedChange={() => togglePrice(price.id)}
+                  />
+                  <Label htmlFor={price.id} className='text-[15px]'>{price.label}</Label>
+                </li>
+              ))}
+            </ul>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <CustomButton
+              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
+              <span className=''>Theo đánh giá</span>
+            </CustomButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <ul>
+              {selectRating.map(rating => (
+                <li key={rating.id} className='flex items-center gap-2 my-3'>
+                  <Checkbox
+                    id={rating.id}
+                    className='custom-checkbox size-4'
+                    checked={ratingFilter.includes(rating.id)}
+                    onCheckedChange={() => togglerating(rating.id)}
+                  />
+                  <Label htmlFor={rating.id} className='text-[15px]'>{rating.label}</Label>
+                </li>
+              ))}
+            </ul>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <CustomButton
+          className='bg-[#2a0094] text-[#fff] cursor-pointer'
+          onClick={resetFilter}>
+          <TbRefresh />
+        </CustomButton>
+      </div>
       <div className='flex gap-8'>
-        <div className="w-1/5 ">
-          <div className='rounded-[20px] px-6 py-8 sticky top-28 shadow-lg' style={{
-            background: "linear-gradient(60deg,rgba(176, 252, 255, 1) 0%, rgba(232, 234, 255, 1) 51%, rgba(255, 255, 255, 1) 100%)"
-          }}>
-            <div>
-              <h4 className='font-bold text-[23px] text-[#6169db]'>Theo miền</h4>
-              <ul>
-                {selectRegion.map(region => (
-                  <li key={region.id} className='flex items-center gap-2 my-3'>
-                    <Checkbox
-                      id={region.id}
-                      className='custom-checkbox size-4'
-                      checked={regionFilter.includes(region.id)}
-                      onCheckedChange={() => toggleRegion(region.id)}
-                    />
-                    <Label htmlFor={region.id} className='text-[15px]'>{region.label}</Label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className='mt-8'>
-              <h4 className='font-bold text-[23px] text-[#6169db]'>Theo giá</h4>
-              <ul>
-                {selectPrice.map(price => (
-                  <li key={price.id} className='flex items-center gap-2 my-3'>
-                    <Checkbox
-                      id={price.id}
-                      className='custom-checkbox size-4'
-                      checked={priceFilter.includes(price.id)}
-                      onCheckedChange={() => togglePrice(price.id)}
-                    />
-                    <Label htmlFor={price.id} className='text-[15px]'>{price.label}</Label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className='mt-8'>
-              <h4 className='font-bold text-[23px] text-[#6169db]'>Theo đánh giá</h4>
-              <ul>
-                {selectRating.map(rating => (
-                  <li key={rating.id} className='flex items-center gap-2 my-3'>
-                    <Checkbox
-                      id={rating.id}
-                      className='custom-checkbox size-4'
-                      checked={ratingFilter.includes(rating.id)}
-                      onCheckedChange={() => togglerating(rating.id)}
-                    />
-                    <Label htmlFor={rating.id} className='text-[15px]'>{rating.label}</Label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
         <div className="flex-1">
 
           {filteredTours.length > 0 ? (
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-3 gap-6'>
               {filteredTours.map((tour, index) => (
                 <TourCard
                   key={index}

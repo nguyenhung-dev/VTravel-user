@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { getCsrfToken } from "@/utils/getCsrfToken";
 import {
   Form,
   FormControl,
@@ -62,13 +61,7 @@ export default function RegisterForm({ onSwitch, onSuccess }: Props) {
     }
 
     try {
-      const xsrfToken = await getCsrfToken();
-
-      const res = await API.post("/register", payload, {
-        headers: {
-          'X-XSRF-TOKEN': xsrfToken ?? '',
-        },
-      });
+      const res = await API.post("/register", payload);
 
       const data = res.data;
 
