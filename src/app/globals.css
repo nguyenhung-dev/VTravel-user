@@ -156,7 +156,7 @@ select {
   outline: none;
 }
 .container {
-  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8;
+  @apply max-w-[1440px] mx-auto px-2 sm:px-6 lg:px-8;
 }
 .custom-checkbox {
   @apply cursor-pointer border-1 border-purple-500 data-[state=checked]:border-purple-700 data-[state=checked]:bg-purple-700;

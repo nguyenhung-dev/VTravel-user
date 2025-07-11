@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, DM_Sans } from "next/font/google";
 import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
 import BackToTop from "@/components/backToTop";
@@ -28,8 +28,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
-      <body className={`${nunito.variable} relative`}>
+    <html lang="vi" className={nunito.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Ruthie&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`relative`}>
         <Toaster richColors position="top-center" />
         <Providers>
           <Header />

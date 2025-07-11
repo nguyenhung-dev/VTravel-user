@@ -103,7 +103,7 @@ export default function DestinationFilterSection() {
                 <TourCard
                   key={index}
                   href={`/destination/${createSlug(destination.nameDestination)}`}
-                  imgUrl={destination.imgUrl}
+                  imgUrl={destination.imgBanner}
                   nameDestination={destination.nameDestination}
                   descDestination={destination.desDestination}
                   area={destination.area}
