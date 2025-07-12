@@ -1,28 +1,28 @@
 "use client";
 
-import { useAuth } from "@/contexts/AuthProvider";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { notFound } from "next/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/redux/store";
+import { useAuthSync } from "@/hooks/useAuthSync";
 
 export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, loading } = useAuth();
-  const [shouldRender, setShouldRender] = useState(false);
+  const isChecked = useAuthSync();
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
   useEffect(() => {
-    if (!loading) {
-      if (!isAuthenticated) {
-        notFound();
-      } else {
-        setShouldRender(true);
-      }
+    if (isChecked && !isAuthenticated) {
+      notFound();
     }
-  }, [loading, isAuthenticated]);
+  }, [isChecked, isAuthenticated]);
 
-  if (loading || !shouldRender)
-    return
-  <div className="absolute w-screen h-screen z-50 bg-[#fff] text-black flex justify-center items-center">
-    <p>Đang kiểm tra đăng nhập...</p>
-  </div>;
+  if (!isChecked) {
+    return (
+      <div className="absolute w-screen h-screen z-50 bg-white text-black flex justify-center items-center">
+        <p>Đang kiểm tra đăng nhập...</p>
+      </div>
+    );
+  }
 
   return <>{children}</>;
 }

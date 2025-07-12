@@ -11,11 +11,11 @@ import { GiSteeringWheel } from "react-icons/gi";
 import CustomButton from '@/components/customButton';
 
 interface ITour {
-  id: number;
-  imgUrl: string;
-  vehicle: string;
-  tourName: string;
-  time: string;
+  id?: number;
+  imgUrl?: string;
+  vehicle?: string;
+  tourName?: string;
+  time?: string;
 }
 
 type TProps = {
@@ -46,7 +46,7 @@ export default function TourCarousel({ tours, href = "/" }: TProps) {
         {tours.map((tour) => (
           <div key={tour.id} className={`${styles.keenSliderSlid} keen-slider__slide`}>
             <div className="relative rounded-[10px] h-full flex flex-col shadow-lg bg-[#ffffff80]">
-              <Image src={tour.imgUrl} alt={tour.tourName} width={300} height={200} className="object-cover w-full h-[200px] rounded-[10px]" />
+              <Image src={tour.imgUrl || ""} alt={tour.tourName || ""} width={300} height={200} className="object-cover w-full h-[200px] rounded-[10px]" />
               <div className="p-4 flex flex-col justify-between gap-8 flex-1">
                 <div className='flex-1'>
                   <div className='flex items-center text-[#01b5f3] uppercase gap-2 mb-2'>

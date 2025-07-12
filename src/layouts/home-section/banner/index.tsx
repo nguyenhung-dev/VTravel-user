@@ -9,7 +9,7 @@ export default function Banner() {
 
   return (
     <>
-      <ScrollBlocker />
+      {/* <ScrollBlocker /> */}
       <ScrollAnimation >
         <section className={styles.banner}>
           <div className={styles.wrapper}>

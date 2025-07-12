@@ -61,11 +61,10 @@ export default function HeaderClient({ navigation }: Props) {
   );
   const [loading, setLoading] = useState(false);
 
-  console.log(user)
+  console.log("User:", JSON.stringify(user, null, 2));
   console.log(isAuthenticated)
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token");
     dispatch(logout());
   };
 

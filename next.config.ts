@@ -11,7 +11,10 @@ const nextConfig: NextConfig = {
       'scontent.fdad3-3.fna.fbcdn.net',
       'scontent.fdad3-4.fna.fbcdn.net',
       'scontent.fdad3-5.fna.fbcdn.net',
-      'scontent.fhan2-3.fna.fbcdn.net'
+      'scontent.fhan2-3.fna.fbcdn.net',
+      'i.imgur.com',
+      'your-backend.com',
+      '620500711691.ngrok-free.app'
     ],
   },
 };

@@ -25,7 +25,7 @@ export default function DestinationPage() {
             <h3 className={`${styles.subTitle} font-[700] text-[120px] leading-[1]`}>Destinations</h3>
           </MotionFade>
           <MotionFade animation="fadeInRightToLeft">
-            <Image src="/images/vietnam-map-tour.png" alt='Vtravel tour' width={500} height={500} className='h-[500px] w-auto' />
+            <Image src="/images/vietnam-map-tour.png" alt='Vtravel tour' priority width={500} height={500} className='h-[500px] w-auto' />
           </MotionFade>
         </div>
         <ScrollDownIndicator idSection='destinationlist' text='Xem tất cả Điểm đến' className='scroll-down-page' />
@@ -40,9 +40,8 @@ export default function DestinationPage() {
           className="w-full h-auto object-cover object-center absolute z-3 left-0 right-0 bottom-0"
         />
         <h2 className="absolute z-2 left-0 right-0 bottom-[50%] transform translate-y-[60%] text-[200px] font-extrabold w-full text-center" style={{
-          background: "linear-gradient(90deg, rgb(0 182 255 / 31%) 0%, rgb(0 255 245 / 18%) 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent"
+          color: "#fff",
+          textShadow: "-5px 8px 9px rgb(0 0 0 / 16%)",
         }}>
           Việt Nam
         </h2>

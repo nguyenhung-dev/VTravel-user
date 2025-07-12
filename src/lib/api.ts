@@ -1,5 +1,12 @@
 import axios from "axios";
 
+const PUBLIC_API = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: {
+    'ngrok-skip-browser-warning': 'true',
+  },
+});
+
 const API = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
@@ -28,4 +35,4 @@ const BACKEND = axios.create({
   },
 });
 
-export { API, BACKEND };
+export { API, BACKEND, PUBLIC_API };

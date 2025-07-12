@@ -1,23 +1,24 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
-import TOURDATA from '@/data/tours.json';
+import { PUBLIC_API } from '@/lib/api';
 import TourCard from '@/components/tourCard';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import ButtonGlobal from '@/components/buttonGlobal';
 import CustomButton from '@/components/customButton';
 import { TbRefresh } from "react-icons/tb";
+import { createSlug } from '@/utils/slug';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 const selectRegion = [
-  { id: "mienbac", label: "Miền Bắc" },
-  { id: "mientrung", label: "Miền Trung" },
-  { id: "miennam", label: "Miền Nam" }
+  { id: "Miền Bắc", label: "Miền Bắc" },
+  { id: "Miền Trung", label: "Miền Trung" },
+  { id: "Miền Nam", label: "Miền Nam" }
 ];
 
 const selectPrice = [
@@ -27,30 +28,43 @@ const selectPrice = [
   { id: "price4", label: "Trên 5 triệu" }
 ];
 
-const selectRating = [
-  { id: "rating1", label: "1 sao" },
-  { id: "rating2", label: "2 sao" },
-  { id: "rating3", label: "3 sao" },
-  { id: "rating4", label: "4 sao" },
-  { id: "rating5", label: "5 sao" }
-]
-
 export default function TourFilterSection() {
   const [regionFilter, setRegionFilter] = useState<string[]>([]);
   const [priceFilter, setPriceFilter] = useState<string[]>([]);
-  const [ratingFilter, setRatingFilter] = useState<string[]>([]);
-  const [filteredTours, setFilteredTours] = useState(TOURDATA);
+  const [tours, setTours] = useState<any[]>([]);
+  const [filteredTours, setFilteredTours] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let filtered = [...TOURDATA];
+    const fetchTours = async () => {
+      try {
+        setLoading(true);
+        const res = await PUBLIC_API.get('/tours');
+        const data = Array.isArray(res.data) ? res.data : [];
+        setTours(data);
+        setFilteredTours(data);
+      } catch (err: any) {
+        console.error('Lỗi khi fetch tours:', err);
+        setError(err?.response?.data?.message || 'Lỗi tải dữ liệu');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTours();
+  }, []);
+
+  useEffect(() => {
+    let filtered = [...tours];
 
     if (regionFilter.length > 0) {
-      filtered = filtered.filter(tour => regionFilter.includes(tour.category));
+      filtered = filtered.filter(tour => regionFilter.includes(tour.category?.category_name));
     }
 
     if (priceFilter.length > 0) {
       filtered = filtered.filter(tour => {
-        const price = tour.promotionPrice || tour.originalPrice;
+        const price = parseFloat(tour.discount_price || tour.price);
         return priceFilter.some(p => (
           (p === 'price1' && price < 1000000) ||
           (p === 'price2' && price >= 1000000 && price <= 3000000) ||
@@ -60,25 +74,14 @@ export default function TourFilterSection() {
       });
     }
 
-    if (ratingFilter.length > 0) {
-      filtered = filtered.filter(tour => {
-        const tourRating = Math.ceil(tour.rating);
-        return ratingFilter.some(r => {
-          const ratingNumber = parseInt(r.replace('rating', ''));
-          return tourRating === ratingNumber;
-        });
-      });
-    }
-
     setFilteredTours(filtered);
-  }, [regionFilter, priceFilter, ratingFilter]);
+  }, [regionFilter, priceFilter, tours]);
 
   const resetFilter = () => {
     setRegionFilter([]);
     setPriceFilter([]);
-    setRatingFilter([]);
-    setFilteredTours(TOURDATA);
-  }
+    setFilteredTours(tours);
+  };
 
   const toggleRegion = (id: string) => {
     setRegionFilter(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
@@ -88,19 +91,19 @@ export default function TourFilterSection() {
     setPriceFilter(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
   };
 
-  const togglerating = (id: string) => {
-    setRatingFilter(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
-  }
+  const getFullImageUrl = (path: string) => `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${path}`;
 
   return (
     <section id='tourlist' className="container m-auto mb-20 pt-28">
-      <h1 className='text-center mb-10 text-[45px] font-extrabold text-blue-800'>Khám phá tour du lịch tốt nhất</h1>
-      <div className='mb-5 flex gap-4'>
+      <h1 className='text-center mb-10 text-[45px] font-extrabold text-blue-800'>
+        Khám phá tour du lịch tốt nhất
+      </h1>
+
+      <div className='mb-5 flex gap-4 flex-wrap'>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <CustomButton
-              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
-              <span className=''>Theo miền</span>
+            <CustomButton className='bg-[#2a0094] text-[#fff] cursor-pointer'>
+              <span>Theo miền</span>
             </CustomButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
@@ -119,11 +122,11 @@ export default function TourFilterSection() {
             </ul>
           </DropdownMenuContent>
         </DropdownMenu>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <CustomButton
-              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
-              <span className=''>Theo giá</span>
+            <CustomButton className='bg-[#2a0094] text-[#fff] cursor-pointer'>
+              <span>Theo giá</span>
             </CustomButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
@@ -142,52 +145,35 @@ export default function TourFilterSection() {
             </ul>
           </DropdownMenuContent>
         </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <CustomButton
-              className='bg-[#2a0094] text-[#fff] cursor-pointer'>
-              <span className=''>Theo đánh giá</span>
-            </CustomButton>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <ul>
-              {selectRating.map(rating => (
-                <li key={rating.id} className='flex items-center gap-2 my-3'>
-                  <Checkbox
-                    id={rating.id}
-                    className='custom-checkbox size-4'
-                    checked={ratingFilter.includes(rating.id)}
-                    onCheckedChange={() => togglerating(rating.id)}
-                  />
-                  <Label htmlFor={rating.id} className='text-[15px]'>{rating.label}</Label>
-                </li>
-              ))}
-            </ul>
-          </DropdownMenuContent>
-        </DropdownMenu>
+
         <CustomButton
           className='bg-[#2a0094] text-[#fff] cursor-pointer'
-          onClick={resetFilter}>
+          onClick={resetFilter}
+        >
           <TbRefresh />
         </CustomButton>
       </div>
+
       <div className='flex gap-8'>
         <div className="flex-1">
-
-          {filteredTours.length > 0 ? (
+          {loading ? (
+            <p className="text-center w-full">Đang tải dữ liệu...</p>
+          ) : error ? (
+            <p className="text-center text-red-600 w-full">{error}</p>
+          ) : filteredTours.length > 0 ? (
             <div className='grid grid-cols-3 gap-6'>
-              {filteredTours.map((tour, index) => (
+              {filteredTours.map((tour) => (
                 <TourCard
-                  key={index}
-                  href={`/tours/${tour.id}`}
-                  imgUrl={tour.imgUrl}
-                  nameTour={tour.nameTour}
-                  originalPrice={tour.originalPrice}
-                  promotionPrice={tour.promotionPrice}
-                  time={tour.time}
-                  startAddress={tour.startAddress}
-                  rating={tour.rating}
-                  category={tour.category}
+                  key={tour.tour_id}
+                  href={`/tours/${createSlug(tour.tour_name)}`}
+                  imgUrl={getFullImageUrl(tour.image)}
+                  nameTour={tour.tour_name}
+                  originalPrice={parseFloat(tour.price)}
+                  promotionPrice={parseFloat(tour.discount_price)}
+                  time={tour.duration}
+                  startAddress={tour.destination}
+                  rating={5}
+                  category={tour.category?.category_name}
                   clasName='h-[450px]'
                   bottomClassName='flex-col'
                   startAddressHidden
@@ -196,7 +182,9 @@ export default function TourFilterSection() {
             </div>
           ) : (
             <div className='flex flex-col items-center justify-center w-full gap-10 mt-10'>
-              <p className="text-center text-[25px] text-fuchsia-700 col-span-3">Không tìm thấy tour phù hợp</p>
+              <p className="text-center text-[25px] text-fuchsia-700 col-span-3">
+                Không tìm thấy tour phù hợp
+              </p>
               <ButtonGlobal text='Xem tất cả tour' onClick={resetFilter} />
             </div>
           )}

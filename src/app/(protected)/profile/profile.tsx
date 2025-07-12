@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
 import styles from "./style.module.css";
 import Image from "next/image";
 import BannerPage from "@/layouts/banner";
 import MotionFade from "@/components/motionFade";
-import { useAuth } from "@/contexts/AuthProvider";
 import CustomButton from "@/components/customButton";
 import { MdTour } from "react-icons/md";
 import { RiHeartAddFill } from "react-icons/ri";
@@ -12,7 +11,9 @@ import UpdateInfo from "./update";
 import { useState } from "react";
 import { toast } from "sonner";
 import { API } from "@/lib/api";
-import { getCsrfToken } from "@/utils/getCsrfToken";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/lib/redux/store";
+
 import {
   Tabs,
   TabsContent,
@@ -29,7 +30,8 @@ import {
 } from "@/components/ui/dialog";
 
 export default function ProfileClient() {
-  const { user, refetchUser } = useAuth();
+  const user = useSelector((state: RootState) => state.auth.user);
+
   const [selectedAvatarFile, setSelectedAvatarFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -43,27 +45,21 @@ export default function ProfileClient() {
   };
 
   const handleUpdateAvatar = async () => {
-    if (!selectedAvatarFile) return;
+    if (!selectedAvatarFile || !user) return;
     setLoading(true);
     try {
       const formData = new FormData();
       formData.append("avatar", selectedAvatarFile);
 
-      const xsrfToken = await getCsrfToken();
-
-      console.log(formData)
-
       await API.put("/user/update", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          'X-XSRF-TOKEN': xsrfToken ?? '',
         },
       });
+
       toast.success("Cập nhật avatar thành công");
 
-      await refetchUser();
-
-      setPreviewUrl(user?.avatar_url ?? null);
+      setPreviewUrl(null);
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Lỗi cập nhật avatar");
     } finally {
