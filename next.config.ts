@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       'scontent.fhan2-3.fna.fbcdn.net',
       'i.imgur.com',
       'your-backend.com',
-      '620500711691.ngrok-free.app'
+      '198d19946328.ngrok-free.app'
     ],
   },
 };
