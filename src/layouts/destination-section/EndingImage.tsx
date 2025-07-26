@@ -18,7 +18,7 @@ const EndingImage: React.FC<EndingImageProps> = ({ image }) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "700px",
+        minHeight: "800px",
       }}>
       <div
         className="absolute top-[-20px] left-0 right-0 w-full h-[500px]"
@@ -28,17 +28,19 @@ const EndingImage: React.FC<EndingImageProps> = ({ image }) => {
       </div>
       <Image src="/images/ft-img.png" alt="f-img" width={500} height={200} quality={100} className="absolute bottom-0 left-0 right-0 w-full h-auto" />
       <div className="text-center relative z-2 container m-auto">
-        <h3 className="text-6xl text-[#005089] mb-10">
-          VTravel mang đến những trải nghiệm tuyệt vời nhất cho bạn
-        </h3>
-        <p className="font-bold mb-3">Theo dõi VTravel trên Facebook</p>
-        <div>
+        <MotionFade animation="fadeInBottomToTop" scroll>
+          <h3 className="text-6xl text-[#005089] mb-10">
+            VTravel mang đến những trải nghiệm tuyệt vời nhất cho bạn
+          </h3>
+          <p className="font-bold mb-3">Theo dõi VTravel trên Facebook</p>
+        </MotionFade>
+        <MotionFade animation="fadeInBottomToTop" delay={0.5} scroll>
           <CustomButton
             className="cursor-pointer bg-[#0a4ebb] text-[#fff] rounded-4xl w-[200px] h-[60px] text-2xl inline-block"
           >
             Đặt ngay
           </CustomButton>
-        </div>
+        </MotionFade>
       </div>
     </div>
   );

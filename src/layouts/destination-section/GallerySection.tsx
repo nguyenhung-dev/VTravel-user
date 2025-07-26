@@ -25,7 +25,8 @@ export default function GallerySection({ images }: Props) {
         spaceBetween={-30}
         slidesPerView={"auto"}
         freeMode={true}
-        className="!absolute left-0 w-full z-20"
+        centeredSlides={images.length < 6}
+        className="!absolute left-0 w-full z-20 flex justify-center"
         style={{ height: "100%" }}
       >
         {images.map((src, index) => {

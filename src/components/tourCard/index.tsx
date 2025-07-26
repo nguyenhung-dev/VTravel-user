@@ -59,7 +59,12 @@ export default function TourCard(props: IProps) {
             isDestination ?
               <div>
                 <div className="name-card font-extrabold text-[24px] mb-3 leading-[1.1]"><h3>{nameDestination}</h3></div>
-                <p className="text-[1.1rem] mt-2 text-gray-300 mb-4">{descDestination}</p>
+                <p className="text-[1.1rem] mt-2 text-gray-300 mb-4" style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}>{descDestination}</p>
               </div>
               : <div className="font-extrabold text-[24px] mb-3 leading-[1.1] name-card"><h3>{nameTour}</h3></div>
           }

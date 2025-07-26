@@ -91,7 +91,7 @@ export default function TourFilterSection() {
     setPriceFilter(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
   };
 
-  const getFullImageUrl = (path: string) => `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${path}`;
+  const getFullImageUrl = (path: string) => `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}/${path}`;
 
   return (
     <section id='tourlist' className="container m-auto mb-20 pt-28">
@@ -174,7 +174,7 @@ export default function TourFilterSection() {
                   startAddress={tour.destination}
                   rating={5}
                   category={tour.category?.category_name}
-                  clasName='h-[450px]'
+                  clasName='h-[500px]'
                   bottomClassName='flex-col'
                   startAddressHidden
                 />

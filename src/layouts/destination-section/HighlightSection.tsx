@@ -27,7 +27,7 @@ const HighlightSection: React.FC<HighlightSectionProps> = ({ data }) => {
   if (!data?.length) return null;
 
   return (
-    <section id="highlight" className="pb-20">
+    <section id="highlight" className="p-20">
       <div className="container mx-auto px-4">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {data.map((item, idx) => {
@@ -48,7 +48,7 @@ const HighlightSection: React.FC<HighlightSectionProps> = ({ data }) => {
                     <h3 className="text-xl font-bold mb-2 flex-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed text-[19px]">
+                    <p className="flex-1 text-gray-700 leading-relaxed text-[19px]">
                       {item.description}
                     </p>
                   </CardContent>
