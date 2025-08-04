@@ -50,37 +50,37 @@ export default function AboutPage() {
         </div>
         <h1 className="text-5xl font-extrabold text-gray-900 text-center pt-24 pb-5">LEADERSHIP</h1>
         <div className="w-36 h-[5px] bg-blue-500 mx-auto rounded-2xl"></div>
-        <div className="grid grid-flow-col grid-cols-3 gap-36 mt-15">
+        <div className="grid grid-flow-col grid-cols-3 gap-20 mt-15">
           <div>
-            <Image src="/images/NguyenHung.jpg" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/NguyenHung.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">LÊ NGUYÊN HÙNG</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Giám đốc điều hành (CEO)</p>
           </div>
           <div>
-            <Image src="/images/QuocTuan.jpg" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/QuocTuan.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">PHAN QUỐC TUẤN</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Chức danh: Giám đốc vận hành (COO)</p>
           </div>
           <div>
-            <Image src="/images/VanHuong.jpg" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/VanHuong.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">NGUYỄN VĂN HƯỞNG</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Chức danh: Giám đốc tài chính (CFO)</p>
           </div>
         </div>
         <div className="w-full h-[1px] bg-gray-500 my-7"></div>
-        <div className="grid grid-flow-col grid-cols-3 gap-28 mb-12 ">
+        <div className="grid grid-flow-col grid-cols-3 gap-20 mb-12 ">
           <div>
-            <Image src="/images/TranTuan.jpg" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/TranTuan.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">CAO TRẦN TUẤN</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Chức danh: Giám đốc kinh doanh & marketing (CMO)</p>
           </div>
           <div>
-            <Image src="/images/TrongQuan.jpg" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/TrongQuan.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">NGUYỄN TRỌNG QUÂN</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Chức danh: Giám đốc công nghệ (CTO)</p>
           </div>
           <div>
-            <Image src="/svg/social/iconVision_aboutus.png" width={400} height={400} alt="avata" className="border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
+            <Image src="/images/PhamTra.jpg" width={400} height={400} alt="avata" className="w-[400px] h-[420px] border border-gray-300 rounded-full hover:border-blue-500 mb-10" />
             <h1 className="text-3xl font-extrabold text-black">PHẠM MINH TRÀ</h1>
             <p className="text-2xl font-normal text-gray-700 mt-3">Chức danh: Trưởng phòng điều hành tour</p>
           </div>
@@ -119,7 +119,6 @@ export default function AboutPage() {
             </ul>
           </div>
         </div>
-
       </section>
 
       <div className="w-full h-auto tracking-wider bg-gradient-to-b from-blue-100 to-gray-50 p-8 rounded-t-[35%]">
